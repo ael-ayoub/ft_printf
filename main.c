@@ -1,16 +1,20 @@
-//  #include "libft.h"
+// //  #include "libft.h"
+// #include <stdio.h>
+
+// int main() {
+//     printf("%u\n",4294967294);
+//     printf("%i",0124);
+//     return 0;
+// }
+
+
+
+
 
 #include <stdio.h>
-void printtt(char *str)
-{
-    int len = ft_strlen(str);
+#include <limits.h> // For UINT_MAX
 
-    printf("%d",len);
-
-}
-
-int main()
-
-{
-    printtt("dfkjfdjkfd");
+int main() {
+    printf("Maximum unsigned int: %u\n", -2);
+    return 0;
 }
