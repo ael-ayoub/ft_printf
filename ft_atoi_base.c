@@ -1,10 +1,14 @@
 #include "libft.h"
 
-void ft_atoi_base(unsigned int i)
+void ft_atoi_base(unsigned int i, const char hx)
 {
     char hex[16];
-    char base[] = "0123456789abcdef";
+    char *base;
 
+    if (hx == 'X')
+        base  = "0123456789ABCDEF";
+    else 
+        base = "0123456789abcdef";
     if (i == 0)
         ft_putchar_fd('0',1);
     int j = 0;
