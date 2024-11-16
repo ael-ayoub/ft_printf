@@ -13,31 +13,38 @@ int ft_printf(const char *str, ...)
             str++;
             if (*str == 'c')
             {
-                ft_putchar_fd(va_arg(args, int),1);
+                ft_putchar_fd(va_arg(args, int), 1);
             }
             else if (*str == 's')
             {
-                ft_putstr_fd(va_arg(args, char *),1);
-            } else if (*str == 'p')
+                ft_putstr_fd(va_arg(args, char *), 1);
+            }
+            else if (*str == 'p')
             {
                 ft_putddr(va_arg(args, int *));
-            } else if (*str == 'd' || *str == 'i')
-            {
-                ft_putnbr_fd(va_arg(args, int),1);
-            } else if (*str == 'u')
-            {
-                ft_putnbr_fd(va_arg(args,unsigned int),1);
-            } else if (*str == 'X')
-            {
-                ft_putnbr_fd(va_arg(args, int),1);
-            } else if (*str == 'x')
-            {
-                ft_putnbr_fd(va_arg(args, int),1);
-            } else if (*str == '%')
-            {
-                ft_putchar_fd(va_arg(args, int),1);
             }
-            else ft_putchar_fd(*str,1);
+            else if (*str == 'd' || *str == 'i')
+            {
+                ft_putnbr_fd(va_arg(args, int), 1);
+            }
+            else if (*str == 'u')
+            {
+                ft_putnbr_u((int)va_arg(args,int), 1);
+            }
+            else if (*str == 'X')
+            {
+                ft_putnbr_fd(va_arg(args, int), 1);
+            }
+            else if (*str == 'x')
+            {
+                ft_atoi_base(va_arg(args, int));
+            }
+            else if (*str == '%')
+            {
+                ft_putchar_fd(va_arg(args, int), 1);
+            }
+            else
+                ft_putchar_fd(*str, 1);
         }
         str++;
     }
@@ -50,5 +57,5 @@ int main()
     // char *str = "ffdjhfdhjfd";
     int c = 10;
     c++;
-    printf("%p",NULL);
+    ft_printf("%u",4294967295566);
 }
