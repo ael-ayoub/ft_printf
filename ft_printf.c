@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static void    ft_separators(char sep, va_list args)
+static void	ft_separators(char sep, va_list args)
 {
 	if (sep == 'c')
 		ft_putchar_fd(va_arg(args, int), 1);
@@ -35,6 +35,7 @@ static void    ft_separators(char sep, va_list args)
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
+	int		n;
 
 	va_start(args, str);
 	while (*str)
@@ -42,10 +43,10 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-            if (is_digit(*str) == 1)
-            {
-                int n = ft_atoi(str);
-            }
+			if (is_digit(*str) == 1)
+			{
+				n = ft_atoi(str);
+			}
 			ft_separators(*str, args);
 		}
 		else

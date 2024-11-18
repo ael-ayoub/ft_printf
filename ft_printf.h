@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+# define FT_PRINTF_H
 
+# include <limits.h>
 # include <stdarg.h>
 # include <stdio.h>
 # include <unistd.h>
-#include <limits.h>
 
 int		ft_printf(const char *str, ...);
 void	ft_print_address(void *address);
