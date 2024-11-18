@@ -8,7 +8,7 @@ SRC = ft_putchar_fd.c \
 
 OBG = $(SRC:.c=.o)
 
-NAME = libft.a
+NAME = libftprintf.a
 
 
 

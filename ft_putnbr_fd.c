@@ -6,11 +6,11 @@
 /*   By: ael-aiss <ael-aiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 18:40:30 by ael-aiss          #+#    #+#             */
-/*   Updated: 2024/11/18 09:48:46 by ael-aiss         ###   ########.fr       */
+/*   Updated: 2024/11/18 14:19:20 by ael-aiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 void	ft_putnbr_fd(int nb, int fd)
 {

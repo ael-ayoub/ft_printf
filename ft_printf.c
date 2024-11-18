@@ -6,13 +6,13 @@
 /*   By: ael-aiss <ael-aiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 09:48:27 by ael-aiss          #+#    #+#             */
-/*   Updated: 2024/11/18 13:52:22 by ael-aiss         ###   ########.fr       */
+/*   Updated: 2024/11/18 16:30:22 by ael-aiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ffff(char sep, va_list args)
+static void    ft_separators(char sep, va_list args)
 {
 	if (sep == 'c')
 		ft_putchar_fd(va_arg(args, int), 1);
@@ -42,7 +42,11 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			ffff(*str, args);
+            if (is_digit(*str) == 1)
+            {
+                int n = ft_atoi(str);
+            }
+			ft_separators(*str, args);
 		}
 		else
 		{
@@ -52,12 +56,4 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(args);
 	return (1);
-}
-
-int	main(void)
-{
-	int	i;
-
-	i = 1337;
-	ft_printf("address ---> %p", &i);
 }
