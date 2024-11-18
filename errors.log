@@ -1,0 +1,1504 @@
+For no format:
+Error in test 1: ft_printf(""): returned: 1, but expected: 0
+Error in test 2: ft_printf("\001\002\007\v\010\f\r\n"): returned: 1, but expected: 8
+For % format:
+Error in test 2: ft_printf(" %%"): returned: 1, but expected: 2
+Error in test 3: ft_printf("%%c"): returned: 1, but expected: 2
+Error in test 4: ft_printf("%%%%%%"): returned: 1, but expected: 3
+Error in test 5: ft_printf("%%%c", 'x'): returned: 1, but expected: 2
+For c format:
+Error in test 2: ft_printf(" %c", 'x'): returned: 1, but expected: 2
+Error in test 3: ft_printf("%c ", 'x'): returned: 1, but expected: 2
+Error in test 4: ft_printf("%c%c%c", 'a', '\t', 'b'): returned: 1, but expected: 3
+Error in test 5: ft_printf("%cc%cc%c", 'a', '\t', 'b'): returned: 1, but expected: 5
+Error in test 6: ft_printf("%cs%cs%c", 'c', 'b', 'a'): returned: 1, but expected: 5
+For s format:
+Error in test 1: ft_printf("%s", ""): returned: 1, but expected: 0
+Error in test 2: ft_printf("%s", (char *)NULL): returned: 1, but expected: 6
+Error in test 2: ft_printf("%s", (char *)NULL): different memory
+expected:
+0000: 286e 756c 6c29 00                       ->  (null).
+yours:
+0000: 0011 1111 1111 11                       ->  .......
+
+Error in test 3: ft_printf("%s", "some string with %s hehe"): returned: 1, but expected: 24
+Error in test 4: ft_printf(" %s", "can it handle \t and \n?"): returned: 1, but expected: 23
+Error in test 5: ft_printf("%sx", "{} al$#@@@^&$$^#^@@^$*((&"): returned: 1, but expected: 26
+Error in test 6: ft_printf("%s%s%s", "And ", "some", "joined"): returned: 1, but expected: 14
+Error in test 7: ft_printf("%ss%ss%ss", "And ", "some other", "joined"): returned: 1, but expected: 23
+For p format:
+Error in test 1: ft_printf("%p", ""): returned: 1, but expected: 11
+Error in test 1: ft_printf("%p", ""): different memory
+expected:
+0000: 3078 3130 3336 6532 6565 3000 11        ->  0x1036e2ee0..
+yours:
+0000: 3078 0031 3033 3665 3265 6530 00        ->  0x.1036e2ee0.
+
+Error in test 2: ft_printf("%p", NULL): returned: 1, but expected: 3
+Error in test 2: ft_printf("%p", NULL): different memory
+expected:
+0000: 3078 3000 1111                          ->  0x0...
+yours:
+0000: 286e 696c 2900                          ->  (nil).
+
+Error in test 3: ft_printf("%p", (void *)-14523): returned: 1, but expected: 18
+Error in test 3: ft_printf("%p", (void *)-14523): different memory
+expected:
+0000: 3078 6666 6666 6666 6666 6666 6666 6337 ->  0xffffffffffffc7
+0010: 3435 0011                               ->  45..
+yours:
+0000: 3078 0066 6666 6666 6666 6666 6666 6663 ->  0x.ffffffffffffc
+0010: 3734 3500                               ->  745.
+
+Error in test 4: ft_printf("0x%p-", (void *)ULONG_MAX): returned: 1, but expected: 21
+Error in test 4: ft_printf("0x%p-", (void *)ULONG_MAX): different memory
+expected:
+0000: 3078 3078 6666 6666 6666 6666 6666 6666 ->  0x0xffffffffffff
+0010: 6666 6666 2d00 11                       ->  ffff-..
+yours:
+0000: 3078 3078 0066 6666 6666 6666 6666 6666 ->  0x0x.fffffffffff
+0010: 6666 6666 662d 00                       ->  fffff-.
+
+Error in test 5: ft_printf("%pp%p%p", (void *)LONG_MAX + 423856, (void *)0, (void *)INT_MAX): returned: 1, but expected: 32
+Error in test 5: ft_printf("%pp%p%p", (void *)LONG_MAX + 423856, (void *)0, (void *)INT_MAX): different memory
+expected:
+0000: 3078 3830 3030 3030 3030 3030 3036 3737 ->  0x80000000000677
+0010: 6166 7030 7830 3078 3766 6666 6666 6666 ->  afp0x00x7fffffff
+0020: 0011 1111 11                            ->  .....
+yours:
+0000: 3078 0038 3030 3030 3030 3030 3030 3637 ->  0x.8000000000067
+0010: 3761 6670 286e 696c 2930 7830 3766 6666 ->  7afp(nil)0x07fff
+0020: 6666 6666 00                            ->  ffff.
+
+For d format:
+Error in test 2: ft_printf("%d", -10): returned: 1, but expected: 3
+Error in test 3: ft_printf("%d", -200000): returned: 1, but expected: 7
+Error in test 4: ft_printf("%d", -6000023): returned: 1, but expected: 8
+Error in test 5: ft_printf("%d", 10): returned: 1, but expected: 2
+Error in test 6: ft_printf("%d", 10000): returned: 1, but expected: 5
+Error in test 7: ft_printf("%d", 100023): returned: 1, but expected: 6
+Error in test 8: ft_printf("%d", INT_MAX): returned: 1, but expected: 10
+Error in test 9: ft_printf("%d", INT_MIN): returned: 1, but expected: 11
+Error in test 10: ft_printf("dgs%dxx", 10): returned: 1, but expected: 7
+Error in test 11: ft_printf("%d%dd%d", 1, 2, -3): returned: 1, but expected: 5
+For i format:
+Error in test 2: ft_printf("%i", -10): returned: 1, but expected: 3
+Error in test 3: ft_printf("%i", -200000): returned: 1, but expected: 7
+Error in test 4: ft_printf("%i", -6000023): returned: 1, but expected: 8
+Error in test 5: ft_printf("%i", 10): returned: 1, but expected: 2
+Error in test 6: ft_printf("%i", 10000): returned: 1, but expected: 5
+Error in test 7: ft_printf("%i", 100023): returned: 1, but expected: 6
+Error in test 8: ft_printf("%i", INT_MAX): returned: 1, but expected: 10
+Error in test 9: ft_printf("%i", INT_MIN): returned: 1, but expected: 11
+Error in test 10: ft_printf("dgs%ixx", 10): returned: 1, but expected: 7
+Error in test 11: ft_printf("%i%ii%i", 1, 2, -3): returned: 1, but expected: 5
+For u format:
+Error in test 2: ft_printf("%u", -10): returned: 1, but expected: 10
+Error in test 3: ft_printf("%u", -200000): returned: 1, but expected: 10
+Error in test 4: ft_printf("%u", -6000023): returned: 1, but expected: 10
+Error in test 5: ft_printf("%u", 10): returned: 1, but expected: 2
+Error in test 6: ft_printf("%u", 10000): returned: 1, but expected: 5
+Error in test 7: ft_printf("%u", 100023): returned: 1, but expected: 6
+Error in test 8: ft_printf("%u", INT_MAX): returned: 1, but expected: 10
+Error in test 9: ft_printf("%u", INT_MIN): returned: 1, but expected: 10
+Error in test 10: ft_printf("%u", UINT_MAX): returned: 1, but expected: 10
+Error in test 11: ft_printf("dgs%uxx", 10): returned: 1, but expected: 7
+Error in test 12: ft_printf("%u%uu%u", 1, 2, -3): returned: 1, but expected: 13
+For x format:
+Error in test 2: ft_printf("%x", -10): returned: 1, but expected: 8
+Error in test 3: ft_printf("%x", -200000): returned: 1, but expected: 8
+Error in test 4: ft_printf("%x", -6000023): returned: 1, but expected: 8
+Error in test 6: ft_printf("%x", 10000): returned: 1, but expected: 4
+Error in test 7: ft_printf("%x", 100023): returned: 1, but expected: 5
+Error in test 8: ft_printf("%x", 0xabcdef): returned: 1, but expected: 6
+Error in test 9: ft_printf("%x", 0x7fedcba1): returned: 1, but expected: 8
+Error in test 10: ft_printf("%x", INT_MAX): returned: 1, but expected: 8
+Error in test 11: ft_printf("%x", INT_MIN): returned: 1, but expected: 8
+Error in test 12: ft_printf("%x", UINT_MAX): returned: 1, but expected: 8
+Error in test 13: ft_printf("dgs%xxx", 10): returned: 1, but expected: 6
+Error in test 14: ft_printf("%x%xx%x", 1, 2, -3): returned: 1, but expected: 11
+For X format:
+Error in test 2: ft_printf("%X", -10): returned: 1, but expected: 8
+Error in test 3: ft_printf("%X", -200000): returned: 1, but expected: 8
+Error in test 4: ft_printf("%X", -6000023): returned: 1, but expected: 8
+Error in test 6: ft_printf("%X", 10000): returned: 1, but expected: 4
+Error in test 7: ft_printf("%X", 100023): returned: 1, but expected: 5
+Error in test 8: ft_printf("%X", 0xabcdef): returned: 1, but expected: 6
+Error in test 9: ft_printf("%X", 0x7fedcba1): returned: 1, but expected: 8
+Error in test 10: ft_printf("%X", INT_MAX): returned: 1, but expected: 8
+Error in test 11: ft_printf("%X", INT_MIN): returned: 1, but expected: 8
+Error in test 12: ft_printf("%X", UINT_MAX): returned: 1, but expected: 8
+Error in test 13: ft_printf("dgs%Xxx", 10): returned: 1, but expected: 6
+Error in test 14: ft_printf("%X%Xx%X", 1, 2, -3): returned: 1, but expected: 11
+For random:
+Error in test 1: ft_printf("dl p%ula\nWH%i*u%X kZf%c0{1+&>%i<%dD\lu@#q$", -1217161801, 2098445819, -213579475, 2000939793, -395622143, -264099619): returned: 1, but expected: 79
+Error in test 2: ft_printf("*YRz8TO%u!\L\tKV5C%x0FiG%XOp>If%cy%X2C~%i*SQ%x`&1[y%d"h%dc9}\n?YW", -1487739604, 223561733, -1550294429, 1116540398, -1874628998, 1351836898, -547088714, -1814052950, 1722117744): returned: 1, but expected: 118
+Error in test 3: ft_printf("eqh%XPNx%dLU~-9=J%%\fM4n(:FG%x%x=d%%", -1146728684, 1466423683, 1205204810, -293797442): returned: 1, but expected: 59
+Error in test 4: ft_printf("~w%c%p'%dj;Zrwn%%Zt\f<\f~~-4%ilE", -1010157448, (void *)-5064444175402299528, 2116588301, 2010462298): returned: 1, but expected: 60
+Error in test 4: ft_printf("~w%c%p'%dj;Zrwn%%Zt\f<\f~~-4%ilE", -1010157448, (void *)-5064444175402299528, 2116588301, 2010462298): different memory
+expected:
+0000: 7e77 7830 7862 3962 3737 6164 6165 3435 ->  ~wx0xb9b77adae45
+0010: 3938 6637 3827 3231 3136 3538 3833 3031 ->  98f78'2116588301
+0020: 6a3b 5a72 776e 255a 740c 3c0c 7e7e 2d34 ->  j;Zrwn%Zt.<.~~-4
+0030: 3230 3130 3436 3232 3938 6c45 0011      ->  2010462298lE..
+yours:
+0000: 7e77 7830 7801 6239 6237 3761 6461 6534 ->  ~wx0x.b9b77adae4
+0010: 3539 3866 3738 2732 3131 3635 3838 3330 ->  598f78'211658830
+0020: 316a 3b5a 7277 6e25 5a74 0c3c 0c7e 7e2d ->  1j;Zrwn%Zt.<.~~-
+0030: 3432 3031 3034 3632 3239 386c 4500      ->  42010462298lE.
+
+Error in test 5: ft_printf("t#d)4s,~C)%u?-%i0n0zd`x%c{%pK\v^1K%xZs:eA+<$%pm34z%s%uX[ c\vOnVm-%iQ"{x", -208690403, 1614089798, -1860512937, (void *)-4235029211861787649, -741103167, (void *)-4010777451978590030, "jLZG&mc>F`^\rO\rVO*f=cP):Gs:J[\nr:37et=46ya{", 1096844204, 1380987394): returned: 1, but expected: 177
+Error in test 5: ft_printf("t#d)4s,~C)%u?-%i0n0zd`x%c{%pK\v^1K%xZs:eA+<$%pm34z%s%uX[ c\vOnVm-%iQ"{x", -208690403, 1614089798, -1860512937, (void *)-4235029211861787649, -741103167, (void *)-4010777451978590030, "jLZG&mc>F`^\rO\rVO*f=cP):Gs:J[\nr:37et=46ya{", 1096844204, 1380987394): different memory
+expected:
+0000: 7423 6429 3473 2c7e 4329 3430 3836 3237 ->  t#d)4s,~C)408627
+0010: 3638 3933 3f2d 3136 3134 3038 3937 3938 ->  6893?-1614089798
+0020: 306e 307a 6460 7857 7b30 7863 3533 6132 ->  0n0zd`xW{0xc53a2
+0030: 3735 6562 3539 3335 6266 664b 0b5e 314b ->  75eb5935bffK.^1K
+0040: 6433 6433 6139 6331 5a73 3a65 412b 3c24 ->  d3d3a9c1Zs:eA+<$
+0050: 3078 6338 3536 6462 3238 3464 6162 3738 ->  0xc856db284dab78
+0060: 6232 6d33 347a 6a4c 5a47 266d 633e 4660 ->  b2m34zjLZG&mc>F`
+0070: 5e0d 4f0d 564f 2a66 3d63 5029 3a47 733a ->  ^.O.VO*f=cP):Gs:
+0080: 4a5b 0a72 3a33 3765 743d 3436 7961 7b31 ->  J[.r:37et=46ya{1
+0090: 3039 3638 3434 3230 3458 5b20 630b 4f6e ->  096844204X[ c.On
+00a0: 566d 2d31 3338 3039 3837 3339 3451 227b ->  Vm-1380987394Q"{
+00b0: 7800 1111                               ->  x...
+yours:
+0000: 7423 6429 3473 2c7e 4329 3430 3836 3237 ->  t#d)4s,~C)408627
+0010: 3638 3933 3f2d 3136 3134 3038 3937 3938 ->  6893?-1614089798
+0020: 306e 307a 6460 7857 7b30 7801 6335 3361 ->  0n0zd`xW{0x.c53a
+0030: 3237 3565 6235 3933 3562 6666 4b0b 5e31 ->  275eb5935bffK.^1
+0040: 4b64 3364 3361 3963 315a 733a 6541 2b3c ->  Kd3d3a9c1Zs:eA+<
+0050: 2430 7801 6338 3536 6462 3238 3464 6162 ->  $0x.c856db284dab
+0060: 3738 6232 6d33 347a 6a4c 5a47 266d 633e ->  78b2m34zjLZG&mc>
+0070: 4660 5e0d 4f0d 564f 2a66 3d63 5029 3a47 ->  F`^.O.VO*f=cP):G
+0080: 733a 4a5b 0a72 3a33 3765 743d 3436 7961 ->  s:J[.r:37et=46ya
+0090: 7b31 3039 3638 3434 3230 3458 5b20 630b ->  {1096844204X[ c.
+00a0: 4f6e 566d 2d31 3338 3039 3837 3339 3451 ->  OnVm-1380987394Q
+00b0: 227b 7800                               ->  "{x.
+
+Error in test 6: ft_printf("/u\r4 sgxc%x;yyv*%d\\f@?!"%X\%xgp.\vS+y%ps\"i8.Xv"%pv5#XT%x`xs%s`??6gUD%u*))", 1893571752, 1258673933, 1037054391, -605270007, (void *)7675325045378714883, (void *)-8188624920346603711, 132570965, ")W#A$Fd2+|F4Y@2u@6\r YIpq$m\t\rf[b*{\tCfJus DkR%L'DU-_)J{S7\v]h:Zsq|w2Z%]A!13h!DCHe\t<", -875732876): returned: 1, but expected: 222
+Error in test 6: ft_printf("/u\r4 sgxc%x;yyv*%d\\f@?!"%X\%xgp.\vS+y%ps\"i8.Xv"%pv5#XT%x`xs%s`??6gUD%u*))", 1893571752, 1258673933, 1037054391, -605270007, (void *)7675325045378714883, (void *)-8188624920346603711, 132570965, ")W#A$Fd2+|F4Y@2u@6\r YIpq$m\t\rf[b*{\tCfJus DkR%L'DU-_)J{S7\v]h:Zsq|w2Z%]A!13h!DCHe\t<", -875732876): different memory
+expected:
+0000: 2f75 0d34 2073 6778 6337 3064 6439 6361 ->  /u.4 sgxc70dd9ca
+0010: 383b 7979 762a 3132 3538 3637 3339 3333 ->  8;yyv*1258673933
+0020: 5c0c 403f 2122 3344 4430 3331 4237 5c64 ->  \.@?!"3DD031B7\d
+0030: 6265 6335 3030 3967 702e 0b53 2b79 3078 ->  bec5009gp..S+y0x
+0040: 3661 3834 3362 3736 3931 3735 3064 3033 ->  6a843b7691750d03
+0050: 735c 2269 382e 5876 2230 7838 6535 6332 ->  s\"i8.Xv"0x8e5c2
+0060: 3930 3532 3764 3434 6634 3176 3523 5854 ->  90527d44f41v5#XT
+0070: 3765 3664 6635 3560 7873 2957 2341 2446 ->  7e6df55`xs)W#A$F
+0080: 6432 2b7c 4634 5940 3275 4036 0d20 5949 ->  d2+|F4Y@2u@6. YI
+0090: 7071 246d 090d 665b 622a 7b09 4366 4a75 ->  pq$m..f[b*{.CfJu
+00a0: 7320 446b 5225 4c27 4455 2d5f 294a 7b53 ->  s DkR%L'DU-_)J{S
+00b0: 370b 5d68 3a5a 7371 7c77 325a 255d 4121 ->  7.]h:Zsq|w2Z%]A!
+00c0: 3133 6821 4443 4865 093c 603f 3f36 6755 ->  13h!DCHe.<`??6gU
+00d0: 4433 3431 3932 3334 3432 302a 2929 0011 ->  D3419234420*))..
+yours:
+0000: 2f75 0d34 2073 6778 6337 3064 6439 6361 ->  /u.4 sgxc70dd9ca
+0010: 383b 7979 762a 3132 3538 3637 3339 3333 ->  8;yyv*1258673933
+0020: 5c0c 403f 2122 3344 4430 3331 4237 5c64 ->  \.@?!"3DD031B7\d
+0030: 6265 6335 3030 3967 702e 0b53 2b79 3078 ->  bec5009gp..S+y0x
+0040: 0d36 6138 3433 6237 3639 3137 3530 6430 ->  .6a843b7691750d0
+0050: 3373 5c22 6938 2e58 7622 3078 0d38 6535 ->  3s\"i8.Xv"0x.8e5
+0060: 6332 3930 3532 3764 3434 6634 3176 3523 ->  c290527d44f41v5#
+0070: 5854 3765 3664 6635 3560 7873 2957 2341 ->  XT7e6df55`xs)W#A
+0080: 2446 6432 2b7c 4634 5940 3275 4036 0d20 ->  $Fd2+|F4Y@2u@6. 
+0090: 5949 7071 246d 090d 665b 622a 7b09 4366 ->  YIpq$m..f[b*{.Cf
+00a0: 4a75 7320 446b 5225 4c27 4455 2d5f 294a ->  Jus DkR%L'DU-_)J
+00b0: 7b53 370b 5d68 3a5a 7371 7c77 325a 255d ->  {S7.]h:Zsq|w2Z%]
+00c0: 4121 3133 6821 4443 4865 093c 603f 3f36 ->  A!13h!DCHe.<`??6
+00d0: 6755 4433 3431 3932 3334 3432 302a 2929 ->  gUD3419234420*))
+00e0: 00                                      ->  .
+
+Error in test 7: ft_printf("%pO%s~yqDm%i\rmV^2._\t%d@ lq/c,Q%ul#T~f%pJs %ck\ x" Gd@D%xI'WJc[%pL/%%\ZU&9aRNv&", (void *)5834564314499359150, "9p\no\f~fVM,J%HS![\v1;\fM5,5\\5`)?hvIW\fgyjt_E\tBz/=o\v6aq^(:}nWj~^!Jb\t{.7Fi.fK\ts/mFmr\\8o0e4d", 552114993, -2073182853, 1018678259, (void *)1315447644456612159, 1226969705, 1870725758, (void *)-3920585388407557436): returned: 1, but expected: 237
+Error in test 7: ft_printf("%pO%s~yqDm%i\rmV^2._\t%d@ lq/c,Q%ul#T~f%pJs %ck\ x" Gd@D%xI'WJc[%pL/%%\ZU&9aRNv&", (void *)5834564314499359150, "9p\no\f~fVM,J%HS![\v1;\fM5,5\\5`)?hvIW\fgyjt_E\tBz/=o\v6aq^(:}nWj~^!Jb\t{.7Fi.fK\ts/mFmr\\8o0e4d", 552114993, -2073182853, 1018678259, (void *)1315447644456612159, 1226969705, 1870725758, (void *)-3920585388407557436): different memory
+expected:
+0000: 3078 3530 6638 3839 3534 6338 6537 6131 ->  0x50f88954c8e7a1
+0010: 6165 4f39 700a 6f0c 7e66 564d 2c4a 2548 ->  aeO9p.o.~fVM,J%H
+0020: 5321 5b0b 313b 0c4d 352c 355c 3560 293f ->  S![.1;.M5,5\5`)?
+0030: 6876 4957 0c67 796a 745f 4509 427a 2f3d ->  hvIW.gyjt_E.Bz/=
+0040: 6f0b 3661 715e 283a 7d6e 576a 7e5e 214a ->  o.6aq^(:}nWj~^!J
+0050: 6209 7b2e 3746 692e 664b 0973 2f6d 466d ->  b.{.7Fi.fK.s/mFm
+0060: 725c 386f 3065 3464 7e79 7144 6d35 3532 ->  r\8o0e4d~yqDm552
+0070: 3131 3439 3933 0d6d 565e 322e 5f09 2d32 ->  114993.mV^2._.-2
+0080: 3037 3331 3832 3835 3340 206c 712f 632c ->  073182853@ lq/c,
+0090: 5131 3031 3836 3738 3235 396c 2354 7e66 ->  Q1018678259l#T~f
+00a0: 3078 3132 3431 3638 6139 6330 3735 6631 ->  0x124168a9c075f1
+00b0: 3366 4a73 2069 6b5c 2078 2220 4764 4044 ->  3fJs ik\ x" Gd@D
+00c0: 3666 3831 3032 3765 4927 574a 635b 3078 ->  6f81027eI'WJc[0x
+00d0: 6339 3937 3438 3563 3834 3631 3732 6334 ->  c997485c846172c4
+00e0: 4c2f 255c 5a55 2639 6152 4e76 2600 1111 ->  L/%\ZU&9aRNv&...
+yours:
+0000: 3078 0435 3066 3838 3935 3463 3865 3761 ->  0x.50f88954c8e7a
+0010: 3161 654f 3970 0a6f 0c7e 6656 4d2c 4a25 ->  1aeO9p.o.~fVM,J%
+0020: 4853 215b 0b31 3b0c 4d35 2c35 5c35 6029 ->  HS![.1;.M5,5\5`)
+0030: 3f68 7649 570c 6779 6a74 5f45 0942 7a2f ->  ?hvIW.gyjt_E.Bz/
+0040: 3d6f 0b36 6171 5e28 3a7d 6e57 6a7e 5e21 ->  =o.6aq^(:}nWj~^!
+0050: 4a62 097b 2e37 4669 2e66 4b09 732f 6d46 ->  Jb.{.7Fi.fK.s/mF
+0060: 6d72 5c38 6f30 6534 647e 7971 446d 3535 ->  mr\8o0e4d~yqDm55
+0070: 3231 3134 3939 330d 6d56 5e32 2e5f 092d ->  2114993.mV^2._.-
+0080: 3230 3733 3138 3238 3533 4020 6c71 2f63 ->  2073182853@ lq/c
+0090: 2c51 3130 3138 3637 3832 3539 6c23 547e ->  ,Q1018678259l#T~
+00a0: 6630 7885 3132 3431 3638 6139 6330 3735 ->  f0x.124168a9c075
+00b0: 6631 3366 4a73 2069 6b5c 2078 2220 4764 ->  f13fJs ik\ x" Gd
+00c0: 4044 3666 3831 3032 3765 4927 574a 635b ->  @D6f81027eI'WJc[
+00d0: 3078 0163 3939 3734 3835 6338 3436 3137 ->  0x.c997485c84617
+00e0: 3263 344c 2f25 5c5a 5526 3961 524e 7626 ->  2c4L/%\ZU&9aRNv&
+00f0: 00                                      ->  .
+
+Error in test 8: ft_printf("%poPX;*f75%s@Bo$s+", (void *)3991718715400393722, ")geWO2Ii|o1pq~9Z+nr&V+X 1'GTr?o#q"): returned: 1, but expected: 65
+Error in test 8: ft_printf("%poPX;*f75%s@Bo$s+", (void *)3991718715400393722, ")geWO2Ii|o1pq~9Z+nr&V+X 1'GTr?o#q"): different memory
+expected:
+0000: 3078 3337 3635 3666 3035 6361 6238 3133 ->  0x37656f05cab813
+0010: 6661 6f50 583b 2a66 3735 2967 6557 4f32 ->  faoPX;*f75)geWO2
+0020: 4969 7c6f 3170 717e 395a 2b6e 7226 562b ->  Ii|o1pq~9Z+nr&V+
+0030: 5820 3127 4754 723f 6f23 7140 426f 2473 ->  X 1'GTr?o#q@Bo$s
+0040: 2b00 11                                 ->  +..
+yours:
+0000: 3078 0433 3736 3536 6630 3563 6162 3831 ->  0x.37656f05cab81
+0010: 3366 616f 5058 3b2a 6637 3529 6765 574f ->  3faoPX;*f75)geWO
+0020: 3249 697c 6f31 7071 7e39 5a2b 6e72 2656 ->  2Ii|o1pq~9Z+nr&V
+0030: 2b58 2031 2747 5472 3f6f 2371 4042 6f24 ->  +X 1'GTr?o#q@Bo$
+0040: 732b 00                                 ->  s+.
+
+Error in test 9: ft_printf("4C^Yc|%dxg&x2>:>"d%ik1!W<%dpY^22s`oA%cXv!qs%xg%il%i8#@,|Dy x[", 1204944536, 1052843995, 1324571163, -304583365, 91970284, 1822722081, 421130923): returned: 1, but expected: 104
+Error in test 10: ft_printf("%%8Zjh==%i?7yD'%dh0{_6~T%p0(%p2?=y%d?8\rb%c}(V%s"4?", 1959233623, -1791899864, (void *)7037062797541874570, (void *)1437020491439672374, 1382416395, 2041040461, "cP5\fI\t!DEy2m)8T>(m779"): returned: 1, but expected: 124
+Error in test 10: ft_printf("%%8Zjh==%i?7yD'%dh0{_6~T%p0(%p2?=y%d?8\rb%c}(V%s"4?", 1959233623, -1791899864, (void *)7037062797541874570, (void *)1437020491439672374, 1382416395, 2041040461, "cP5\fI\t!DEy2m)8T>(m779"): different memory
+expected:
+0000: 2538 5a6a 683d 3d31 3935 3932 3333 3632 ->  %8Zjh==195923362
+0010: 333f 3779 4427 2d31 3739 3138 3939 3836 ->  3?7yD'-179189986
+0020: 3468 307b 5f36 7e54 3078 3631 6138 6162 ->  4h0{_6~T0x61a8ab
+0030: 3534 3935 3939 3962 3861 3028 3078 3133 ->  5495999b8a0(0x13
+0040: 6631 3532 3835 6637 3338 3063 3336 323f ->  f15285f7380c362?
+0050: 3d79 3133 3832 3431 3633 3935 3f38 0d62 ->  =y1382416395?8.b
+0060: 4d7d 2856 6350 350c 4909 2144 4579 326d ->  M}(VcP5.I.!DEy2m
+0070: 2938 543e 286d 3737 3922 343f 0011 11   ->  )8T>(m779"4?...
+yours:
+0000: 2538 5a6a 683d 3d31 3935 3932 3333 3632 ->  %8Zjh==195923362
+0010: 333f 3779 4427 2d31 3739 3138 3939 3836 ->  3?7yD'-179189986
+0020: 3468 307b 5f36 7e54 3078 d836 3161 3861 ->  4h0{_6~T0x.61a8a
+0030: 6235 3439 3539 3939 6238 6130 2830 78d8 ->  b5495999b8a0(0x.
+0040: 3133 6631 3532 3835 6637 3338 3063 3336 ->  13f15285f7380c36
+0050: 323f 3d79 3133 3832 3431 3633 3935 3f38 ->  2?=y1382416395?8
+0060: 0d62 4d7d 2856 6350 350c 4909 2144 4579 ->  .bM}(VcP5.I.!DEy
+0070: 326d 2938 543e 286d 3737 3922 343f 00   ->  2m)8T>(m779"4?.
+
+Error in test 11: ft_printf("l*\v5JrW%pVxNg^Z5q/%debb,=-?>%x%p\fK$b%d[c-TJbyG4G%sc'Pq%x}-6q!o\tU%X|B\-4}%c8N0fe]@j%xU_", (void *)5894280336453763345, -598823027, 634501896, (void *)3410537512330865518, -1496238744, "hM_0_{j&GqBM^}-kR>$5.\"Ftu]tw!Q-Hw\"gX)7|h!VWw:,\nq@#FD*1CrIDp[er!wX^)\"x4i/;y!3}ar98/AF\f", 473262476, 398977841, -510734764, -1488288392): returned: 1, but expected: 241
+Error in test 11: ft_printf("l*\v5JrW%pVxNg^Z5q/%debb,=-?>%x%p\fK$b%d[c-TJbyG4G%sc'Pq%x}-6q!o\tU%X|B\-4}%c8N0fe]@j%xU_", (void *)5894280336453763345, -598823027, 634501896, (void *)3410537512330865518, -1496238744, "hM_0_{j&GqBM^}-kR>$5.\"Ftu]tw!Q-Hw\"gX)7|h!VWw:,\nq@#FD*1CrIDp[er!wX^)\"x4i/;y!3}ar98/AF\f", 473262476, 398977841, -510734764, -1488288392): different memory
+expected:
+0000: 6c2a 0b35 4a72 5730 7835 3163 6362 3062 ->  l*.5JrW0x51ccb0b
+0010: 6339 6365 3538 3131 3156 784e 675e 5a35 ->  c9ce58111VxNg^Z5
+0020: 712f 2d35 3938 3832 3330 3237 6562 622c ->  q/-598823027ebb,
+0030: 3d2d 3f3e 3235 6431 6262 3038 3078 3266 ->  =-?>25d1bb080x2f
+0040: 3534 6139 6363 3333 6130 3262 3665 0c4b ->  54a9cc33a02b6e.K
+0050: 2462 2d31 3439 3632 3338 3734 345b 632d ->  $b-1496238744[c-
+0060: 544a 6279 4734 4768 4d5f 305f 7b6a 2647 ->  TJbyG4GhM_0_{j&G
+0070: 7142 4d5e 7d2d 6b52 3e24 352e 2246 7475 ->  qBM^}-kR>$5."Ftu
+0080: 5d74 7721 512d 4877 2267 5829 377c 6821 ->  ]tw!Q-Hw"gX)7|h!
+0090: 5657 773a 2c0a 7140 2346 442a 3143 7249 ->  VWw:,.q@#FD*1CrI
+00a0: 4470 5b65 7221 7758 5e29 2278 3469 2f3b ->  Dp[er!wX^)"x4i/;
+00b0: 7921 337d 6172 3938 2f41 460c 6327 5071 ->  y!3}ar98/AF.c'Pq
+00c0: 3163 3335 3639 3863 7d2d 3671 216f 0955 ->  1c35698c}-6q!o.U
+00d0: 3137 4337 4542 3331 7c42 5c2d 347d 5438 ->  17C7EB31|B\-4}T8
+00e0: 4e30 6665 5d40 6a61 3734 6138 3537 3855 ->  N0fe]@ja74a8578U
+00f0: 5f00 1111                               ->  _...
+yours:
+0000: 6c2a 0b35 4a72 5730 7804 3531 6363 6230 ->  l*.5JrW0x.51ccb0
+0010: 6263 3963 6535 3831 3131 5678 4e67 5e5a ->  bc9ce58111VxNg^Z
+0020: 3571 2f2d 3539 3838 3233 3032 3765 6262 ->  5q/-598823027ebb
+0030: 2c3d 2d3f 3e32 3564 3162 6230 3830 7873 ->  ,=-?>25d1bb080xs
+0040: 3266 3534 6139 6363 3333 6130 3262 3665 ->  2f54a9cc33a02b6e
+0050: 0c4b 2462 2d31 3439 3632 3338 3734 345b ->  .K$b-1496238744[
+0060: 632d 544a 6279 4734 4768 4d5f 305f 7b6a ->  c-TJbyG4GhM_0_{j
+0070: 2647 7142 4d5e 7d2d 6b52 3e24 352e 2246 ->  &GqBM^}-kR>$5."F
+0080: 7475 5d74 7721 512d 4877 2267 5829 377c ->  tu]tw!Q-Hw"gX)7|
+0090: 6821 5657 773a 2c0a 7140 2346 442a 3143 ->  h!VWw:,.q@#FD*1C
+00a0: 7249 4470 5b65 7221 7758 5e29 2278 3469 ->  rIDp[er!wX^)"x4i
+00b0: 2f3b 7921 337d 6172 3938 2f41 460c 6327 ->  /;y!3}ar98/AF.c'
+00c0: 5071 3163 3335 3639 3863 7d2d 3671 216f ->  Pq1c35698c}-6q!o
+00d0: 0955 3137 4337 4542 3331 7c42 5c2d 347d ->  .U17C7EB31|B\-4}
+00e0: 5438 4e30 6665 5d40 6a61 3734 6138 3537 ->  T8N0fe]@ja74a857
+00f0: 3855 5f00                               ->  8U_.
+
+Error in test 12: ft_printf("_\r!;Q%c%p%XLw%pE(Kce]%ppj`t$^#i%c\r3Cy%dN%u1)D~/flZ%X{tSK1<`%i"", -960965927, (void *)4687536004340464180, -1436570077, (void *)2568117191289816508, (void *)8351161168555763643, 796706546, -758284948, -1919079068, -1150251036, -1634468203): returned: 1, but expected: 145
+Error in test 12: ft_printf("_\r!;Q%c%p%XLw%pE(Kce]%ppj`t$^#i%c\r3Cy%dN%u1)D~/flZ%X{tSK1<`%i"", -960965927, (void *)4687536004340464180, -1436570077, (void *)2568117191289816508, (void *)8351161168555763643, 796706546, -758284948, -1919079068, -1150251036, -1634468203): different memory
+expected:
+0000: 5f0d 213b 51d9 3078 3431 3064 3739 3239 ->  _.!;Q.0x410d7929
+0010: 3061 3931 3361 3334 4141 3546 4145 3233 ->  0a913a34AA5FAE23
+0020: 4c77 3078 3233 6133 6338 6661 6130 3637 ->  Lw0x23a3c8faa067
+0030: 3435 6263 4528 4b63 655d 3078 3733 6535 ->  45bcE(Kce]0x73e5
+0040: 3438 6436 3231 6364 3637 6262 706a 6074 ->  48d621cd67bbpj`t
+0050: 245e 2369 f20d 3343 792d 3735 3832 3834 ->  $^#i..3Cy-758284
+0060: 3934 384e 3233 3735 3838 3832 3238 3129 ->  948N23758882281)
+0070: 447e 2f66 6c5a 4242 3730 3846 4534 7b74 ->  D~/flZBB708FE4{t
+0080: 534b 313c 602d 3136 3334 3436 3832 3033 ->  SK1<`-1634468203
+0090: 2200 1111 11                            ->  "....
+yours:
+0000: 5f0d 213b 51d9 3078 0134 3130 6437 3932 ->  _.!;Q.0x.410d792
+0010: 3930 6139 3133 6133 3441 4135 4641 4532 ->  90a913a34AA5FAE2
+0020: 334c 7730 7801 3233 6133 6338 6661 6130 ->  3Lw0x.23a3c8faa0
+0030: 3637 3435 6263 4528 4b63 655d 3078 0137 ->  6745bcE(Kce]0x.7
+0040: 3365 3534 3864 3632 3163 6436 3762 6270 ->  3e548d621cd67bbp
+0050: 6a60 7424 5e23 69f2 0d33 4379 2d37 3538 ->  j`t$^#i..3Cy-758
+0060: 3238 3439 3438 4e32 3337 3538 3838 3232 ->  284948N237588822
+0070: 3831 2944 7e2f 666c 5a42 4237 3038 4645 ->  81)D~/flZBB708FE
+0080: 347b 7453 4b31 3c60 2d31 3633 3434 3638 ->  4{tSK1<`-1634468
+0090: 3230 3322 00                            ->  203".
+
+Error in test 13: ft_printf(":7t(B.s%%RW<n%i>%d\n8VW5=6ErP%cGpDU\t%X4'h", -1040271079, -1001273972, -402754100, 499561517): returned: 1, but expected: 62
+Error in test 14: ft_printf("?FEq&fH%xR%pGh|?n%%bB&4;$%%8U+_jK%d'GNktg%d+n6BBdY%X,y^;$&%%\viF%inU\v-9", -826300560, (void *)-5357045464252502161, 1201436078, -1147841469, 1182682176, 2090775467): returned: 1, but expected: 120
+Error in test 14: ft_printf("?FEq&fH%xR%pGh|?n%%bB&4;$%%8U+_jK%d'GNktg%d+n6BBdY%X,y^;$&%%\viF%inU\v-9", -826300560, (void *)-5357045464252502161, 1201436078, -1147841469, 1182682176, 2090775467): different memory
+expected:
+0000: 3f46 4571 2666 4863 6562 6661 3737 3052 ->  ?FEq&fHcebfa770R
+0010: 3078 6235 6137 6633 3838 3739 3963 6166 ->  0xb5a7f388799caf
+0020: 3666 4768 7c3f 6e25 6242 2634 3b24 2538 ->  6fGh|?n%bB&4;$%8
+0030: 552b 5f6a 4b31 3230 3134 3336 3037 3827 ->  U+_jK1201436078'
+0040: 474e 6b74 672d 3131 3437 3834 3134 3639 ->  GNktg-1147841469
+0050: 2b6e 3642 4264 5934 3637 4534 4334 302c ->  +n6BBdY467E4C40,
+0060: 795e 3b24 2625 0b69 4632 3039 3037 3735 ->  y^;$&%.iF2090775
+0070: 3436 376e 550b 2d39 0011                ->  467nU.-9..
+yours:
+0000: 3f46 4571 2666 4863 6562 6661 3737 3052 ->  ?FEq&fHcebfa770R
+0010: 3078 0462 3561 3766 3338 3837 3939 6361 ->  0x.b5a7f388799ca
+0020: 6636 6647 687c 3f6e 2562 4226 343b 2425 ->  f6fGh|?n%bB&4;$%
+0030: 3855 2b5f 6a4b 3132 3031 3433 3630 3738 ->  8U+_jK1201436078
+0040: 2747 4e6b 7467 2d31 3134 3738 3431 3436 ->  'GNktg-114784146
+0050: 392b 6e36 4242 6459 3436 3745 3443 3430 ->  9+n6BBdY467E4C40
+0060: 2c79 5e3b 2426 250b 6946 3230 3930 3737 ->  ,y^;$&%.iF209077
+0070: 3534 3637 6e55 0b2d 3900                ->  5467nU.-9.
+
+Error in test 15: ft_printf(""=a%u$9|U%x*%c%dk8si.`$Eu", 1471774523, -1400830675, 1999769755, -864928333): returned: 1, but expected: 46
+Error in test 16: ft_printf("#{%c/jQCZSSr%x7<8#1"\%%Dl ?PU{%i%x]%ddbuX_7V"%%eL\t4SobG%c+%uE"Fa-z\"1\t%dyT\fWo", -423421215, -639259971, 1567404677, -1608200227, -476730468, 397261301, 69435974, -793004397): returned: 1, but expected: 115
+Error in test 17: ft_printf("%c%s)sc{Z%x\r{,{ &%c`kE*G:1VK6%c:p{s1W,", 1126033815, "-|^8\v3a^E;p\v'j&\"g,r]2tj", 2096973188, 1473242410, 1501741870): returned: 1, but expected: 62
+Error in test 18: ft_printf("q, J,%p ivI1Rnli!%d%s7)d,m<n&\v%stJi\re%dc \t<^g%s9|l>r|Z%iaF%p7\vwJB%x", (void *)5792358793204331013, -274192303, "SX\n!<F\fjlR@,O{mZfy)|at-?2<kMU !7yI:#uh>}'uC'S5a^;Q7\"=(nvt!dele,J{4u'RDu/Kg:ljZ'',9a%|wV\\)]PDL%:\"JB", "{D,;\f}h0<\"i6^,G1PK~7<4~>czjUi>M@r5qhyw$5vd", -1326022776, "Sln]g5k#b]W ZYOQHTL*a%L", -166793044, (void *)686748300579961998, 1514011177): returned: 1, but expected: 286
+Error in test 18: ft_printf("q, J,%p ivI1Rnli!%d%s7)d,m<n&\v%stJi\re%dc \t<^g%s9|l>r|Z%iaF%p7\vwJB%x", (void *)5792358793204331013, -274192303, "SX\n!<F\fjlR@,O{mZfy)|at-?2<kMU !7yI:#uh>}'uC'S5a^;Q7\"=(nvt!dele,J{4u'RDu/Kg:ljZ'',9a%|wV\\)]PDL%:\"JB", "{D,;\f}h0<\"i6^,G1PK~7<4~>czjUi>M@r5qhyw$5vd", -1326022776, "Sln]g5k#b]W ZYOQHTL*a%L", -166793044, (void *)686748300579961998, 1514011177): different memory
+expected:
+0000: 712c 204a 2c30 7835 3036 3239 3761 3231 ->  q, J,0x506297a21
+0010: 3838 6466 3230 3520 6976 4931 526e 6c69 ->  88df205 ivI1Rnli
+0020: 212d 3237 3431 3932 3330 3353 580a 213c ->  !-274192303SX.!<
+0030: 460c 6a6c 5240 2c4f 7b6d 5a66 7929 7c61 ->  F.jlR@,O{mZfy)|a
+0040: 742d 3f32 3c6b 4d55 2021 3779 493a 2375 ->  t-?2<kMU !7yI:#u
+0050: 683e 7d27 7543 2753 3561 5e3b 5137 223d ->  h>}'uC'S5a^;Q7"=
+0060: 286e 7674 2164 656c 652c 4a7b 3475 2752 ->  (nvt!dele,J{4u'R
+0070: 4475 2f4b 673a 6c6a 5a27 272c 3961 257c ->  Du/Kg:ljZ'',9a%|
+0080: 7756 5c29 5d50 444c 253a 224a 4237 2964 ->  wV\)]PDL%:"JB7)d
+0090: 2c6d 3c6e 260b 7b44 2c3b 0c7d 6830 3c22 ->  ,m<n&.{D,;.}h0<"
+00a0: 6936 5e2c 4731 504b 7e37 3c34 7e3e 637a ->  i6^,G1PK~7<4~>cz
+00b0: 6a55 693e 4d40 7235 7168 7977 2435 7664 ->  jUi>M@r5qhyw$5vd
+00c0: 744a 690d 652d 3133 3236 3032 3237 3736 ->  tJi.e-1326022776
+00d0: 6320 093c 5e67 536c 6e5d 6735 6b23 625d ->  c .<^gSln]g5k#b]
+00e0: 5720 5a59 4f51 4854 4c2a 6125 4c39 7c6c ->  W ZYOQHTL*a%L9|l
+00f0: 3e72 7c5a 2d31 3636 3739 3330 3434 6146 ->  >r|Z-166793044aF
+0100: 3078 3938 3764 3166 3064 6132 6266 6338 ->  0x987d1f0da2bfc8
+0110: 6537 0b77 4a42 3561 3364 6661 3239 0011 ->  e7.wJB5a3dfa29..
+yours:
+0000: 712c 204a 2c30 7804 3530 3632 3937 6132 ->  q, J,0x.506297a2
+0010: 3138 3864 6632 3035 2069 7649 3152 6e6c ->  188df205 ivI1Rnl
+0020: 6921 2d32 3734 3139 3233 3033 5358 0a21 ->  i!-274192303SX.!
+0030: 3c46 0c6a 6c52 402c 4f7b 6d5a 6679 297c ->  <F.jlR@,O{mZfy)|
+0040: 6174 2d3f 323c 6b4d 5520 2137 7949 3a23 ->  at-?2<kMU !7yI:#
+0050: 7568 3e7d 2775 4327 5335 615e 3b51 3722 ->  uh>}'uC'S5a^;Q7"
+0060: 3d28 6e76 7421 6465 6c65 2c4a 7b34 7527 ->  =(nvt!dele,J{4u'
+0070: 5244 752f 4b67 3a6c 6a5a 2727 2c39 6125 ->  RDu/Kg:ljZ'',9a%
+0080: 7c77 565c 295d 5044 4c25 3a22 4a42 3729 ->  |wV\)]PDL%:"JB7)
+0090: 642c 6d3c 6e26 0b7b 442c 3b0c 7d68 303c ->  d,m<n&.{D,;.}h0<
+00a0: 2269 365e 2c47 3150 4b7e 373c 347e 3e63 ->  "i6^,G1PK~7<4~>c
+00b0: 7a6a 5569 3e4d 4072 3571 6879 7724 3576 ->  zjUi>M@r5qhyw$5v
+00c0: 6474 4a69 0d65 2d31 3332 3630 3232 3737 ->  dtJi.e-132602277
+00d0: 3663 2009 3c5e 6753 6c6e 5d67 356b 2362 ->  6c .<^gSln]g5k#b
+00e0: 5d57 205a 594f 5148 544c 2a61 254c 397c ->  ]W ZYOQHTL*a%L9|
+00f0: 6c3e 727c 5a2d 3136 3637 3933 3034 3461 ->  l>r|Z-166793044a
+0100: 4630 7800 3938 3764 3166 3064 6132 6266 ->  F0x.987d1f0da2bf
+0110: 6338 6537 0b77 4a42 3561 3364 6661 3239 ->  c8e7.wJB5a3dfa29
+0120: 00                                      ->  .
+
+Error in test 19: ft_printf("3T>q\fqW%iUL?U%s$XZ%pn[\r%%afa\n+Osuwp%x&U=3"o4j", -1819774921, "~MsE~Y^t:8$9`WUxm#_*NWoy-fycVho`_\"tw\vJQ\f*;|>*3~E-F\\M;i-rs24R^Eljb%sG\ne2j\"\\+M{D=|zzpF_98c\nL:\nv\v", (void *)9164928026690630746, -1943969851): returned: 1, but expected: 167
+Error in test 19: ft_printf("3T>q\fqW%iUL?U%s$XZ%pn[\r%%afa\n+Osuwp%x&U=3"o4j", -1819774921, "~MsE~Y^t:8$9`WUxm#_*NWoy-fycVho`_\"tw\vJQ\f*;|>*3~E-F\\M;i-rs24R^Eljb%sG\ne2j\"\\+M{D=|zzpF_98c\nL:\nv\v", (void *)9164928026690630746, -1943969851): different memory
+expected:
+0000: 3354 3e71 0c71 572d 3138 3139 3737 3439 ->  3T>q.qW-18197749
+0010: 3231 554c 3f55 7e4d 7345 7e59 5e74 3a38 ->  21UL?U~MsE~Y^t:8
+0020: 2439 6057 5578 6d23 5f2a 4e57 6f79 2d66 ->  $9`WUxm#_*NWoy-f
+0030: 7963 5668 6f60 5f22 7477 0b4a 510c 2a3b ->  ycVho`_"tw.JQ.*;
+0040: 7c3e 2a33 7e45 2d46 5c4d 3b69 2d72 7332 ->  |>*3~E-F\M;i-rs2
+0050: 3452 5e45 6c6a 6225 7347 0a65 326a 225c ->  4R^Eljb%sG.e2j"\
+0060: 2b4d 7b44 3d7c 7a7a 7046 5f39 3863 0a4c ->  +M{D=|zzpF_98c.L
+0070: 3a0a 760b 2458 5a30 7837 6633 3035 6437 ->  :.v.$XZ0x7f305d7
+0080: 6237 6565 6162 3435 616e 5b0d 2561 6661 ->  b7eeab45an[.%afa
+0090: 0a2b 4f73 7577 7038 6332 3135 6663 3526 ->  .+Osuwp8c215fc5&
+00a0: 553d 3322 6f34 6a00 11                  ->  U=3"o4j..
+yours:
+0000: 3354 3e71 0c71 572d 3138 3139 3737 3439 ->  3T>q.qW-18197749
+0010: 3231 554c 3f55 7e4d 7345 7e59 5e74 3a38 ->  21UL?U~MsE~Y^t:8
+0020: 2439 6057 5578 6d23 5f2a 4e57 6f79 2d66 ->  $9`WUxm#_*NWoy-f
+0030: 7963 5668 6f60 5f22 7477 0b4a 510c 2a3b ->  ycVho`_"tw.JQ.*;
+0040: 7c3e 2a33 7e45 2d46 5c4d 3b69 2d72 7332 ->  |>*3~E-F\M;i-rs2
+0050: 3452 5e45 6c6a 6225 7347 0a65 326a 225c ->  4R^Eljb%sG.e2j"\
+0060: 2b4d 7b44 3d7c 7a7a 7046 5f39 3863 0a4c ->  +M{D=|zzpF_98c.L
+0070: 3a0a 760b 2458 5a30 785e 3766 3330 3564 ->  :.v.$XZ0x^7f305d
+0080: 3762 3765 6561 6234 3561 6e5b 0d25 6166 ->  7b7eeab45an[.%af
+0090: 610a 2b4f 7375 7770 3863 3231 3566 6335 ->  a.+Osuwp8c215fc5
+00a0: 2655 3d33 226f 346a 00                  ->  &U=3"o4j.
+
+Error in test 20: ft_printf("YG90\ts<@,g%i]n~%%H%%Hc'c&qku%du%izztU P%xPs@Z]%pIY\H(/)%cAG +|3", -1544227594, -364917736, 1151500193, 317170930, (void *)6996837590022771048, 1709275127): returned: 1, but expected: 107
+Error in test 20: ft_printf("YG90\ts<@,g%i]n~%%H%%Hc'c&qku%du%izztU P%xPs@Z]%pIY\H(/)%cAG +|3", -1544227594, -364917736, 1151500193, 317170930, (void *)6996837590022771048, 1709275127): different memory
+expected:
+0000: 5947 3930 0973 3c40 2c67 2d31 3534 3432 ->  YG90.s<@,g-15442
+0010: 3237 3539 345d 6e7e 2548 2548 6327 6326 ->  27594]n~%H%Hc'c&
+0020: 716b 752d 3336 3439 3137 3733 3675 3131 ->  qku-364917736u11
+0030: 3531 3530 3031 3933 7a7a 7455 2050 3132 ->  51500193zztU P12
+0040: 6537 6134 6632 5073 405a 5d30 7836 3131 ->  e7a4f2Ps@Z]0x611
+0050: 3963 3262 3761 3036 3835 3136 3849 595c ->  9c2b7a0685168IY\
+0060: 4828 2f29 f741 4720 2b7c 3300 11        ->  H(/).AG +|3..
+yours:
+0000: 5947 3930 0973 3c40 2c67 2d31 3534 3432 ->  YG90.s<@,g-15442
+0010: 3237 3539 345d 6e7e 2548 2548 6327 6326 ->  27594]n~%H%Hc'c&
+0020: 716b 752d 3336 3439 3137 3733 3675 3131 ->  qku-364917736u11
+0030: 3531 3530 3031 3933 7a7a 7455 2050 3132 ->  51500193zztU P12
+0040: 6537 6134 6632 5073 405a 5d30 78a1 3631 ->  e7a4f2Ps@Z]0x.61
+0050: 3139 6332 6237 6130 3638 3531 3638 4959 ->  19c2b7a0685168IY
+0060: 5c48 282f 29f7 4147 202b 7c33 00        ->  \H(/).AG +|3.
+
+Error in test 21: ft_printf("dU 8_C%uUg%cxL",xN%u%XX%xiD|(\nKy%pix%X&\vU\nV_K%%K\v", 672102733, -399414856, 1134845929, -2103571963, 1330922049, (void *)-5780755256983927097, -286298049): returned: 1, but expected: 96
+Error in test 21: ft_printf("dU 8_C%uUg%cxL",xN%u%XX%xiD|(\nKy%pix%X&\vU\nV_K%%K\v", 672102733, -399414856, 1134845929, -2103571963, 1330922049, (void *)-5780755256983927097, -286298049): different memory
+expected:
+0000: 6455 2038 5f43 3637 3231 3032 3733 3355 ->  dU 8_C672102733U
+0010: 67b8 784c 222c 784e 3131 3334 3834 3539 ->  g.xL",xN11348459
+0020: 3239 3832 3945 3041 3035 5834 6635 3434 ->  29829E0A05X4f544
+0030: 3234 3169 447c 280a 4b79 3078 6166 6336 ->  241iD|(.Ky0xafc6
+0040: 6131 6238 6236 3030 3436 6337 6978 4545 ->  a1b8b60046c7ixEE
+0050: 4546 3730 3346 260b 550a 565f 4b25 4b0b ->  EF703F&.U.V_K%K.
+0060: 0011                                    ->  ..
+yours:
+0000: 6455 2038 5f43 3637 3231 3032 3733 3355 ->  dU 8_C672102733U
+0010: 67b8 784c 222c 784e 3131 3334 3834 3539 ->  g.xL",xN11348459
+0020: 3239 3832 3945 3041 3035 5834 6635 3434 ->  29829E0A05X4f544
+0030: 3234 3169 447c 280a 4b79 3078 0161 6663 ->  241iD|(.Ky0x.afc
+0040: 3661 3162 3862 3630 3034 3663 3769 7845 ->  6a1b8b60046c7ixE
+0050: 4545 4637 3033 4626 0b55 0a56 5f4b 254b ->  EEF703F&.U.V_K%K
+0060: 0b00                                    ->  ..
+
+Error in test 22: ft_printf("b$;q%x,O[)8 %XInor0%s\viXN", -1269378127, 1131419242, "L\njQJ\\,g,CAV%i,,9Sm\tfc5.q"): returned: 1, but expected: 60
+Error in test 23: ft_printf("V!%dnR%cr!+V;6p%xF{NxCu8)r]%sPcK'0%x$\Nk", 707132955, 2039526948, 2054853702, "[\f\r(hqDLgZCxp~NTTY',3vShjH9- ^!\fE]Y\t-f&o-1Z`WuaVu/.X#6gbc", 524958863): returned: 1, but expected: 113
+Error in test 24: ft_printf("%sO$wE:.\f%%" M)%uExm9%sP~9sk%x%Xn%X:H7q\ngA<l%s$r*1zcE%p|8Ik$", "S}oG1zD5vX!'+.", -1339942461, "k3iz?\vQ:#W5>:M#f2P<i:;GaUk1+WPC\t\vbV9^&8;\r?*fDP&bYKW\nF|NL^_8iDUQnpsEzz3C@vL3C7\"WoTz+iW", -1339100666, -1450170611, -1384358902, "J=mA~jM\nV<\f\\yYnYd 73QdT*|8u8_K8]L\fezlq]*SVtn}\"\r]W\rJa3(6\f_jT", (void *)-2404795739243923430): returned: 1, but expected: 253
+Error in test 24: ft_printf("%sO$wE:.\f%%" M)%uExm9%sP~9sk%x%Xn%X:H7q\ngA<l%s$r*1zcE%p|8Ik$", "S}oG1zD5vX!'+.", -1339942461, "k3iz?\vQ:#W5>:M#f2P<i:;GaUk1+WPC\t\vbV9^&8;\r?*fDP&bYKW\nF|NL^_8iDUQnpsEzz3C@vL3C7\"WoTz+iW", -1339100666, -1450170611, -1384358902, "J=mA~jM\nV<\f\\yYnYd 73QdT*|8u8_K8]L\fezlq]*SVtn}\"\r]W\rJa3(6\f_jT", (void *)-2404795739243923430): different memory
+expected:
+0000: 537d 6f47 317a 4435 7658 2127 2b2e 4f24 ->  S}oG1zD5vX!'+.O$
+0010: 7745 3a2e 0c25 2220 4d29 3239 3535 3032 ->  wE:..%" M)295502
+0020: 3438 3335 4578 6d39 6b33 697a 3f0b 513a ->  4835Exm9k3iz?.Q:
+0030: 2357 353e 3a4d 2366 3250 3c69 3a3b 4761 ->  #W5>:M#f2P<i:;Ga
+0040: 556b 312b 5750 4309 0b62 5639 5e26 383b ->  Uk1+WPC..bV9^&8;
+0050: 0d3f 2a66 4450 2662 594b 570a 467c 4e4c ->  .?*fDP&bYKW.F|NL
+0060: 5e5f 3869 4455 516e 7073 457a 7a33 4340 ->  ^_8iDUQnpsEzz3C@
+0070: 764c 3343 3722 576f 547a 2b69 5750 7e39 ->  vL3C7"WoTz+iWP~9
+0080: 736b 6230 3265 6632 3036 4139 3930 3237 ->  skb02ef206A99027
+0090: 3044 6e41 4437 4335 4330 413a 4837 710a ->  0DnAD7C5C0A:H7q.
+00a0: 6741 3c6c 4a3d 6d41 7e6a 4d0a 563c 0c5c ->  gA<lJ=mA~jM.V<.\
+00b0: 7959 6e59 6420 3733 5164 542a 7c38 7538 ->  yYnYd 73QdT*|8u8
+00c0: 5f4b 385d 4c0c 657a 6c71 5d2a 5356 746e ->  _K8]L.ezlq]*SVtn
+00d0: 7d22 0d5d 570d 4a61 3328 360c 5f6a 5424 ->  }".]W.Ja3(6._jT$
+00e0: 722a 317a 6345 3078 6465 6130 3733 3034 ->  r*1zcE0xdea07304
+00f0: 3263 6665 3338 3161 7c38 496b 2400 11   ->  2cfe381a|8Ik$..
+yours:
+0000: 537d 6f47 317a 4435 7658 2127 2b2e 4f24 ->  S}oG1zD5vX!'+.O$
+0010: 7745 3a2e 0c25 2220 4d29 3239 3535 3032 ->  wE:..%" M)295502
+0020: 3438 3335 4578 6d39 6b33 697a 3f0b 513a ->  4835Exm9k3iz?.Q:
+0030: 2357 353e 3a4d 2366 3250 3c69 3a3b 4761 ->  #W5>:M#f2P<i:;Ga
+0040: 556b 312b 5750 4309 0b62 5639 5e26 383b ->  Uk1+WPC..bV9^&8;
+0050: 0d3f 2a66 4450 2662 594b 570a 467c 4e4c ->  .?*fDP&bYKW.F|NL
+0060: 5e5f 3869 4455 516e 7073 457a 7a33 4340 ->  ^_8iDUQnpsEzz3C@
+0070: 764c 3343 3722 576f 547a 2b69 5750 7e39 ->  vL3C7"WoTz+iWP~9
+0080: 736b 6230 3265 6632 3036 4139 3930 3237 ->  skb02ef206A99027
+0090: 3044 6e41 4437 4335 4330 413a 4837 710a ->  0DnAD7C5C0A:H7q.
+00a0: 6741 3c6c 4a3d 6d41 7e6a 4d0a 563c 0c5c ->  gA<lJ=mA~jM.V<.\
+00b0: 7959 6e59 6420 3733 5164 542a 7c38 7538 ->  yYnYd 73QdT*|8u8
+00c0: 5f4b 385d 4c0c 657a 6c71 5d2a 5356 746e ->  _K8]L.ezlq]*SVtn
+00d0: 7d22 0d5d 570d 4a61 3328 360c 5f6a 5424 ->  }".]W.Ja3(6._jT$
+00e0: 722a 317a 6345 3078 3b64 6561 3037 3330 ->  r*1zcE0x;dea0730
+00f0: 3432 6366 6533 3831 617c 3849 6b24 00   ->  42cfe381a|8Ik$.
+
+Error in test 25: ft_printf("2t=./i%iuH%dQP1[%u%X}uH%XcV>t@A+", 106969076, 1844160165, 167247025, 1850337549, -1387455410): returned: 1, but expected: 66
+Error in test 26: ft_printf("~iU*D%p%c5B>.fP,lPm%xtv6#Qa't0_", (void *)-963543045001578480, 300511713, 1484936076): returned: 1, but expected: 52
+Error in test 26: ft_printf("~iU*D%p%c5B>.fP,lPm%xtv6#Qa't0_", (void *)-963543045001578480, 300511713, 1484936076): different memory
+expected:
+0000: 7e69 552a 4430 7866 3261 3063 6562 3461 ->  ~iU*D0xf2a0ceb4a
+0010: 3465 3166 3831 30e1 3542 3e2e 6650 2c6c ->  4e1f810.5B>.fP,l
+0020: 506d 3538 3832 3533 3863 7476 3623 5161 ->  Pm5882538ctv6#Qa
+0030: 2774 305f 0011                          ->  't0_..
+yours:
+0000: 7e69 552a 4430 7804 6632 6130 6365 6234 ->  ~iU*D0x.f2a0ceb4
+0010: 6134 6531 6638 3130 e135 423e 2e66 502c ->  a4e1f810.5B>.fP,
+0020: 6c50 6d35 3838 3235 3338 6374 7636 2351 ->  lPm5882538ctv6#Q
+0030: 6127 7430 5f00                          ->  a't0_.
+
+Error in test 27: ft_printf("%%b\%p", (void *)-1332979946837528340): returned: 1, but expected: 21
+Error in test 27: ft_printf("%%b\%p", (void *)-1332979946837528340): different memory
+expected:
+0000: 2562 5c30 7865 6438 3034 6463 6430 3030 ->  %b\0xed804dcd000
+0010: 3762 3065 6300 11                       ->  7b0ec..
+yours:
+0000: 2562 5c30 7801 6564 3830 3464 6364 3030 ->  %b\0x.ed804dcd00
+0010: 3037 6230 6563 00                       ->  07b0ec.
+
+Error in test 28: ft_printf("I`TNqb%p%%%cwrl;Z'[Li%d%sQ+G_Bv;%iW*i3%u=K%d /:*|;/%dI%d=slHaX`:uZ", (void *)-3591157926391299248, -589477216, 2140957707, "BA:]>w.*+>r1Pp.+rW+r(X5Sy*D[h19VWRZ\tzvID4\r0V2=r\f7$FtJ\rBDNeIoAWGf,z\nb8bG.qKbYL|U7xiE", 1309645331, 473266330, 457963567, 436725714, -220184668): returned: 1, but expected: 206
+Error in test 28: ft_printf("I`TNqb%p%%%cwrl;Z'[Li%d%sQ+G_Bv;%iW*i3%u=K%d /:*|;/%dI%d=slHaX`:uZ", (void *)-3591157926391299248, -589477216, 2140957707, "BA:]>w.*+>r1Pp.+rW+r(X5Sy*D[h19VWRZ\tzvID4\r0V2=r\f7$FtJ\rBDNeIoAWGf,z\nb8bG.qKbYL|U7xiE", 1309645331, 473266330, 457963567, 436725714, -220184668): different memory
+expected:
+0000: 4960 544e 7162 3078 6365 3239 6134 6534 ->  I`TNqb0xce29a4e4
+0010: 3839 3165 3433 3530 25a0 7772 6c3b 5a27 ->  891e4350%.wrl;Z'
+0020: 5b4c 6932 3134 3039 3537 3730 3742 413a ->  [Li2140957707BA:
+0030: 5d3e 772e 2a2b 3e72 3150 702e 2b72 572b ->  ]>w.*+>r1Pp.+rW+
+0040: 7228 5835 5379 2a44 5b68 3139 5657 525a ->  r(X5Sy*D[h19VWRZ
+0050: 097a 7649 4434 0d30 5632 3d72 0c37 2446 ->  .zvID4.0V2=r.7$F
+0060: 744a 0d42 444e 6549 6f41 5747 662c 7a0a ->  tJ.BDNeIoAWGf,z.
+0070: 6238 6247 2e71 4b62 594c 7c55 3778 6945 ->  b8bG.qKbYL|U7xiE
+0080: 512b 475f 4276 3b31 3330 3936 3435 3333 ->  Q+G_Bv;130964533
+0090: 3157 2a69 3334 3733 3236 3633 3330 3d4b ->  1W*i3473266330=K
+00a0: 3435 3739 3633 3536 3720 2f3a 2a7c 3b2f ->  457963567 /:*|;/
+00b0: 3433 3637 3235 3731 3449 2d32 3230 3138 ->  436725714I-22018
+00c0: 3436 3638 3d73 6c48 6158 603a 755a 0011 ->  4668=slHaX`:uZ..
+yours:
+0000: 4960 544e 7162 3078 0463 6532 3961 3465 ->  I`TNqb0x.ce29a4e
+0010: 3438 3931 6534 3335 3025 a077 726c 3b5a ->  4891e4350%.wrl;Z
+0020: 275b 4c69 3231 3430 3935 3737 3037 4241 ->  '[Li2140957707BA
+0030: 3a5d 3e77 2e2a 2b3e 7231 5070 2e2b 7257 ->  :]>w.*+>r1Pp.+rW
+0040: 2b72 2858 3553 792a 445b 6831 3956 5752 ->  +r(X5Sy*D[h19VWR
+0050: 5a09 7a76 4944 340d 3056 323d 720c 3724 ->  Z.zvID4.0V2=r.7$
+0060: 4674 4a0d 4244 4e65 496f 4157 4766 2c7a ->  FtJ.BDNeIoAWGf,z
+0070: 0a62 3862 472e 714b 6259 4c7c 5537 7869 ->  .b8bG.qKbYL|U7xi
+0080: 4551 2b47 5f42 763b 3133 3039 3634 3533 ->  EQ+G_Bv;13096453
+0090: 3331 572a 6933 3437 3332 3636 3333 303d ->  31W*i3473266330=
+00a0: 4b34 3537 3936 3335 3637 202f 3a2a 7c3b ->  K457963567 /:*|;
+00b0: 2f34 3336 3732 3537 3134 492d 3232 3031 ->  /436725714I-2201
+00c0: 3834 3636 383d 736c 4861 5860 3a75 5a00 ->  84668=slHaX`:uZ.
+
+Error in test 29: ft_printf("a6@Y%cVB$/%%7%%c oiX%x%%1e!#VxlWd%d%dq\vPw(%d", 189043709, 768510396, 1169996631, 1434355296, 1592001613): returned: 1, but expected: 70
+Error in test 30: ft_printf("e{~3g.{9&J%%%x%xrvnR\r('m\v%%%X%dn(L%c#m|IR(X\nwA", 1177218342, -1269459259, 434862750, -181048315, -1750915308): returned: 1, but expected: 69
+Error in test 31: ft_printf("i%ur+H\n%spk~Vy/%xT}:=.a%d( (9%s%p.."u!Mw\n%xe\rt4Y%uy%c0~D6 p", -1596664572, "/i\\\twVh1P,wbRMTo'l8%L$rQSDSeA^E(x*18!-t]5*IZjMNj\"#UXQs>K~WKLaB[]6\f1y1*gmkrN;hwa|\f~u0&Dd\\.=~v", -815953954, -1171847457, "T(2:AVwp^8X2aSrX\t8k", (void *)8579423598578255756, 378057850, 314278113, -363256020): returned: 1, but expected: 217
+Error in test 31: ft_printf("i%ur+H\n%spk~Vy/%xT}:=.a%d( (9%s%p.."u!Mw\n%xe\rt4Y%uy%c0~D6 p", -1596664572, "/i\\\twVh1P,wbRMTo'l8%L$rQSDSeA^E(x*18!-t]5*IZjMNj\"#UXQs>K~WKLaB[]6\f1y1*gmkrN;hwa|\f~u0&Dd\\.=~v", -815953954, -1171847457, "T(2:AVwp^8X2aSrX\t8k", (void *)8579423598578255756, 378057850, 314278113, -363256020): different memory
+expected:
+0000: 6932 3639 3833 3032 3732 3472 2b48 0a2f ->  i2698302724r+H./
+0010: 695c 0977 5668 3150 2c77 6252 4d54 6f27 ->  i\.wVh1P,wbRMTo'
+0020: 6c38 254c 2472 5153 4453 6541 5e45 2878 ->  l8%L$rQSDSeA^E(x
+0030: 2a31 3821 2d74 5d35 2a49 5a6a 4d4e 6a22 ->  *18!-t]5*IZjMNj"
+0040: 2355 5851 733e 4b7e 574b 4c61 425b 5d36 ->  #UXQs>K~WKLaB[]6
+0050: 0c31 7931 2a67 6d6b 724e 3b68 7761 7c0c ->  .1y1*gmkrN;hwa|.
+0060: 7e75 3026 4464 5c2e 3d7e 7670 6b7e 5679 ->  ~u0&Dd\.=~vpk~Vy
+0070: 2f63 6635 6438 3764 6554 7d3a 3d2e 612d ->  /cf5d87deT}:=.a-
+0080: 3131 3731 3834 3734 3537 2820 2839 5428 ->  1171847457( (9T(
+0090: 323a 4156 7770 5e38 5832 6153 7258 0938 ->  2:AVwp^8X2aSrX.8
+00a0: 6b30 7837 3731 3033 6334 6561 3264 6334 ->  k0x77103c4ea2dc4
+00b0: 3738 632e 2e22 7521 4d77 0a31 3638 3862 ->  78c.."u!Mw.1688b
+00c0: 3437 6165 0d74 3459 3331 3432 3738 3131 ->  47ae.t4Y31427811
+00d0: 3379 2c30 7e44 3620 7000 11             ->  3y,0~D6 p..
+yours:
+0000: 6932 3639 3833 3032 3732 3472 2b48 0a2f ->  i2698302724r+H./
+0010: 695c 0977 5668 3150 2c77 6252 4d54 6f27 ->  i\.wVh1P,wbRMTo'
+0020: 6c38 254c 2472 5153 4453 6541 5e45 2878 ->  l8%L$rQSDSeA^E(x
+0030: 2a31 3821 2d74 5d35 2a49 5a6a 4d4e 6a22 ->  *18!-t]5*IZjMNj"
+0040: 2355 5851 733e 4b7e 574b 4c61 425b 5d36 ->  #UXQs>K~WKLaB[]6
+0050: 0c31 7931 2a67 6d6b 724e 3b68 7761 7c0c ->  .1y1*gmkrN;hwa|.
+0060: 7e75 3026 4464 5c2e 3d7e 7670 6b7e 5679 ->  ~u0&Dd\.=~vpk~Vy
+0070: 2f63 6635 6438 3764 6554 7d3a 3d2e 612d ->  /cf5d87deT}:=.a-
+0080: 3131 3731 3834 3734 3537 2820 2839 5428 ->  1171847457( (9T(
+0090: 323a 4156 7770 5e38 5832 6153 7258 0938 ->  2:AVwp^8X2aSrX.8
+00a0: 6b30 7813 3737 3130 3363 3465 6132 6463 ->  k0x.77103c4ea2dc
+00b0: 3437 3863 2e2e 2275 214d 770a 3136 3838 ->  478c.."u!Mw.1688
+00c0: 6234 3761 650d 7434 5933 3134 3237 3831 ->  b47ae.t4Y3142781
+00d0: 3133 792c 307e 4436 2070 00             ->  13y,0~D6 p.
+
+Error in test 32: ft_printf("\r14hS%cv*Or9Mc%dghm%d1ES%sP]v\tc%cK-", 1949608823, 927491573, -1408244281, "]&),XQ3ik#DaC{$]$7XYs@\"e,LD03M$bYF7dv!)\vd?\nyaQK~sj7ZNd7GxQ.67_/a()j>Z5FLP{Z` }i4MWfEy[6iy^nT5o|", 227985323): returned: 1, but expected: 142
+Error in test 33: ft_printf(" zE%c%i9_%uC~U%%=!XR<)dD%Xu\n><V^9/6%Xr%Xm+E%i#", 2058045927, 298039714, 1672465267, 1922201194, 1697770957, -1565174053, -1489675040): returned: 1, but expected: 86
+Error in test 34: ft_printf("%iSlz%sceM3|..%d?52x\t;W", -1959101431, "\f\r>9`!(CD<H>MS", -1687059787): returned: 1, but expected: 53
+Error in test 35: ft_printf("+S.yL2_%X CJGJ%d6Gsf%cQ*%s\tF7w)m%%^hv8+s`z%%ybh0+l\n3%xCAYa", -772370178, 34811371, -1425599904, "_.$\f}#%lbZs1XtI\t", -1339475027): returned: 1, but expected: 87
+Error in test 36: ft_printf("s^,g8\|%s$*-C(8v*Oe%cB \nNcIL>-c%p\t\rlR&V {%u%d3c8", "V\"\"U\rI$RK^]v\v(Xi q%!\v5^tE ,%d$rA\r5`xgVOLKq7c&]>bzsY}TZ[\"ITPr:rtoney\f.G\vI=+/_KB}(\fw&8~=\"a2b>/MggU", -314614268, (void *)2404488378815379287, 178994743, -1757654700): returned: 1, but expected: 173
+Error in test 36: ft_printf("s^,g8\|%s$*-C(8v*Oe%cB \nNcIL>-c%p\t\rlR&V {%u%d3c8", "V\"\"U\rI$RK^]v\v(Xi q%!\v5^tE ,%d$rA\r5`xgVOLKq7c&]>bzsY}TZ[\"ITPr:rtoney\f.G\vI=+/_KB}(\fw&8~=\"a2b>/MggU", -314614268, (void *)2404488378815379287, 178994743, -1757654700): different memory
+expected:
+0000: 735e 2c67 385c 7c56 2222 550d 4924 524b ->  s^,g8\|V""U.I$RK
+0010: 5e5d 760b 2858 6920 7125 210b 355e 7445 ->  ^]v.(Xi q%!.5^tE
+0020: 202c 2564 2472 410d 3560 7867 564f 4c4b ->   ,%d$rA.5`xgVOLK
+0030: 7137 6326 5d3e 627a 7359 7d54 5a5b 2249 ->  q7c&]>bzsY}TZ["I
+0040: 5450 723a 7274 6f6e 6579 0c2e 470b 493d ->  TPr:rtoney..G.I=
+0050: 2b2f 5f4b 427d 280c 7726 387e 3d22 6132 ->  +/_KB}(.w&8~="a2
+0060: 623e 2f4d 6767 5524 2a2d 4328 3876 2a4f ->  b>/MggU$*-C(8v*O
+0070: 6504 4220 0a4e 6349 4c3e 2d63 3078 3231 ->  e.B .NcIL>-c0x21
+0080: 3565 3735 3730 6535 6438 3737 3537 090d ->  5e7570e5d87757..
+0090: 6c52 2656 207b 3137 3839 3934 3734 332d ->  lR&V {178994743-
+00a0: 3137 3537 3635 3437 3030 3363 3800 11   ->  17576547003c8..
+yours:
+0000: 735e 2c67 385c 7c56 2222 550d 4924 524b ->  s^,g8\|V""U.I$RK
+0010: 5e5d 760b 2858 6920 7125 210b 355e 7445 ->  ^]v.(Xi q%!.5^tE
+0020: 202c 2564 2472 410d 3560 7867 564f 4c4b ->   ,%d$rA.5`xgVOLK
+0030: 7137 6326 5d3e 627a 7359 7d54 5a5b 2249 ->  q7c&]>bzsY}TZ["I
+0040: 5450 723a 7274 6f6e 6579 0c2e 470b 493d ->  TPr:rtoney..G.I=
+0050: 2b2f 5f4b 427d 280c 7726 387e 3d22 6132 ->  +/_KB}(.w&8~="a2
+0060: 623e 2f4d 6767 5524 2a2d 4328 3876 2a4f ->  b>/MggU$*-C(8v*O
+0070: 6504 4220 0a4e 6349 4c3e 2d63 3078 0132 ->  e.B .NcIL>-c0x.2
+0080: 3135 6537 3537 3065 3564 3837 3735 3709 ->  15e7570e5d87757.
+0090: 0d6c 5226 5620 7b31 3738 3939 3437 3433 ->  .lR&V {178994743
+00a0: 2d31 3735 3736 3534 3730 3033 6338 00   ->  -17576547003c8.
+
+Error in test 37: ft_printf("m%cT4,AI1xX%%>nFXp6!(k\n%sR)K7%p].F%%=%iL%c>j%XTI", 1251018920, "`3\tRD:M+qzuj \"RL\vI-P+\n8pBg{{V", (void *)-494886412135399768, 2035400079, 453878568, -1346301066): returned: 1, but expected: 101
+Error in test 37: ft_printf("m%cT4,AI1xX%%>nFXp6!(k\n%sR)K7%p].F%%=%iL%c>j%XTI", 1251018920, "`3\tRD:M+qzuj \"RL\vI-P+\n8pBg{{V", (void *)-494886412135399768, 2035400079, 453878568, -1346301066): different memory
+expected:
+0000: 6da8 5434 2c41 4931 7858 253e 6e46 5870 ->  m.T4,AI1xX%>nFXp
+0010: 3621 286b 0a60 3309 5244 3a4d 2b71 7a75 ->  6!(k.`3.RD:M+qzu
+0020: 6a20 2252 4c0b 492d 502b 0a38 7042 677b ->  j "RL.I-P+.8pBg{
+0030: 7b56 5229 4b37 3078 6639 3231 6366 3665 ->  {VR)K70xf921cf6e
+0040: 3230 3830 3765 6138 5d2e 4625 3d32 3033 ->  20807ea8].F%=203
+0050: 3534 3030 3037 394c 283e 6a41 4643 3131 ->  5400079L(>jAFC11
+0060: 3337 3654 4900 11                       ->  376TI..
+yours:
+0000: 6da8 5434 2c41 4931 7858 253e 6e46 5870 ->  m.T4,AI1xX%>nFXp
+0010: 3621 286b 0a60 3309 5244 3a4d 2b71 7a75 ->  6!(k.`3.RD:M+qzu
+0020: 6a20 2252 4c0b 492d 502b 0a38 7042 677b ->  j "RL.I-P+.8pBg{
+0030: 7b56 5229 4b37 3078 1d66 3932 3163 6636 ->  {VR)K70x.f921cf6
+0040: 6532 3038 3037 6561 385d 2e46 253d 3230 ->  e20807ea8].F%=20
+0050: 3335 3430 3030 3739 4c28 3e6a 4146 4331 ->  35400079L(>jAFC1
+0060: 3133 3736 5449 00                       ->  1376TI.
+
+Error in test 38: ft_printf("!5R8%s%%bKI", "4pHdZ"): returned: 1, but expected: 13
+Error in test 39: ft_printf("'4Fx`%c'%u4XUo%%,\r<.rI)\n#P%x'gf:'@", -409572889, -1364945787, 2048928444): returned: 1, but expected: 46
+Error in test 40: ft_printf("N.\rc ;I}v%d:4}z P{so"%%is:UjR*-ib%dDU%p6rj%s4b%ch&}k", 1963861992, 48446536, (void *)8480669481802705435, "%TI{2T\"ESTY3*\r:?mCt;GjEi3_Dzx*lc!U>YF@mXw\\mGE", 1509602311): returned: 1, but expected: 123
+Error in test 40: ft_printf("N.\rc ;I}v%d:4}z P{so"%%is:UjR*-ib%dDU%p6rj%s4b%ch&}k", 1963861992, 48446536, (void *)8480669481802705435, "%TI{2T\"ESTY3*\r:?mCt;GjEi3_Dzx*lc!U>YF@mXw\\mGE", 1509602311): different memory
+expected:
+0000: 4e2e 0d63 203b 497d 7631 3936 3338 3631 ->  N..c ;I}v1963861
+0010: 3939 323a 347d 7a20 507b 736f 2225 6973 ->  992:4}z P{so"%is
+0020: 3a55 6a52 2a2d 6962 3438 3434 3635 3336 ->  :UjR*-ib48446536
+0030: 4455 3078 3735 6231 3633 6636 3130 3538 ->  DU0x75b163f61058
+0040: 6161 3162 3672 6a25 5449 7b32 5422 4553 ->  aa1b6rj%TI{2T"ES
+0050: 5459 332a 0d3a 3f6d 4374 3b47 6a45 6933 ->  TY3*.:?mCt;GjEi3
+0060: 5f44 7a78 2a6c 6321 553e 5946 406d 5877 ->  _Dzx*lc!U>YF@mXw
+0070: 5c6d 4745 3462 0768 267d 6b00 11        ->  \mGE4b.h&}k..
+yours:
+0000: 4e2e 0d63 203b 497d 7631 3936 3338 3631 ->  N..c ;I}v1963861
+0010: 3939 323a 347d 7a20 507b 736f 2225 6973 ->  992:4}z P{so"%is
+0020: 3a55 6a52 2a2d 6962 3438 3434 3635 3336 ->  :UjR*-ib48446536
+0030: 4455 3078 4837 3562 3136 3366 3631 3035 ->  DU0xH75b163f6105
+0040: 3861 6131 6236 726a 2554 497b 3254 2245 ->  8aa1b6rj%TI{2T"E
+0050: 5354 5933 2a0d 3a3f 6d43 743b 476a 4569 ->  STY3*.:?mCt;GjEi
+0060: 335f 447a 782a 6c63 2155 3e59 4640 6d58 ->  3_Dzx*lc!U>YF@mX
+0070: 775c 6d47 4534 6207 6826 7d6b 00        ->  w\mGE4b.h&}k.
+
+Error in test 41: ft_printf("8%c|k%sKG|\f~mg%d\rB%%(%iTo%u%pfk.L[2", -169490111, "YI0139\"\r6$Hnj[qXOlt'\nFx.`oChv[6_<.\f%:$ihk^", -394727469, 1728567806, 988845570, (void *)-5768097667114965735): returned: 1, but expected: 112
+Error in test 41: ft_printf("8%c|k%sKG|\f~mg%d\rB%%(%iTo%u%pfk.L[2", -169490111, "YI0139\"\r6$Hnj[qXOlt'\nFx.`oChv[6_<.\f%:$ihk^", -394727469, 1728567806, 988845570, (void *)-5768097667114965735): different memory
+expected:
+0000: 3841 7c6b 5949 3031 3339 220d 3624 486e ->  8A|kYI0139".6$Hn
+0010: 6a5b 7158 4f6c 7427 0a46 782e 606f 4368 ->  j[qXOlt'.Fx.`oCh
+0020: 765b 365f 3c2e 0c25 3a24 6968 6b5e 4b47 ->  v[6_<..%:$ihk^KG
+0030: 7c0c 7e6d 672d 3339 3437 3237 3436 390d ->  |.~mg-394727469.
+0040: 4225 2831 3732 3835 3637 3830 3654 6f39 ->  B%(1728567806To9
+0050: 3838 3834 3535 3730 3078 6166 6633 3939 ->  888455700xaff399
+0060: 6262 3831 6461 3635 3139 666b 2e4c 5b32 ->  bb81da6519fk.L[2
+0070: 0011                                    ->  ..
+yours:
+0000: 3841 7c6b 5949 3031 3339 220d 3624 486e ->  8A|kYI0139".6$Hn
+0010: 6a5b 7158 4f6c 7427 0a46 782e 606f 4368 ->  j[qXOlt'.Fx.`oCh
+0020: 765b 365f 3c2e 0c25 3a24 6968 6b5e 4b47 ->  v[6_<..%:$ihk^KG
+0030: 7c0c 7e6d 672d 3339 3437 3237 3436 390d ->  |.~mg-394727469.
+0040: 4225 2831 3732 3835 3637 3830 3654 6f39 ->  B%(1728567806To9
+0050: 3838 3834 3535 3730 3078 fe61 6666 3339 ->  888455700x.aff39
+0060: 3962 6238 3164 6136 3531 3966 6b2e 4c5b ->  9bb81da6519fk.L[
+0070: 3200                                    ->  2.
+
+Error in test 42: ft_printf("pG%cWk6A\ng'g%u~e%x^8YhZ{%d%pa}%XCz*MIS%p\v90W!s*~%pO=VLE1;m[<", 2088768353, -731170995, -1299729309, 460158574, (void *)2289220146720790532, -1797748402, (void *)-5478046410247281071, (void *)-509666995018770086): returned: 1, but expected: 134
+Error in test 42: ft_printf("pG%cWk6A\ng'g%u~e%x^8YhZ{%d%pa}%XCz*MIS%p\v90W!s*~%pO=VLE1;m[<", 2088768353, -731170995, -1299729309, 460158574, (void *)2289220146720790532, -1797748402, (void *)-5478046410247281071, (void *)-509666995018770086): different memory
+expected:
+0000: 7047 6157 6b36 410a 6727 6733 3536 3337 ->  pGaWk6A.g'g35637
+0010: 3936 3330 317e 6562 3238 3762 3436 335e ->  96301~eb287b463^
+0020: 3859 685a 7b34 3630 3135 3835 3734 3078 ->  8YhZ{4601585740x
+0030: 3166 6334 6631 3938 3339 6635 6438 3034 ->  1fc4f19839f5d804
+0040: 617d 3934 4438 3839 3445 437a 2a4d 4953 ->  a}94D8894ECz*MIS
+0050: 3078 6233 6661 3131 6430 3536 3162 3636 ->  0xb3fa11d0561b66
+0060: 3531 0b39 3057 2173 2a7e 3078 6638 6564 ->  51.90W!s*~0xf8ed
+0070: 3463 3931 3830 3261 3539 3561 4f3d 564c ->  4c91802a595aO=VL
+0080: 4531 3b6d 5b3c 0011 1111                ->  E1;m[<....
+yours:
+0000: 7047 6157 6b36 410a 6727 6733 3536 3337 ->  pGaWk6A.g'g35637
+0010: 3936 3330 317e 6562 3238 3762 3436 335e ->  96301~eb287b463^
+0020: 3859 685a 7b34 3630 3135 3835 3734 3078 ->  8YhZ{4601585740x
+0030: 6e31 6663 3466 3139 3833 3966 3564 3830 ->  n1fc4f19839f5d80
+0040: 3461 7d39 3444 3838 3934 4543 7a2a 4d49 ->  4a}94D8894ECz*MI
+0050: 5330 786e 6233 6661 3131 6430 3536 3162 ->  S0xnb3fa11d0561b
+0060: 3636 3531 0b39 3057 2173 2a7e 3078 6e66 ->  6651.90W!s*~0xnf
+0070: 3865 6434 6339 3138 3032 6135 3935 614f ->  8ed4c91802a595aO
+0080: 3d56 4c45 313b 6d5b 3c00                ->  =VLE1;m[<.
+
+Error in test 43: ft_printf("%dB\t8NzFq%pP.SpP%pW$(%dl;p 4XgVtf%sxn%cBza[aD!,\v%x,", 173296169, (void *)3607306287450507528, (void *)1512832844697005893, -225546166, "uH\n^M)~/:UFI_jccYp7{T 4:EEEA<fv", -466905162, -597120085): returned: 1, but expected: 132
+Error in test 43: ft_printf("%dB\t8NzFq%pP.SpP%pW$(%dl;p 4XgVtf%sxn%cBza[aD!,\v%x,", 173296169, (void *)3607306287450507528, (void *)1512832844697005893, -225546166, "uH\n^M)~/:UFI_jccYp7{T 4:EEEA<fv", -466905162, -597120085): different memory
+expected:
+0000: 3137 3332 3936 3136 3942 0938 4e7a 4671 ->  173296169B.8NzFq
+0010: 3078 3332 3066 6239 6634 6333 3835 3439 ->  0x320fb9f4c38549
+0020: 3038 502e 5370 5030 7831 3466 6561 3937 ->  08P.SpP0x14fea97
+0030: 3466 3862 3536 6634 3557 2428 2d32 3235 ->  4f8b56f45W$(-225
+0040: 3534 3631 3636 6c3b 7020 3458 6756 7466 ->  546166l;p 4XgVtf
+0050: 7548 0a5e 4d29 7e2f 3a55 4649 5f6a 6363 ->  uH.^M)~/:UFI_jcc
+0060: 5970 377b 5420 343a 4545 4541 3c66 7678 ->  Yp7{T 4:EEEA<fvx
+0070: 6eb6 427a 615b 6144 212c 0b64 6336 3861 ->  n.Bza[aD!,.dc68a
+0080: 6261 622c 0011 11                       ->  bab,...
+yours:
+0000: 3137 3332 3936 3136 3942 0938 4e7a 4671 ->  173296169B.8NzFq
+0010: 3078 2933 3230 6662 3966 3463 3338 3534 ->  0x)320fb9f4c3854
+0020: 3930 3850 2e53 7050 3078 2931 3466 6561 ->  908P.SpP0x)14fea
+0030: 3937 3466 3862 3536 6634 3557 2428 2d32 ->  974f8b56f45W$(-2
+0040: 3235 3534 3631 3636 6c3b 7020 3458 6756 ->  25546166l;p 4XgV
+0050: 7466 7548 0a5e 4d29 7e2f 3a55 4649 5f6a ->  tfuH.^M)~/:UFI_j
+0060: 6363 5970 377b 5420 343a 4545 4541 3c66 ->  ccYp7{T 4:EEEA<f
+0070: 7678 6eb6 427a 615b 6144 212c 0b64 6336 ->  vxn.Bza[aD!,.dc6
+0080: 3861 6261 622c 00                       ->  8abab,.
+
+Error in test 44: ft_printf("1~y&%cRm=%spZ.iP<Ag\r%X+jzTL#u%p=jCH)Mb/w,%p%sM7FvU_Br]r%d%c9wJ^DI%%", 1898717079, "{`6V", -1665180425, (void *)-4201065805448912543, (void *)-6429656927492804502, "'m/b=\f}OdDK?sbfS56:^3E;s\vK$}=g3\r#b*rq%1%Wsn8o<~Zp\t+iF", -562564831, 406349828): returned: 1, but expected: 163
+Error in test 44: ft_printf("1~y&%cRm=%spZ.iP<Ag\r%X+jzTL#u%p=jCH)Mb/w,%p%sM7FvU_Br]r%d%c9wJ^DI%%", 1898717079, "{`6V", -1665180425, (void *)-4201065805448912543, (void *)-6429656927492804502, "'m/b=\f}OdDK?sbfS56:^3E;s\vK$}=g3\r#b*rq%1%Wsn8o<~Zp\t+iF", -562564831, 406349828): different memory
+expected:
+0000: 317e 7926 9752 6d3d 7b60 3656 705a 2e69 ->  1~y&.Rm={`6VpZ.i
+0010: 503c 4167 0d39 4342 4635 4346 372b 6a7a ->  P<Ag.9CBF5CF7+jz
+0020: 544c 2375 3078 6335 6232 6430 6538 3763 ->  TL#u0xc5b2d0e87c
+0030: 3264 3631 3631 3d6a 4348 294d 622f 772c ->  2d6161=jCH)Mb/w,
+0040: 3078 6136 6335 3435 3137 3139 3239 3730 ->  0xa6c54517192970
+0050: 3661 276d 2f62 3d0c 7d4f 6444 4b3f 7362 ->  6a'm/b=.}OdDK?sb
+0060: 6653 3536 3a5e 3345 3b73 0b4b 247d 3d67 ->  fS56:^3E;s.K$}=g
+0070: 330d 2362 2a72 7125 3125 5773 6e38 6f3c ->  3.#b*rq%1%Wsn8o<
+0080: 7e5a 7009 2b69 464d 3746 7655 5f42 725d ->  ~Zp.+iFM7FvU_Br]
+0090: 722d 3536 3235 3634 3833 3104 3977 4a5e ->  r-562564831.9wJ^
+00a0: 4449 2500 1111                          ->  DI%...
+yours:
+0000: 317e 7926 9752 6d3d 7b60 3656 705a 2e69 ->  1~y&.Rm={`6VpZ.i
+0010: 503c 4167 0d39 4342 4635 4346 372b 6a7a ->  P<Ag.9CBF5CF7+jz
+0020: 544c 2375 3078 0463 3562 3264 3065 3837 ->  TL#u0x.c5b2d0e87
+0030: 6332 6436 3136 313d 6a43 4829 4d62 2f77 ->  c2d6161=jCH)Mb/w
+0040: 2c30 7804 6136 6335 3435 3137 3139 3239 ->  ,0x.a6c545171929
+0050: 3730 3661 276d 2f62 3d0c 7d4f 6444 4b3f ->  706a'm/b=.}OdDK?
+0060: 7362 6653 3536 3a5e 3345 3b73 0b4b 247d ->  sbfS56:^3E;s.K$}
+0070: 3d67 330d 2362 2a72 7125 3125 5773 6e38 ->  =g3.#b*rq%1%Wsn8
+0080: 6f3c 7e5a 7009 2b69 464d 3746 7655 5f42 ->  o<~Zp.+iFM7FvU_B
+0090: 725d 722d 3536 3235 3634 3833 3104 3977 ->  r]r-562564831.9w
+00a0: 4a5e 4449 2500                          ->  J^DI%.
+
+Error in test 45: ft_printf("A%p<%%e%XUP%dOu=]5Qw", (void *)-3868664164466273170, 61800178, 1763021891): returned: 1, but expected: 48
+Error in test 45: ft_printf("A%p<%%e%XUP%dOu=]5Qw", (void *)-3868664164466273170, 61800178, 1763021891): different memory
+expected:
+0000: 4130 7863 6134 6662 6537 3038 3162 3435 ->  A0xca4fbe7081b45
+0010: 3436 653c 2565 3341 4546 4546 3255 5031 ->  46e<%e3AEFEF2UP1
+0020: 3736 3330 3231 3839 314f 753d 5d35 5177 ->  763021891Ou=]5Qw
+0030: 0011                                    ->  ..
+yours:
+0000: 4130 7804 6361 3466 6265 3730 3831 6234 ->  A0x.ca4fbe7081b4
+0010: 3534 3665 3c25 6533 4145 4645 4632 5550 ->  546e<%e3AEFEF2UP
+0020: 3137 3633 3032 3138 3931 4f75 3d5d 3551 ->  1763021891Ou=]5Q
+0030: 7700                                    ->  w.
+
+Error in test 46: ft_printf("ob.gq 8]\r%pz4%p%%=:. B\v0Q`4%s:Ho*(i>)`w", (void *)7210407167203216220, (void *)-3761455981366473374, "fh[^d,Vu,`HtP\"tym 3g5>Vv\r$\"Z=P-M16"): returned: 1, but expected: 102
+Error in test 46: ft_printf("ob.gq 8]\r%pz4%p%%=:. B\v0Q`4%s:Ho*(i>)`w", (void *)7210407167203216220, (void *)-3761455981366473374, "fh[^d,Vu,`HtP\"tym 3g5>Vv\r$\"Z=P-M16"): different memory
+expected:
+0000: 6f62 2e67 7120 385d 0d30 7836 3431 3038 ->  ob.gq 8].0x64108
+0010: 3331 6462 6631 3430 6235 637a 3430 7863 ->  31dbf140b5cz40xc
+0020: 6263 6339 6662 3663 3836 3230 6436 3225 ->  bcc9fb6c8620d62%
+0030: 3d3a 2e20 420b 3051 6034 6668 5b5e 642c ->  =:. B.0Q`4fh[^d,
+0040: 5675 2c60 4874 5022 7479 6d20 3367 353e ->  Vu,`HtP"tym 3g5>
+0050: 5676 0d24 225a 3d50 2d4d 3136 3a48 6f2a ->  Vv.$"Z=P-M16:Ho*
+0060: 2869 3e29 6077 0011 11                  ->  (i>)`w...
+yours:
+0000: 6f62 2e67 7120 385d 0d30 7804 3634 3130 ->  ob.gq 8].0x.6410
+0010: 3833 3164 6266 3134 3062 3563 7a34 3078 ->  831dbf140b5cz40x
+0020: 0463 6263 6339 6662 3663 3836 3230 6436 ->  .cbcc9fb6c8620d6
+0030: 3225 3d3a 2e20 420b 3051 6034 6668 5b5e ->  2%=:. B.0Q`4fh[^
+0040: 642c 5675 2c60 4874 5022 7479 6d20 3367 ->  d,Vu,`HtP"tym 3g
+0050: 353e 5676 0d24 225a 3d50 2d4d 3136 3a48 ->  5>Vv.$"Z=P-M16:H
+0060: 6f2a 2869 3e29 6077 00                  ->  o*(i>)`w.
+
+Error in test 47: ft_printf("%u_o%d%pV%pmc(2U%X\f7/W?VZ%x%x.S", -1659407469, -1801904759, (void *)5558573194818312467, (void *)8426611119077308237, -2033024944, -1912955840, -346287137): returned: 1, but expected: 98
+Error in test 47: ft_printf("%u_o%d%pV%pmc(2U%X\f7/W?VZ%x%x.S", -1659407469, -1801904759, (void *)5558573194818312467, (void *)8426611119077308237, -2033024944, -1912955840, -346287137): different memory
+expected:
+0000: 3236 3335 3535 3938 3237 5f6f 2d31 3830 ->  2635559827_o-180
+0010: 3139 3034 3735 3930 7834 6432 3430 3464 ->  19047590x4d2404d
+0020: 6562 6632 3735 3931 3356 3078 3734 6631 ->  ebf275913V0x74f1
+0030: 3536 3261 6163 6635 6237 3464 6d63 2832 ->  562aacf5b74dmc(2
+0040: 5538 3644 3238 3035 300c 372f 573f 565a ->  U86D28050.7/W?VZ
+0050: 3864 6661 3963 3430 6562 3563 3133 6466 ->  8dfa9c40eb5c13df
+0060: 2e53 0011 11                            ->  .S...
+yours:
+0000: 3236 3335 3535 3938 3237 5f6f 2d31 3830 ->  2635559827_o-180
+0010: 3139 3034 3735 3930 7877 3464 3234 3034 ->  19047590xw4d2404
+0020: 6465 6266 3237 3539 3133 5630 7877 3734 ->  debf275913V0xw74
+0030: 6631 3536 3261 6163 6635 6237 3464 6d63 ->  f1562aacf5b74dmc
+0040: 2832 5538 3644 3238 3035 300c 372f 573f ->  (2U86D28050.7/W?
+0050: 565a 3864 6661 3963 3430 6562 3563 3133 ->  VZ8dfa9c40eb5c13
+0060: 6466 2e53 00                            ->  df.S.
+
+Error in test 48: ft_printf("%s<1Lg~qXK:d%%Yaco%uac%XXC.P<Zs%x<o%%3<+2%sr8%%\>J: bN%sE%s\fLcylk/", "5oE^4km^3JmBWc4f8RZOZ@;9]Vm|z(z", 562861091, -277829755, -734896649, "}dh,K[p-9nA\"rhH0>~QU|<(\vL KVm&G5<{w/kdv?/7@5jSfgz,Juc}oltX$ $DDK>ofLv]dRBj;!.LUL~;{1_q3iprl=", "OgZ\n@1-nnAv\\SW-KZdhL}zO2:Mc/\f'a?Cqn9oP>Y@U7U PX?Z\vDE[+}:-XT=`/j%- gcc!1CB ?Bt!KSf'bx(uss", "mKTm\"f\fmhR$qXRrxk<u|/Fk>W|R\r+|[I6pDWgr \tP1doLAbPOM[Mc4"): returned: 1, but expected: 339
+Error in test 49: ft_printf("vy(%i\vs*I2Is%u\W@a\*]=_n%uy\vZ%xfX1w@:4CxE%uXU.DZk0x[%%H ZP", 1456234334, 350438662, 428845225, 349536673, 872232921): returned: 1, but expected: 92
+Error in test 50: ft_printf("x/%p\y"\5F@=]6%pKF/X4~Hzx%ujhE^R%dO %i'u${`I", (void *)6929797236415223414, (void *)3193191809182431484, -1514010206, -343511953, -1466407338): returned: 1, but expected: 101
+Error in test 50: ft_printf("x/%p\y"\5F@=]6%pKF/X4~Hzx%ujhE^R%dO %i'u${`I", (void *)6929797236415223414, (void *)3193191809182431484, -1514010206, -343511953, -1466407338): different memory
+expected:
+0000: 782f 3078 3630 3262 3935 6465 6632 3033 ->  x/0x602b95def203
+0010: 3536 3736 5c79 225c 3546 403d 5d36 3078 ->  5676\y"\5F@=]60x
+0020: 3263 3530 3766 3038 3365 3031 3738 6663 ->  2c507f083e0178fc
+0030: 4b46 2f58 347e 487a 7832 3738 3039 3537 ->  KF/X4~Hzx2780957
+0040: 3039 306a 6845 5e52 2d33 3433 3531 3139 ->  090jhE^R-3435119
+0050: 3533 4f20 2d31 3436 3634 3037 3333 3827 ->  53O -1466407338'
+0060: 7524 7b60 4900 1111                     ->  u${`I...
+yours:
+0000: 782f 3078 0436 3032 6239 3564 6566 3230 ->  x/0x.602b95def20
+0010: 3335 3637 365c 7922 5c35 4640 3d5d 3630 ->  35676\y"\5F@=]60
+0020: 7804 3263 3530 3766 3038 3365 3031 3738 ->  x.2c507f083e0178
+0030: 6663 4b46 2f58 347e 487a 7832 3738 3039 ->  fcKF/X4~Hzx27809
+0040: 3537 3039 306a 6845 5e52 2d33 3433 3531 ->  57090jhE^R-34351
+0050: 3139 3533 4f20 2d31 3436 3634 3037 3333 ->  1953O -146640733
+0060: 3827 7524 7b60 4900                     ->  8'u${`I.
+
+Error in test 51: ft_printf("'5e%p9ot"g?P%d[DS\f$/\v%u%i6%%"9/>1rg/9v%x^ |%xs dQp%s~t", (void *)7231624687359496847, -661367436, 1607132171, 1366844997, 571716682, 1314798885, "_/^/f1##''k1yXzKM@3x\vip3_!.yt3r12|(lj\tP$#&9DZJ%nQ#X6>bzf*e\"wdi=\tYb(4fQjgQ<qz]A_\nR?#Q}"): returned: 1, but expected: 188
+Error in test 51: ft_printf("'5e%p9ot"g?P%d[DS\f$/\v%u%i6%%"9/>1rg/9v%x^ |%xs dQp%s~t", (void *)7231624687359496847, -661367436, 1607132171, 1366844997, 571716682, 1314798885, "_/^/f1##''k1yXzKM@3x\vip3_!.yt3r12|(lj\tP$#&9DZJ%nQ#X6>bzf*e\"wdi=\tYb(4fQjgQ<qz]A_\nR?#Q}"): different memory
+expected:
+0000: 2735 6530 7836 3435 6265 3435 3639 6630 ->  '5e0x645be4569f0
+0010: 3231 3238 6639 6f74 2267 3f50 2d36 3631 ->  2128f9ot"g?P-661
+0020: 3336 3734 3336 5b44 530c 242f 0b31 3630 ->  367436[DS.$/.160
+0030: 3731 3332 3137 3131 3336 3638 3434 3939 ->  7132171136684499
+0040: 3736 2522 392f 3e31 7267 2f39 7632 3231 ->  76%"9/>1rg/9v221
+0050: 3362 3434 615e 207c 3465 3565 3364 3235 ->  3b44a^ |4e5e3d25
+0060: 7320 6451 705f 2f5e 2f66 3123 2327 276b ->  s dQp_/^/f1##''k
+0070: 3179 587a 4b4d 4033 780b 6970 335f 212e ->  1yXzKM@3x.ip3_!.
+0080: 7974 3372 3132 7c28 6c6a 0950 2423 2639 ->  yt3r12|(lj.P$#&9
+0090: 445a 4a25 6e51 2358 363e 627a 662a 6522 ->  DZJ%nQ#X6>bzf*e"
+00a0: 7764 693d 0959 6228 3466 516a 6751 3c71 ->  wdi=.Yb(4fQjgQ<q
+00b0: 7a5d 415f 0a52 3f23 517d 7e74 0011      ->  z]A_.R?#Q}~t..
+yours:
+0000: 2735 6530 7804 3634 3562 6534 3536 3966 ->  '5e0x.645be4569f
+0010: 3032 3132 3866 396f 7422 673f 502d 3636 ->  02128f9ot"g?P-66
+0020: 3133 3637 3433 365b 4453 0c24 2f0b 3136 ->  1367436[DS.$/.16
+0030: 3037 3133 3231 3731 3133 3636 3834 3439 ->  0713217113668449
+0040: 3937 3625 2239 2f3e 3172 672f 3976 3232 ->  976%"9/>1rg/9v22
+0050: 3133 6234 3461 5e20 7c34 6535 6533 6432 ->  13b44a^ |4e5e3d2
+0060: 3573 2064 5170 5f2f 5e2f 6631 2323 2727 ->  5s dQp_/^/f1##''
+0070: 6b31 7958 7a4b 4d40 3378 0b69 7033 5f21 ->  k1yXzKM@3x.ip3_!
+0080: 2e79 7433 7231 327c 286c 6a09 5024 2326 ->  .yt3r12|(lj.P$#&
+0090: 3944 5a4a 256e 5123 5836 3e62 7a66 2a65 ->  9DZJ%nQ#X6>bzf*e
+00a0: 2277 6469 3d09 5962 2834 6651 6a67 513c ->  "wdi=.Yb(4fQjgQ<
+00b0: 717a 5d41 5f0a 523f 2351 7d7e 7400      ->  qz]A_.R?#Q}~t.
+
+Error in test 52: ft_printf("m(exQx*(G%s%c\r%x\vqF)%cJoqE&L]%%h", "9'5OgNvMj*'SGeyNDgf2h'nB!oTTe:n6}LZ7\"4$%/`M|f/=g($]i+>?5u&~\r/os~;VWW\"JwX/%|]70N\v\n~3a\\#zEaTg`dT'/t", 1096963245, -1774929724, -515148895): returned: 1, but expected: 130
+Error in test 53: ft_printf("g8%XUl%iY\fMoL-?h`)", 1930626109, 1053096977): returned: 1, but expected: 32
+Error in test 54: ft_printf("f)iZ%cLQ\r<$) C%p%p"}&.W@Uu\t%c(asF%i16%%Xy-ePH%cIv3{MMSTxV", 163454506, (void *)5558879634878289320, (void *)7664412047395082406, 1892222764, -2004476203, 1003363012): returned: 1, but expected: 94
+Error in test 54: ft_printf("f)iZ%cLQ\r<$) C%p%p"}&.W@Uu\t%c(asF%i16%%Xy-ePH%cIv3{MMSTxV", 163454506, (void *)5558879634878289320, (void *)7664412047395082406, 1892222764, -2004476203, 1003363012): different memory
+expected:
+0000: 6629 695a 2a4c 510d 3c24 2920 4330 7834 ->  f)iZ*LQ.<$) C0x4
+0010: 6432 3531 6239 3336 3231 3264 3561 3830 ->  d251b936212d5a80
+0020: 7836 6135 6437 3632 3633 3933 3535 3061 ->  x6a5d7626393550a
+0030: 3622 7d26 2e57 4055 7509 2c28 6173 462d ->  6"}&.W@Uu.,(asF-
+0040: 3230 3034 3437 3632 3033 3136 2558 792d ->  200447620316%Xy-
+0050: 6550 48c4 4976 337b 4d4d 5354 7856 0011 ->  ePH.Iv3{MMSTxV..
+yours:
+0000: 6629 695a 2a4c 510d 3c24 2920 4330 7801 ->  f)iZ*LQ.<$) C0x.
+0010: 3464 3235 3162 3933 3632 3132 6435 6138 ->  4d251b936212d5a8
+0020: 3078 0136 6135 6437 3632 3633 3933 3535 ->  0x.6a5d762639355
+0030: 3061 3622 7d26 2e57 4055 7509 2c28 6173 ->  0a6"}&.W@Uu.,(as
+0040: 462d 3230 3034 3437 3632 3033 3136 2558 ->  F-200447620316%X
+0050: 792d 6550 48c4 4976 337b 4d4d 5354 7856 ->  y-ePH.Iv3{MMSTxV
+0060: 00                                      ->  .
+
+Error in test 55: ft_printf("XY|3%siV.T4UiWC%c-d:3p\vM%%4%d['K|aXF^V%% PQ\vr?YI%uwm8gAM%d:\S\rhC%d", "0Ve#'TMFJ=G!8", -165737229, -1464179906, 1036497352, -506049126, -1664214462): returned: 1, but expected: 108
+Error in test 56: ft_printf("%uUo(%p%x\f%dNj\r&DN\tOk%cvLJ^|S|\C%x:KiyHtirY%cadG;0S%iw"gz]Sc", 2000721121, (void *)-8387816874610312774, -1594470736, -1283190058, -576965089, -12034866, 2111445382, -2117446147): returned: 1, but expected: 112
+Error in test 56: ft_printf("%uUo(%p%x\f%dNj\r&DN\tOk%cvLJ^|S|\C%x:KiyHtirY%cadG;0S%iw"gz]Sc", 2000721121, (void *)-8387816874610312774, -1594470736, -1283190058, -576965089, -12034866, 2111445382, -2117446147): different memory
+expected:
+0000: 3230 3030 3732 3131 3231 556f 2830 7838 ->  2000721121Uo(0x8
+0010: 6239 3837 6366 6533 6264 3333 3962 6161 ->  b987cfe3bd339baa
+0020: 3066 3634 6562 300c 2d31 3238 3331 3930 ->  0f64eb0.-1283190
+0030: 3035 384e 6a0d 2644 4e09 4f6b 1f76 4c4a ->  058Nj.&DN.Ok.vLJ
+0040: 5e7c 537c 5c43 6666 3438 3563 6365 3a4b ->  ^|S|\Cff485cce:K
+0050: 6979 4874 6972 5986 6164 473b 3053 2d32 ->  iyHtirY.adG;0S-2
+0060: 3131 3734 3436 3134 3777 2267 7a5d 5363 ->  117446147w"gz]Sc
+0070: 0011                                    ->  ..
+yours:
+0000: 3230 3030 3732 3131 3231 556f 2830 7804 ->  2000721121Uo(0x.
+0010: 3862 3938 3763 6665 3362 6433 3339 6261 ->  8b987cfe3bd339ba
+0020: 6130 6636 3465 6230 0c2d 3132 3833 3139 ->  a0f64eb0.-128319
+0030: 3030 3538 4e6a 0d26 444e 094f 6b1f 764c ->  0058Nj.&DN.Ok.vL
+0040: 4a5e 7c53 7c5c 4366 6634 3835 6363 653a ->  J^|S|\Cff485cce:
+0050: 4b69 7948 7469 7259 8661 6447 3b30 532d ->  KiyHtirY.adG;0S-
+0060: 3231 3137 3434 3631 3437 7722 677a 5d53 ->  2117446147w"gz]S
+0070: 6300                                    ->  c.
+
+Error in test 57: ft_printf("kVe6:YPAj%d%cvjN+)D", 1702202322, 1568649236): returned: 1, but expected: 26
+Error in test 58: ft_printf("GH%pjN%s\f%%d%u%iv7+D%u`Rp"\vK$#K%c.`E\vn(", (void *)3623855358602811038, "k\r:5!.(kkXgkXObTQO/POU%H~,[", -1952232665, 1846209823, -974719070, -501396869): returned: 1, but expected: 102
+Error in test 58: ft_printf("GH%pjN%s\f%%d%u%iv7+D%u`Rp"\vK$#K%c.`E\vn(", (void *)3623855358602811038, "k\r:5!.(kkXgkXObTQO/POU%H~,[", -1952232665, 1846209823, -974719070, -501396869): different memory
+expected:
+0000: 4748 3078 3332 3461 3835 3366 6136 6561 ->  GH0x324a853fa6ea
+0010: 3936 3965 6a4e 6b0d 3a35 212e 286b 6b58 ->  969ejNk.:5!.(kkX
+0020: 676b 584f 6254 514f 2f50 4f55 2548 7e2c ->  gkXObTQO/POU%H~,
+0030: 5b0c 2564 3233 3432 3733 3436 3331 3138 ->  [.%d234273463118
+0040: 3436 3230 3938 3233 7637 2b44 3333 3230 ->  46209823v7+D3320
+0050: 3234 3832 3236 6052 7022 0b4b 2423 4b7b ->  248226`Rp".K$#K{
+0060: 2e60 450b 6e28 0011                     ->  .`E.n(..
+yours:
+0000: 4748 3078 0433 3234 6138 3533 6661 3665 ->  GH0x.324a853fa6e
+0010: 6139 3639 656a 4e6b 0d3a 3521 2e28 6b6b ->  a969ejNk.:5!.(kk
+0020: 5867 6b58 4f62 5451 4f2f 504f 5525 487e ->  XgkXObTQO/POU%H~
+0030: 2c5b 0c25 6432 3334 3237 3334 3633 3131 ->  ,[.%d23427346311
+0040: 3834 3632 3039 3832 3376 372b 4433 3332 ->  846209823v7+D332
+0050: 3032 3438 3232 3660 5270 220b 4b24 234b ->  0248226`Rp".K$#K
+0060: 7b2e 6045 0b6e 2800                     ->  {.`E.n(.
+
+Error in test 59: ft_printf(".mps]P%p[x%pchr'%uk?Y_K-QT%Xk{,%x\v7:%xg#EqW%u=;16T.wS@%u", (void *)-1501832842660574302, (void *)3397944207765188426, -992828203, 1202199776, -312070600, -1481588221, -2058084251, 1084222743): returned: 1, but expected: 130
+Error in test 59: ft_printf(".mps]P%p[x%pchr'%uk?Y_K-QT%Xk{,%x\v7:%xg#EqW%u=;16T.wS@%u", (void *)-1501832842660574302, (void *)3397944207765188426, -992828203, 1202199776, -312070600, -1481588221, -2058084251, 1084222743): different memory
+expected:
+0000: 2e6d 7073 5d50 3078 6562 3238 3661 6663 ->  .mps]P0xeb286afc
+0010: 3935 3333 3862 6132 5b78 3078 3266 3237 ->  95338ba2[x0x2f27
+0020: 6563 3430 6665 3730 6166 3461 6368 7227 ->  ec40fe70af4achr'
+0030: 3333 3032 3133 3930 3933 6b3f 595f 4b2d ->  3302139093k?Y_K-
+0040: 5154 3437 4138 3143 4530 6b7b 2c65 6436 ->  QT47A81CE0k{,ed6
+0050: 3632 6533 380b 373a 6137 6230 6332 3033 ->  62e38.7:a7b0c203
+0060: 6723 4571 5732 3233 3638 3833 3034 353d ->  g#EqW2236883045=
+0070: 3b31 3654 2e77 5340 3130 3834 3232 3237 ->  ;16T.wS@10842227
+0080: 3433 0011 11                            ->  43...
+yours:
+0000: 2e6d 7073 5d50 3078 0465 6232 3836 6166 ->  .mps]P0x.eb286af
+0010: 6339 3533 3338 6261 325b 7830 7804 3266 ->  c95338ba2[x0x.2f
+0020: 3237 6563 3430 6665 3730 6166 3461 6368 ->  27ec40fe70af4ach
+0030: 7227 3333 3032 3133 3930 3933 6b3f 595f ->  r'3302139093k?Y_
+0040: 4b2d 5154 3437 4138 3143 4530 6b7b 2c65 ->  K-QT47A81CE0k{,e
+0050: 6436 3632 6533 380b 373a 6137 6230 6332 ->  d662e38.7:a7b0c2
+0060: 3033 6723 4571 5732 3233 3638 3833 3034 ->  03g#EqW223688304
+0070: 353d 3b31 3654 2e77 5340 3130 3834 3232 ->  5=;16T.wS@108422
+0080: 3237 3433 00                            ->  2743.
+
+Error in test 60: ft_printf("YS%uPk;Lm]%i`|_r2Cj%X%p*l9CS<%c}k-K9ySW%u\r", 849130625, 1290493192, -109991123, (void *)-192072343962265258, -126079128, 1650447671): returned: 1, but expected: 86
+Error in test 60: ft_printf("YS%uPk;Lm]%i`|_r2Cj%X%p*l9CS<%c}k-K9ySW%u\r", 849130625, 1290493192, -109991123, (void *)-192072343962265258, -126079128, 1650447671): different memory
+expected:
+0000: 5953 3834 3931 3330 3632 3550 6b3b 4c6d ->  YS849130625Pk;Lm
+0010: 5d31 3239 3034 3933 3139 3260 7c5f 7232 ->  ]1290493192`|_r2
+0020: 436a 4639 3731 4142 3244 3078 6664 3535 ->  CjF971AB2D0xfd55
+0030: 3966 3338 3836 6633 6439 3536 2a6c 3943 ->  9f3886f3d956*l9C
+0040: 533c 687d 6b2d 4b39 7953 5731 3635 3034 ->  S<h}k-K9ySW16504
+0050: 3437 3637 310d 0011                     ->  47671...
+yours:
+0000: 5953 3834 3931 3330 3632 3550 6b3b 4c6d ->  YS849130625Pk;Lm
+0010: 5d31 3239 3034 3933 3139 3260 7c5f 7232 ->  ]1290493192`|_r2
+0020: 436a 4639 3731 4142 3244 3078 0866 6435 ->  CjF971AB2D0x.fd5
+0030: 3539 6633 3838 3666 3364 3935 362a 6c39 ->  59f3886f3d956*l9
+0040: 4353 3c68 7d6b 2d4b 3979 5357 3136 3530 ->  CS<h}k-K9ySW1650
+0050: 3434 3736 3731 0d00                     ->  447671..
+
+Error in test 61: ft_printf("G%p sHB%p Zf HIAm(%X`n2kA%x]f|h/lXK%ccSS\%xdA ,i9M>}%i\)eF0]K@5x", (void *)419263392448687805, (void *)9076898966310383544, -1221315980, 1352988948, 103936011, -1032001353, -803149787): returned: 1, but expected: 120
+Error in test 61: ft_printf("G%p sHB%p Zf HIAm(%X`n2kA%x]f|h/lXK%ccSS\%xdA ,i9M>}%i\)eF0]K@5x", (void *)419263392448687805, (void *)9076898966310383544, -1221315980, 1352988948, 103936011, -1032001353, -803149787): different memory
+expected:
+0000: 4730 7835 6431 3835 6435 3836 3361 6165 ->  G0x5d185d5863aae
+0010: 6264 2073 4842 3078 3764 6637 3966 3834 ->  bd sHB0x7df79f84
+0020: 6235 3061 3666 6238 205a 6620 4849 416d ->  b50a6fb8 Zf HIAm
+0030: 2842 3733 3433 3237 3460 6e32 6b41 3530 ->  (B7343274`n2kA50
+0040: 6134 6639 3134 5d66 7c68 2f6c 584b 0b63 ->  a4f914]f|h/lXK.c
+0050: 5353 5c63 3237 6365 3862 3764 4120 2c69 ->  SS\c27ce8b7dA ,i
+0060: 394d 3e7d 2d38 3033 3134 3937 3837 5c29 ->  9M>}-803149787\)
+0070: 6546 305d 4b40 3578 0011 11             ->  eF0]K@5x...
+yours:
+0000: 4730 7800 3564 3138 3564 3538 3633 6161 ->  G0x.5d185d5863aa
+0010: 6562 6420 7348 4230 7804 3764 6637 3966 ->  ebd sHB0x.7df79f
+0020: 3834 6235 3061 3666 6238 205a 6620 4849 ->  84b50a6fb8 Zf HI
+0030: 416d 2842 3733 3433 3237 3460 6e32 6b41 ->  Am(B7343274`n2kA
+0040: 3530 6134 6639 3134 5d66 7c68 2f6c 584b ->  50a4f914]f|h/lXK
+0050: 0b63 5353 5c63 3237 6365 3862 3764 4120 ->  .cSS\c27ce8b7dA 
+0060: 2c69 394d 3e7d 2d38 3033 3134 3937 3837 ->  ,i9M>}-803149787
+0070: 5c29 6546 305d 4b40 3578 00             ->  \)eF0]K@5x.
+
+Error in test 62: ft_printf("jS%sZ?/3yX7y;%p(0%cT6%%G%cb].Kc_d%X+", "&{6Z\vbG@Es;Lr)rp\n=T|98Cd@%#t;ri`2p\ft(Uk~9Q>j$Oka2d|<#ZVOBIf<wiZ%@gn=G=GC", (void *)1487533067484124307, -362948587, -835954714, -2110104145): returned: 1, but expected: 125
+Error in test 62: ft_printf("jS%sZ?/3yX7y;%p(0%cT6%%G%cb].Kc_d%X+", "&{6Z\vbG@Es;Lr)rp\n=T|98Cd@%#t;ri`2p\ft(Uk~9Q>j$Oka2d|<#ZVOBIf<wiZ%@gn=G=GC", (void *)1487533067484124307, -362948587, -835954714, -2110104145): different memory
+expected:
+0000: 6a53 267b 365a 0b62 4740 4573 3b4c 7229 ->  jS&{6Z.bG@Es;Lr)
+0010: 7270 0a3d 547c 3938 4364 4025 2374 3b72 ->  rp.=T|98Cd@%#t;r
+0020: 6960 3270 0c74 2855 6b7e 3951 3e6a 244f ->  i`2p.t(Uk~9Q>j$O
+0030: 6b61 3264 7c3c 235a 564f 4249 663c 7769 ->  ka2d|<#ZVOBIf<wi
+0040: 5a25 4067 6e3d 473d 4743 5a3f 2f33 7958 ->  Z%@gn=G=GCZ?/3yX
+0050: 3779 3b30 7831 3461 3463 3737 3138 6630 ->  7y;0x14a4c7718f0
+0060: 3964 3439 3328 3015 5436 2547 e662 5d2e ->  9d493(0.T6%G.b].
+0070: 4b63 5f64 3832 3341 3544 4146 2b00 11   ->  Kc_d823A5DAF+..
+yours:
+0000: 6a53 267b 365a 0b62 4740 4573 3b4c 7229 ->  jS&{6Z.bG@Es;Lr)
+0010: 7270 0a3d 547c 3938 4364 4025 2374 3b72 ->  rp.=T|98Cd@%#t;r
+0020: 6960 3270 0c74 2855 6b7e 3951 3e6a 244f ->  i`2p.t(Uk~9Q>j$O
+0030: 6b61 3264 7c3c 235a 564f 4249 663c 7769 ->  ka2d|<#ZVOBIf<wi
+0040: 5a25 4067 6e3d 473d 4743 5a3f 2f33 7958 ->  Z%@gn=G=GCZ?/3yX
+0050: 3779 3b30 7848 3134 6134 6337 3731 3866 ->  7y;0xH14a4c7718f
+0060: 3039 6434 3933 2830 1554 3625 47e6 625d ->  09d493(0.T6%G.b]
+0070: 2e4b 635f 6438 3233 4135 4441 462b 00   ->  .Kc_d823A5DAF+.
+
+Error in test 63: ft_printf("%sbdP4"~A\vx$%X\.ufuMLBM%s}"//\tO%s$vt,[y+_1%sJB%XUA/4~L%c\fHQyN%%%%mm!)e\1 %X^6\r", "-!fdN4G\"B`$VSU\r5qkSgOXgD", -964169233, "m\nD&zGKPz\\a=Ncp~\"(!qb!vx8kYPDf3g/n\v`7_SN5Ki.&CCvpT#qT!_2@D#5,P'sl3+5-C18n]oI|VX]bKxTe/J{v2SuXN", ">wW^HV\f|2I<)\v\vd/)\"p|Gr`;X6xtc'!a|Cy\t,++l>\"g$8f,s\t\vHZ2>&7\v>&8{NRJ~8w:~Dy7Up&A\\fSDC4$(2L.L)P", "+B3gU:X\f1D4K\f\"\rs=+Geo7UWJ$;ewOg/5/N7i[Ws)kn:78G06?*':y|;O;%v", -216566723, 1816022471, 1477640822): returned: 1, but expected: 353
+Error in test 64: ft_printf("a8Y]!7 \v%cT?qK%uo+ oj%dB[d\r1kxD^j%d=f%d2Q\vdS89%X%%h5D:G\nXg", 1439206078, -2080420776, 728205659, 2037662633, -1803366655, 853949234): returned: 1, but expected: 94
+Error in test 65: ft_printf("[Q26`8'O%cku_%s!avq:^b/I%i\v\v?[Nj73x%X30N{kp%s\rLz =e<H&%sW:^*vbU,e%pl+oU-", -1467226738, "EgsM'\fRyD %|qBdc+/Q5+I}LfbU=p\\WNqn/\f?pt[OXj5b%1z\r,Q\fFCn!g}742\rf)4P", 645735490, -1666760238, "AK(zyi#.wp8!S4_H5qvX'i.[=f*yT^-,8r%h|2(Q)F&qe}s\v\nGwjG{Gj%tmN@", "+Gc*2>=Qp|x!8CF FLPBC<nV xc~qB'w", (void *)-2777975522694949563): returned: 1, but expected: 253
+Error in test 65: ft_printf("[Q26`8'O%cku_%s!avq:^b/I%i\v\v?[Nj73x%X30N{kp%s\rLz =e<H&%sW:^*vbU,e%pl+oU-", -1467226738, "EgsM'\fRyD %|qBdc+/Q5+I}LfbU=p\\WNqn/\f?pt[OXj5b%1z\r,Q\fFCn!g}742\rf)4P", 645735490, -1666760238, "AK(zyi#.wp8!S4_H5qvX'i.[=f*yT^-,8r%h|2(Q)F&qe}s\v\nGwjG{Gj%tmN@", "+Gc*2>=Qp|x!8CF FLPBC<nV xc~qB'w", (void *)-2777975522694949563): different memory
+expected:
+0000: 5b51 3236 6038 274f 8e6b 755f 4567 734d ->  [Q26`8'O.ku_EgsM
+0010: 270c 5279 4420 257c 7142 6463 2b2f 5135 ->  '.RyD %|qBdc+/Q5
+0020: 2b49 7d4c 6662 553d 705c 574e 716e 2f0c ->  +I}LfbU=p\WNqn/.
+0030: 3f70 745b 4f58 6a35 6225 317a 0d2c 510c ->  ?pt[OXj5b%1z.,Q.
+0040: 4643 6e21 677d 3734 320d 6629 3450 2161 ->  FCn!g}742.f)4P!a
+0050: 7671 3a5e 622f 4936 3435 3733 3534 3930 ->  vq:^b/I645735490
+0060: 0b0b 3f5b 4e6a 3733 7839 4341 3734 3144 ->  ..?[Nj73x9CA741D
+0070: 3233 304e 7b6b 7041 4b28 7a79 6923 2e77 ->  230N{kpAK(zyi#.w
+0080: 7038 2153 345f 4835 7176 5827 692e 5b3d ->  p8!S4_H5qvX'i.[=
+0090: 662a 7954 5e2d 2c38 7225 687c 3228 5129 ->  f*yT^-,8r%h|2(Q)
+00a0: 4626 7165 7d73 0b0a 4777 6a47 7b47 6a25 ->  F&qe}s..GwjG{Gj%
+00b0: 746d 4e40 0d4c 7a20 3d65 3c48 262b 4763 ->  tmN@.Lz =e<H&+Gc
+00c0: 2a32 3e3d 5170 7c78 2138 4346 2046 4c50 ->  *2>=Qp|x!8CF FLP
+00d0: 4243 3c6e 5620 7863 7e71 4227 7757 3a5e ->  BC<nV xc~qB'wW:^
+00e0: 2a76 6255 2c65 3078 6439 3732 6135 6661 ->  *vbU,e0xd972a5fa
+00f0: 6666 3039 3935 3435 6c2b 6f55 2d00 11   ->  ff099545l+oU-..
+yours:
+0000: 5b51 3236 6038 274f 8e6b 755f 4567 734d ->  [Q26`8'O.ku_EgsM
+0010: 270c 5279 4420 257c 7142 6463 2b2f 5135 ->  '.RyD %|qBdc+/Q5
+0020: 2b49 7d4c 6662 553d 705c 574e 716e 2f0c ->  +I}LfbU=p\WNqn/.
+0030: 3f70 745b 4f58 6a35 6225 317a 0d2c 510c ->  ?pt[OXj5b%1z.,Q.
+0040: 4643 6e21 677d 3734 320d 6629 3450 2161 ->  FCn!g}742.f)4P!a
+0050: 7671 3a5e 622f 4936 3435 3733 3534 3930 ->  vq:^b/I645735490
+0060: 0b0b 3f5b 4e6a 3733 7839 4341 3734 3144 ->  ..?[Nj73x9CA741D
+0070: 3233 304e 7b6b 7041 4b28 7a79 6923 2e77 ->  230N{kpAK(zyi#.w
+0080: 7038 2153 345f 4835 7176 5827 692e 5b3d ->  p8!S4_H5qvX'i.[=
+0090: 662a 7954 5e2d 2c38 7225 687c 3228 5129 ->  f*yT^-,8r%h|2(Q)
+00a0: 4626 7165 7d73 0b0a 4777 6a47 7b47 6a25 ->  F&qe}s..GwjG{Gj%
+00b0: 746d 4e40 0d4c 7a20 3d65 3c48 262b 4763 ->  tmN@.Lz =e<H&+Gc
+00c0: 2a32 3e3d 5170 7c78 2138 4346 2046 4c50 ->  *2>=Qp|x!8CF FLP
+00d0: 4243 3c6e 5620 7863 7e71 4227 7757 3a5e ->  BC<nV xc~qB'wW:^
+00e0: 2a76 6255 2c65 3078 2064 3937 3261 3566 ->  *vbU,e0x d972a5f
+00f0: 6166 6630 3939 3534 356c 2b6f 552d 00   ->  aff099545l+oU-.
+
+Error in test 66: ft_printf("r!^T*I\r%p1w" \Y$TdI%xj%%I%X-oHnmHw`0I%pk4\%cV^_/5%i'~w %cW~~~MWE", (void *)-2582793752611306283, 1188056208, -1158303214, (void *)7719319209581177812, 1803273970, 1725497491, -1751399471): returned: 1, but expected: 113
+Error in test 66: ft_printf("r!^T*I\r%p1w" \Y$TdI%xj%%I%X-oHnmHw`0I%pk4\%cV^_/5%i'~w %cW~~~MWE", (void *)-2582793752611306283, 1188056208, -1158303214, (void *)7719319209581177812, 1803273970, 1725497491, -1751399471): different memory
+expected:
+0000: 7221 5e54 2a49 0d30 7864 6332 3831 3263 ->  r!^T*I.0xdc2812c
+0010: 3432 3738 3134 3464 3531 7722 205c 5924 ->  4278144d51w" \Y$
+0020: 5464 4934 3664 3034 6339 306a 2549 4241 ->  TdI46d04c90j%IBA
+0030: 4635 4232 3132 2d6f 486e 6d48 7760 3049 ->  F5B212-oHnmHw`0I
+0040: 3078 3662 3230 3837 6563 3232 6566 3662 ->  0x6b2087ec22ef6b
+0050: 6434 6b34 5cf2 565e 5f2f 3531 3732 3534 ->  d4k4\.V^_/517254
+0060: 3937 3439 3127 7e77 20d1 577e 7e7e 4d57 ->  97491'~w .W~~~MW
+0070: 4500 1111                               ->  E...
+yours:
+0000: 7221 5e54 2a49 0d30 7804 6463 3238 3132 ->  r!^T*I.0x.dc2812
+0010: 6334 3237 3831 3434 6435 3177 2220 5c59 ->  c4278144d51w" \Y
+0020: 2454 6449 3436 6430 3463 3930 6a25 4942 ->  $TdI46d04c90j%IB
+0030: 4146 3542 3231 322d 6f48 6e6d 4877 6030 ->  AF5B212-oHnmHw`0
+0040: 4930 7801 3662 3230 3837 6563 3232 6566 ->  I0x.6b2087ec22ef
+0050: 3662 6434 6b34 5cf2 565e 5f2f 3531 3732 ->  6bd4k4\.V^_/5172
+0060: 3534 3937 3439 3127 7e77 20d1 577e 7e7e ->  5497491'~w .W~~~
+0070: 4d57 4500                               ->  MWE.
+
+Error in test 67: ft_printf("]VVU.FD1%uGI\{B%u%i=vA578;K%d'oedIo^@=K", -400080797, -1581539245, 227198082, 1850574746): returned: 1, but expected: 70
+Error in test 68: ft_printf("|G}\fA%u%%Aw\f$3(69}%d%i%%:`b#\n%i)<&Xo%im0*w2LPmt\%sAQc\vko%%'", -113563599, -2138932274, 1463373889, -1868700977, -1488679267, "<#QT\nOY;^!8Q]=`M+<<j,5cE\nwRXOs 0?Yx_sGy\vcRl[S5#YsL%5*Qw[\f)d"): returned: 1, but expected: 156
+Error in test 69: ft_printf("O>e\GHrJn%crw;f%p? j@V%uI", -154051590, (void *)8961698132844590785, 1224180244): returned: 1, but expected: 48
+Error in test 69: ft_printf("O>e\GHrJn%crw;f%p? j@V%uI", -154051590, (void *)8961698132844590785, 1224180244): different memory
+expected:
+0000: 4f3e 655c 4748 724a 6efa 7277 3b66 3078 ->  O>e\GHrJn.rw;f0x
+0010: 3763 3565 3538 6638 3830 3762 6236 6331 ->  7c5e58f8807bb6c1
+0020: 3f20 6a40 5631 3232 3431 3830 3234 3449 ->  ? j@V1224180244I
+0030: 0011                                    ->  ..
+yours:
+0000: 4f3e 655c 4748 724a 6efa 7277 3b66 3078 ->  O>e\GHrJn.rw;f0x
+0010: 0137 6335 6535 3866 3838 3037 6262 3663 ->  .7c5e58f8807bb6c
+0020: 313f 206a 4056 3132 3234 3138 3032 3434 ->  1? j@V1224180244
+0030: 4900                                    ->  I.
+
+Error in test 70: ft_printf("p,q%c^t%pFPXSi", 735081794, (void *)3028886906807853780): returned: 1, but expected: 29
+Error in test 70: ft_printf("p,q%c^t%pFPXSi", 735081794, (void *)3028886906807853780): different memory
+expected:
+0000: 702c 7142 5e74 3078 3261 3038 6334 3938 ->  p,qB^t0x2a08c498
+0010: 3131 3164 3232 6434 4650 5853 6900 11   ->  111d22d4FPXSi..
+yours:
+0000: 702c 7142 5e74 3078 0132 6130 3863 3439 ->  p,qB^t0x.2a08c49
+0010: 3831 3131 6432 3264 3446 5058 5369 00   ->  8111d22d4FPXSi.
+
+Error in test 71: ft_printf("7+%xIw%%x%x\n_HJ+%s%u}@h%X#(ya_.%s3k@V5.%pHRGM%p", -29376783, 989361696, "N4p*Od)i(A;{9@~rSLwQ\n[j~C`q[X^[y\fbn[ |\fv`'FV~l/$pGJryb0Xb].+$Va G`Wi)!8\"94$.~U}j-_(#XycG_O)", -183392418, -419361663, "By8kYp>izct>bU\"}c~/yQ`R_K?d-Y.3UN'~):N(\tNz%*?/y|WF,X\vG5<oB ]'pZ\v\f\v", (void *)-7543374640410183310, (void *)3533342805570792136): returned: 1, but expected: 257
+Error in test 71: ft_printf("7+%xIw%%x%x\n_HJ+%s%u}@h%X#(ya_.%s3k@V5.%pHRGM%p", -29376783, 989361696, "N4p*Od)i(A;{9@~rSLwQ\n[j~C`q[X^[y\fbn[ |\fv`'FV~l/$pGJryb0Xb].+$Va G`Wi)!8\"94$.~U}j-_(#XycG_O)", -183392418, -419361663, "By8kYp>izct>bU\"}c~/yQ`R_K?d-Y.3UN'~):N(\tNz%*?/y|WF,X\vG5<oB ]'pZ\v\f\v", (void *)-7543374640410183310, (void *)3533342805570792136): different memory
+expected:
+0000: 372b 6665 3366 6265 6631 4977 2578 3361 ->  7+fe3fbef1Iw%x3a
+0010: 6638 3736 3230 0a5f 484a 2b4e 3470 2a4f ->  f87620._HJ+N4p*O
+0020: 6429 6928 413b 7b39 407e 7253 4c77 510a ->  d)i(A;{9@~rSLwQ.
+0030: 5b6a 7e43 6071 5b58 5e5b 790c 626e 5b20 ->  [j~C`q[X^[y.bn[ 
+0040: 7c0c 7660 2746 567e 6c2f 2470 474a 7279 ->  |.v`'FV~l/$pGJry
+0050: 6230 5862 5d2e 2b24 5661 2047 6057 6929 ->  b0Xb].+$Va G`Wi)
+0060: 2138 2239 3424 2e7e 557d 6a2d 5f28 2358 ->  !8"94$.~U}j-_(#X
+0070: 7963 475f 4f29 3431 3131 3537 3438 3738 ->  ycG_O)4111574878
+0080: 7d40 6845 3730 3130 4338 3123 2879 615f ->  }@hE7010C81#(ya_
+0090: 2e42 7938 6b59 703e 697a 6374 3e62 5522 ->  .By8kYp>izct>bU"
+00a0: 7d63 7e2f 7951 6052 5f4b 3f64 2d59 2e33 ->  }c~/yQ`R_K?d-Y.3
+00b0: 554e 277e 293a 4e28 094e 7a25 2a3f 2f79 ->  UN'~):N(.Nz%*?/y
+00c0: 7c57 462c 580b 4735 3c6f 4220 5d27 705a ->  |WF,X.G5<oB ]'pZ
+00d0: 0b0c 0b33 6b40 5635 2e30 7839 3735 3038 ->  ...3k@V5.0x97508
+00e0: 6362 6232 3661 3933 3937 3248 5247 4d30 ->  cbb26a93972HRGM0
+00f0: 7833 3130 3866 3438 6661 6262 6161 6163 ->  x3108f48fabbaaac
+0100: 3800 1111                               ->  8...
+yours:
+0000: 372b 6665 3366 6265 6631 4977 2578 3361 ->  7+fe3fbef1Iw%x3a
+0010: 6638 3736 3230 0a5f 484a 2b4e 3470 2a4f ->  f87620._HJ+N4p*O
+0020: 6429 6928 413b 7b39 407e 7253 4c77 510a ->  d)i(A;{9@~rSLwQ.
+0030: 5b6a 7e43 6071 5b58 5e5b 790c 626e 5b20 ->  [j~C`q[X^[y.bn[ 
+0040: 7c0c 7660 2746 567e 6c2f 2470 474a 7279 ->  |.v`'FV~l/$pGJry
+0050: 6230 5862 5d2e 2b24 5661 2047 6057 6929 ->  b0Xb].+$Va G`Wi)
+0060: 2138 2239 3424 2e7e 557d 6a2d 5f28 2358 ->  !8"94$.~U}j-_(#X
+0070: 7963 475f 4f29 3431 3131 3537 3438 3738 ->  ycG_O)4111574878
+0080: 7d40 6845 3730 3130 4338 3123 2879 615f ->  }@hE7010C81#(ya_
+0090: 2e42 7938 6b59 703e 697a 6374 3e62 5522 ->  .By8kYp>izct>bU"
+00a0: 7d63 7e2f 7951 6052 5f4b 3f64 2d59 2e33 ->  }c~/yQ`R_K?d-Y.3
+00b0: 554e 277e 293a 4e28 094e 7a25 2a3f 2f79 ->  UN'~):N(.Nz%*?/y
+00c0: 7c57 462c 580b 4735 3c6f 4220 5d27 705a ->  |WF,X.G5<oB ]'pZ
+00d0: 0b0c 0b33 6b40 5635 2e30 7842 3937 3530 ->  ...3k@V5.0xB9750
+00e0: 3863 6262 3236 6139 3339 3732 4852 474d ->  8cbb26a93972HRGM
+00f0: 3078 4233 3130 3866 3438 6661 6262 6161 ->  0xB3108f48fabbaa
+0100: 6163 3800                               ->  ac8.
+
+Error in test 72: ft_printf("W+C8%uQR})%%%i+f&w%%@n'Eo%sf^YB~\", -2116494581, -1054061419, "k'JaC\rHO]\r0PKo+_Md.qr}X;4Df6Rl/ :4g+u|6Z\fQc%^0S9yF^m|.1<US@FiG`%{k"): returned: 1, but expected: 112
+Error in test 73: ft_printf("%X4,rq6Obmv%p4Ky?%p.Xg7|\v9+]c", 1820036414, (void *)-3351612168112461903, (void *)2849626523780815303): returned: 1, but expected: 67
+Error in test 73: ft_printf("%X4,rq6Obmv%p4Ky?%p.Xg7|\v9+]c", 1820036414, (void *)-3351612168112461903, (void *)2849626523780815303): different memory
+expected:
+0000: 3643 3742 3844 3345 342c 7271 364f 626d ->  6C7B8D3E4,rq6Obm
+0010: 7630 7864 3137 6361 6537 6439 6563 3761 ->  v0xd17cae7d9ec7a
+0020: 3762 3134 4b79 3f30 7832 3738 6265 3833 ->  7b14Ky?0x278be83
+0030: 3962 3437 6339 3963 372e 5867 377c 0b39 ->  9b47c99c7.Xg7|.9
+0040: 2b5d 6300 1111                          ->  +]c...
+yours:
+0000: 3643 3742 3844 3345 342c 7271 364f 626d ->  6C7B8D3E4,rq6Obm
+0010: 7630 7804 6431 3763 6165 3764 3965 6337 ->  v0x.d17cae7d9ec7
+0020: 6137 6231 344b 793f 3078 0432 3738 6265 ->  a7b14Ky?0x.278be
+0030: 3833 3962 3437 6339 3963 372e 5867 377c ->  839b47c99c7.Xg7|
+0040: 0b39 2b5d 6300                          ->  .9+]c.
+
+Error in test 74: ft_printf("mR}^%cFrDJf%i\%p!X$K\nU4MBB%i+Q`NVm\f}W", 379436184, 1079764094, (void *)-4600333626383236758, 1567076624): returned: 1, but expected: 68
+Error in test 74: ft_printf("mR}^%cFrDJf%i\%p!X$K\nU4MBB%i+Q`NVm\f}W", 379436184, 1079764094, (void *)-4600333626383236758, 1567076624): different memory
+expected:
+0000: 6d52 7d5e 9846 7244 4a66 3130 3739 3736 ->  mR}^.FrDJf107976
+0010: 3430 3934 5c30 7863 3032 3835 3466 3062 ->  4094\0xc02854f0b
+0020: 6632 3438 3136 6121 5824 4b0a 5534 4d42 ->  f24816a!X$K.U4MB
+0030: 4231 3536 3730 3736 3632 342b 5160 4e56 ->  B1567076624+Q`NV
+0040: 6d0c 7d57 0011                          ->  m.}W..
+yours:
+0000: 6d52 7d5e 9846 7244 4a66 3130 3739 3736 ->  mR}^.FrDJf107976
+0010: 3430 3934 5c30 787e 6330 3238 3534 6630 ->  4094\0x~c02854f0
+0020: 6266 3234 3831 3661 2158 244b 0a55 344d ->  bf24816a!X$K.U4M
+0030: 4242 3135 3637 3037 3636 3234 2b51 604e ->  BB1567076624+Q`N
+0040: 566d 0c7d 5700                          ->  Vm.}W.
+
+Error in test 75: ft_printf("!{0~zWfa5n%%C/aYDh@:2F%sl@bY7s;D*8", "HkSR '\t=wVQ(~TaHSf[n XF*5-_hHBB6;I\ni~0\n\v9S=M\"irU9$6=/o5t/@[j|4|:6T#N*:2;NeSyJ]MWLd@O"): returned: 1, but expected: 115
+Error in test 76: ft_printf("%iUQG@i\n{75%d\tG2],q7%x%s7cKeq4%uXd2@%%C-2ZIWF", 829193350, 972881579, 2113855823, "*l5kN\v)$ittOP+{Z%zO", -459946861): returned: 1, but expected: 89
+Error in test 77: ft_printf(";xwyB2=H %uly!]lfk=%u\n&q%d%X"Jcq6%%yQ%uV^glAjbPR\r%p%s%x%s", 263059030, -1987415459, 2145277929, -1432600127, 1577290653, (void *)-4417136444412361952, "< <$?Diuw&7)hzu77RyJ@\t$?lU&t6,W'\\Mu'1bw| G!k'|9MN\"@d<r6cL%Q&", -1731051212, "~\\CO7gh-M\vwJ\t\f67vDQt|+0/9#\t,~HKA8A|"): returned: 1, but expected: 206
+Error in test 77: ft_printf(";xwyB2=H %uly!]lfk=%u\n&q%d%X"Jcq6%%yQ%uV^glAjbPR\r%p%s%x%s", 263059030, -1987415459, 2145277929, -1432600127, 1577290653, (void *)-4417136444412361952, "< <$?Diuw&7)hzu77RyJ@\t$?lU&t6,W'\\Mu'1bw| G!k'|9MN\"@d<r6cL%Q&", -1731051212, "~\\CO7gh-M\vwJ\t\f67vDQt|+0/9#\t,~HKA8A|"): different memory
+expected:
+0000: 3b78 7779 4232 3d48 2032 3633 3035 3930 ->  ;xwyB2=H 2630590
+0010: 3330 6c79 215d 6c66 6b3d 3233 3037 3535 ->  30ly!]lfk=230755
+0020: 3138 3337 0a26 7132 3134 3532 3737 3932 ->  1837.&q214527792
+0030: 3941 4139 4334 3143 3122 4a63 7136 2579 ->  9AA9C41C1"Jcq6%y
+0040: 5131 3537 3732 3930 3635 3356 5e67 6c41 ->  Q1577290653V^glA
+0050: 6a62 5052 0d30 7863 3262 3332 6463 6538 ->  jbPR.0xc2b32dce8
+0060: 6135 6538 3332 303c 203c 243f 4469 7577 ->  a5e8320< <$?Diuw
+0070: 2637 2968 7a75 3737 5279 4a40 0924 3f6c ->  &7)hzu77RyJ@.$?l
+0080: 5526 7436 2c57 275c 4d75 2731 6277 7c20 ->  U&t6,W'\Mu'1bw| 
+0090: 4721 6b27 7c39 4d4e 2240 643c 7236 634c ->  G!k'|9MN"@d<r6cL
+00a0: 2551 2639 3864 3234 3133 347e 5c43 4f37 ->  %Q&98d24134~\CO7
+00b0: 6768 2d4d 0b77 4a09 0c36 3776 4451 747c ->  gh-M.wJ..67vDQt|
+00c0: 2b30 2f39 2309 2c7e 484b 4138 417c 0011 ->  +0/9#.,~HKA8A|..
+yours:
+0000: 3b78 7779 4232 3d48 2032 3633 3035 3930 ->  ;xwyB2=H 2630590
+0010: 3330 6c79 215d 6c66 6b3d 3233 3037 3535 ->  30ly!]lfk=230755
+0020: 3138 3337 0a26 7132 3134 3532 3737 3932 ->  1837.&q214527792
+0030: 3941 4139 4334 3143 3122 4a63 7136 2579 ->  9AA9C41C1"Jcq6%y
+0040: 5131 3537 3732 3930 3635 3356 5e67 6c41 ->  Q1577290653V^glA
+0050: 6a62 5052 0d30 7801 6332 6233 3264 6365 ->  jbPR.0x.c2b32dce
+0060: 3861 3565 3833 3230 3c20 3c24 3f44 6975 ->  8a5e8320< <$?Diu
+0070: 7726 3729 687a 7537 3752 794a 4009 243f ->  w&7)hzu77RyJ@.$?
+0080: 6c55 2674 362c 5727 5c4d 7527 3162 777c ->  lU&t6,W'\Mu'1bw|
+0090: 2047 216b 277c 394d 4e22 4064 3c72 3663 ->   G!k'|9MN"@d<r6c
+00a0: 4c25 5126 3938 6432 3431 3334 7e5c 434f ->  L%Q&98d24134~\CO
+00b0: 3767 682d 4d0b 774a 090c 3637 7644 5174 ->  7gh-M.wJ..67vDQt
+00c0: 7c2b 302f 3923 092c 7e48 4b41 3841 7c00 ->  |+0/9#.,~HKA8A|.
+
+Error in test 78: ft_printf("3Kt.7=^3%u(%uY 's%iT2vbbZ", -23701369, -76713609, 691436132): returned: 1, but expected: 48
+Error in test 79: ft_printf("Pf%sx~n\vOB,?L%uZzh&l%s~%pm%X\nABo/%cj1j2\f\f%i9.L/\v4D", "5\rIgtB:zfiGdd#_nMHw", -561849101, "y~3ic8w-&9$8%h>}hZfu#RgK_jt\nGrrRYE}Xn\f\"hit3YE5kiI]s,B", (void *)6675051563350125770, 1426276915, -569364488, -1436998418): returned: 1, but expected: 156
+Error in test 79: ft_printf("Pf%sx~n\vOB,?L%uZzh&l%s~%pm%X\nABo/%cj1j2\f\f%i9.L/\v4D", "5\rIgtB:zfiGdd#_nMHw", -561849101, "y~3ic8w-&9$8%h>}hZfu#RgK_jt\nGrrRYE}Xn\f\"hit3YE5kiI]s,B", (void *)6675051563350125770, 1426276915, -569364488, -1436998418): different memory
+expected:
+0000: 5066 350d 4967 7442 3a7a 6669 4764 6423 ->  Pf5.IgtB:zfiGdd#
+0010: 5f6e 4d48 7778 7e6e 0b4f 422c 3f4c 3337 ->  _nMHwx~n.OB,?L37
+0020: 3333 3131 3831 3935 5a7a 6826 6c79 7e33 ->  33118195Zzh&ly~3
+0030: 6963 3877 2d26 3924 3825 683e 7d68 5a66 ->  ic8w-&9$8%h>}hZf
+0040: 7523 5267 4b5f 6a74 0a47 7272 5259 457d ->  u#RgK_jt.GrrRYE}
+0050: 586e 0c22 6869 7433 5945 356b 6949 5d73 ->  Xn."hit3YE5kiI]s
+0060: 2c42 7e30 7835 6361 3238 6330 3765 6165 ->  ,B~0x5ca28c07eae
+0070: 3636 6363 616d 3535 3033 3432 3333 0a41 ->  66ccam55034233.A
+0080: 426f 2ff8 6a31 6a32 0c0c 2d31 3433 3639 ->  Bo/.j1j2..-14369
+0090: 3938 3431 3839 2e4c 2f0b 3444 0011      ->  984189.L/.4D..
+yours:
+0000: 5066 350d 4967 7442 3a7a 6669 4764 6423 ->  Pf5.IgtB:zfiGdd#
+0010: 5f6e 4d48 7778 7e6e 0b4f 422c 3f4c 3337 ->  _nMHwx~n.OB,?L37
+0020: 3333 3131 3831 3935 5a7a 6826 6c79 7e33 ->  33118195Zzh&ly~3
+0030: 6963 3877 2d26 3924 3825 683e 7d68 5a66 ->  ic8w-&9$8%h>}hZf
+0040: 7523 5267 4b5f 6a74 0a47 7272 5259 457d ->  u#RgK_jt.GrrRYE}
+0050: 586e 0c22 6869 7433 5945 356b 6949 5d73 ->  Xn."hit3YE5kiI]s
+0060: 2c42 7e30 7835 3563 6132 3863 3037 6561 ->  ,B~0x55ca28c07ea
+0070: 6536 3663 6361 6d35 3530 3334 3233 330a ->  e66ccam55034233.
+0080: 4142 6f2f f86a 316a 320c 0c2d 3134 3336 ->  ABo/.j1j2..-1436
+0090: 3939 3834 3138 392e 4c2f 0b34 4400      ->  9984189.L/.4D.
+
+Error in test 80: ft_printf("U%XV(F%u", -1770408821, 1676170363): returned: 1, but expected: 22
+Error in test 81: ft_printf("bVRK2%s\ryzcP%uw8h\f?%cv", "wPh:D--?:%EIQ>Y\vG[ij]I1XNcxzrzxbGDO4tr2>", 742307893, 1177044585): returned: 1, but expected: 66
+Error in test 82: ft_printf("[4[z:Q*n%dT<niT8%X 7ui%X[7[RQja", -105356642, 39043562, 1576876049): returned: 1, but expected: 50
+Error in test 83: ft_printf("Zv>U\t%d4x"%x0GPk:ef9}6%swUF;n.RMj%dhp;\tu%x%p7%dA%dGUR%u6FY9ol6W:#%cf\fs", -2111626624, 918288389, "0NG7_8\fB-{D9.8/Hz3La]~xO8ko6Z\n\f`HJd5wxvgv'lo S\rrhh", -2058848090, -381355357, (void *)7232914384877012483, -2138221756, 1141037353, -474702311, -1085085171): returned: 1, but expected: 188
+Error in test 83: ft_printf("Zv>U\t%d4x"%x0GPk:ef9}6%swUF;n.RMj%dhp;\tu%x%p7%dA%dGUR%u6FY9ol6W:#%cf\fs", -2111626624, 918288389, "0NG7_8\fB-{D9.8/Hz3La]~xO8ko6Z\n\f`HJd5wxvgv'lo S\rrhh", -2058848090, -381355357, (void *)7232914384877012483, -2138221756, 1141037353, -474702311, -1085085171): different memory
+expected:
+0000: 5a76 3e55 092d 3231 3131 3632 3636 3234 ->  Zv>U.-2111626624
+0010: 3478 2233 3662 6266 3830 3530 4750 6b3a ->  4x"36bbf8050GPk:
+0020: 6566 397d 3630 4e47 375f 380c 422d 7b44 ->  ef9}60NG7_8.B-{D
+0030: 392e 382f 487a 334c 615d 7e78 4f38 6b6f ->  9.8/Hz3La]~xO8ko
+0040: 365a 0a0c 6048 4a64 3577 7876 6776 276c ->  6Z..`HJd5wxvgv'l
+0050: 6f20 530d 7268 6877 5546 3b6e 2e52 4d6a ->  o S.rhhwUF;n.RMj
+0060: 2d32 3035 3838 3438 3039 3068 703b 0975 ->  -2058848090hp;.u
+0070: 6539 3434 6661 6133 3078 3634 3630 3739 ->  e944faa30x646079
+0080: 3466 6239 3638 3436 3033 372d 3231 3338 ->  4fb96846037-2138
+0090: 3232 3137 3536 4131 3134 3130 3337 3335 ->  221756A114103735
+00a0: 3347 5552 3338 3230 3236 3439 3835 3646 ->  3GUR38202649856F
+00b0: 5939 6f6c 3657 3a23 0d66 0c73 0011      ->  Y9ol6W:#.f.s..
+yours:
+0000: 5a76 3e55 092d 3231 3131 3632 3636 3234 ->  Zv>U.-2111626624
+0010: 3478 2233 3662 6266 3830 3530 4750 6b3a ->  4x"36bbf8050GPk:
+0020: 6566 397d 3630 4e47 375f 380c 422d 7b44 ->  ef9}60NG7_8.B-{D
+0030: 392e 382f 487a 334c 615d 7e78 4f38 6b6f ->  9.8/Hz3La]~xO8ko
+0040: 365a 0a0c 6048 4a64 3577 7876 6776 276c ->  6Z..`HJd5wxvgv'l
+0050: 6f20 530d 7268 6877 5546 3b6e 2e52 4d6a ->  o S.rhhwUF;n.RMj
+0060: 2d32 3035 3838 3438 3039 3068 703b 0975 ->  -2058848090hp;.u
+0070: 6539 3434 6661 6133 3078 5a36 3436 3037 ->  e944faa30xZ64607
+0080: 3934 6662 3936 3834 3630 3337 2d32 3133 ->  94fb96846037-213
+0090: 3832 3231 3735 3641 3131 3431 3033 3733 ->  8221756A11410373
+00a0: 3533 4755 5233 3832 3032 3634 3938 3536 ->  53GUR38202649856
+00b0: 4659 396f 6c36 573a 230d 660c 7300      ->  FY9ol6W:#.f.s.
+
+Error in test 84: ft_printf("?y%i^E%XD\v+n4%sFH%iA%u%iaG6Ufi/AN%u0t%uYf.%i%cA\nkg9\nP", 1699555407, -983093300, "", 1084922992, -825001240, 2109159682, -1984975847, -1917168858, -1935434813, -2016335730): returned: 1, but expected: 113
+Error in test 85: ft_printf("/I]IthdsZi%dC;s6!%py?\t%xHyv\rCvV%pO\f%xJsd\;mWd\tD%d|i\rz", 1219927353, (void *)-3230604028907575144, 1272933268, (void *)4519346152387911464, 824771627, -2037424785): returned: 1, but expected: 114
+Error in test 85: ft_printf("/I]IthdsZi%dC;s6!%py?\t%xHyv\rCvV%pO\f%xJsd\;mWd\tD%d|i\rz", 1219927353, (void *)-3230604028907575144, 1272933268, (void *)4519346152387911464, 824771627, -2037424785): different memory
+expected:
+0000: 2f49 5d49 7468 6473 5a69 3132 3139 3932 ->  /I]IthdsZi121992
+0010: 3733 3533 433b 7336 2130 7864 3332 6139 ->  7353C;s6!0xd32a9
+0020: 3663 3038 6630 3461 3839 3879 3f09 3462 ->  6c08f04a898y?.4b
+0030: 6466 3662 3934 4879 760d 4376 5630 7833 ->  df6b94Hyv.CvV0x3
+0040: 6562 3766 3136 3138 6531 6331 6632 384f ->  eb7f1618e1c1f28O
+0050: 0c33 3132 3930 3432 624a 7364 5c3b 6d57 ->  .3129042bJsd\;mW
+0060: 6409 442d 3230 3337 3432 3437 3835 7c69 ->  d.D-2037424785|i
+0070: 0d7a 0011 11                            ->  .z...
+yours:
+0000: 2f49 5d49 7468 6473 5a69 3132 3139 3932 ->  /I]IthdsZi121992
+0010: 3733 3533 433b 7336 2130 7839 6433 3261 ->  7353C;s6!0x9d32a
+0020: 3936 6330 3866 3034 6138 3938 793f 0934 ->  96c08f04a898y?.4
+0030: 6264 6636 6239 3448 7976 0d43 7656 3078 ->  bdf6b94Hyv.CvV0x
+0040: 3933 6562 3766 3136 3138 6531 6331 6632 ->  93eb7f1618e1c1f2
+0050: 384f 0c33 3132 3930 3432 624a 7364 5c3b ->  8O.3129042bJsd\;
+0060: 6d57 6409 442d 3230 3337 3432 3437 3835 ->  mWd.D-2037424785
+0070: 7c69 0d7a 00                            ->  |i.z.
+
+Error in test 86: ft_printf("49J%p=%d%x%sp!xI\f[%cvNJRhj%XxHatN 3\r%s\'-", (void *)-3098511345952877854, 709311401, 650990507, "#;pVP|hIr(Ky_qtr1h*K_GS60)FtWRG~Y$`e[<$;\",\vkhP&s`$Sm)L~WE59WvE]U2_c}Xui;\"{w45)*\\sM)r)1_W", 1507903175, 1937475088, "6A{\\d3*n'?_#\\[l*5rF[=w\vQ%'ohE*9"): returned: 1, but expected: 190
+Error in test 86: ft_printf("49J%p=%d%x%sp!xI\f[%cvNJRhj%XxHatN 3\r%s\'-", (void *)-3098511345952877854, 709311401, 650990507, "#;pVP|hIr(Ky_qtr1h*K_GS60)FtWRG~Y$`e[<$;\",\vkhP&s`$Sm)L~WE59WvE]U2_c}Xui;\"{w45)*\\sM)r)1_W", 1507903175, 1937475088, "6A{\\d3*n'?_#\\[l*5rF[=w\vQ%'ohE*9"): different memory
+expected:
+0000: 3439 4a30 7864 3466 6665 3035 3866 3366 ->  49J0xd4ffe058f3f
+0010: 3631 3265 323d 3730 3933 3131 3430 3132 ->  612e2=7093114012
+0020: 3663 6435 3361 6223 3b70 5650 7c68 4972 ->  6cd53ab#;pVP|hIr
+0030: 284b 795f 7174 7231 682a 4b5f 4753 3630 ->  (Ky_qtr1h*K_GS60
+0040: 2946 7457 5247 7e59 2460 655b 3c24 3b22 ->  )FtWRG~Y$`e[<$;"
+0050: 2c0b 6b68 5026 7360 2453 6d29 4c7e 5745 ->  ,.khP&s`$Sm)L~WE
+0060: 3539 5776 455d 5532 5f63 7d58 7569 3b22 ->  59WvE]U2_c}Xui;"
+0070: 7b77 3435 292a 5c73 4d29 7229 315f 5770 ->  {w45)*\sM)r)1_Wp
+0080: 2178 490c 5bc7 764e 4a52 686a 3733 3742 ->  !xI.[.vNJRhj737B
+0090: 3836 3130 7848 6174 4e20 330d 3641 7b5c ->  8610xHatN 3.6A{\
+00a0: 6433 2a6e 273f 5f23 5c5b 6c2a 3572 465b ->  d3*n'?_#\[l*5rF[
+00b0: 3d77 0b51 2527 6f68 452a 395c 272d 0011 ->  =w.Q%'ohE*9\'-..
+yours:
+0000: 3439 4a30 7804 6434 6666 6530 3538 6633 ->  49J0x.d4ffe058f3
+0010: 6636 3132 6532 3d37 3039 3331 3134 3031 ->  f612e2=709311401
+0020: 3236 6364 3533 6162 233b 7056 507c 6849 ->  26cd53ab#;pVP|hI
+0030: 7228 4b79 5f71 7472 3168 2a4b 5f47 5336 ->  r(Ky_qtr1h*K_GS6
+0040: 3029 4674 5752 477e 5924 6065 5b3c 243b ->  0)FtWRG~Y$`e[<$;
+0050: 222c 0b6b 6850 2673 6024 536d 294c 7e57 ->  ",.khP&s`$Sm)L~W
+0060: 4535 3957 7645 5d55 325f 637d 5875 693b ->  E59WvE]U2_c}Xui;
+0070: 227b 7734 3529 2a5c 734d 2972 2931 5f57 ->  "{w45)*\sM)r)1_W
+0080: 7021 7849 0c5b c776 4e4a 5268 6a37 3337 ->  p!xI.[.vNJRhj737
+0090: 4238 3631 3078 4861 744e 2033 0d36 417b ->  B8610xHatN 3.6A{
+00a0: 5c64 332a 6e27 3f5f 235c 5b6c 2a35 7246 ->  \d3*n'?_#\[l*5rF
+00b0: 5b3d 770b 5125 276f 6845 2a39 5c27 2d00 ->  [=w.Q%'ohE*9\'-.
+
+Error in test 87: ft_printf("#*B79 %%7saRY%pl0##^+H%i b|0yj%%u\r%dfo{/^u%c%p0j~J5K~%d-:%c#$3'/%cE+b?R-u", (void *)2646326877802475514, -185329933, -408239873, 1541141075, (void *)692113419282702192, 1974390274, 507954813, 53036332): returned: 1, but expected: 123
+Error in test 87: ft_printf("#*B79 %%7saRY%pl0##^+H%i b|0yj%%u\r%dfo{/^u%c%p0j~J5K~%d-:%c#$3'/%cE+b?R-u", (void *)2646326877802475514, -185329933, -408239873, 1541141075, (void *)692113419282702192, 1974390274, 507954813, 53036332): different memory
+expected:
+0000: 232a 4237 3920 2537 7361 5259 3078 3234 ->  #*B79 %7saRY0x24
+0010: 6239 6134 3436 3436 6663 3266 6661 6c30 ->  b9a44646fc2ffal0
+0020: 2323 5e2b 482d 3138 3533 3239 3933 3320 ->  ##^+H-185329933 
+0030: 627c 3079 6a25 750d 2d34 3038 3233 3938 ->  b|0yj%u.-4082398
+0040: 3733 666f 7b2f 5e75 5330 7839 3961 6531 ->  73fo{/^uS0x99ae1
+0050: 3763 6534 6130 3566 3730 306a 7e4a 354b ->  7ce4a05f700j~J5K
+0060: 7e31 3937 3433 3930 3237 342d 3a7d 2324 ->  ~1974390274-:}#$
+0070: 3327 2f2c 452b 623f 522d 7500 1111      ->  3'/,E+b?R-u...
+yours:
+0000: 232a 4237 3920 2537 7361 5259 3078 0132 ->  #*B79 %7saRY0x.2
+0010: 3462 3961 3434 3634 3666 6332 6666 616c ->  4b9a44646fc2ffal
+0020: 3023 235e 2b48 2d31 3835 3332 3939 3333 ->  0##^+H-185329933
+0030: 2062 7c30 796a 2575 0d2d 3430 3832 3339 ->   b|0yj%u.-408239
+0040: 3837 3366 6f7b 2f5e 7553 3078 0039 3961 ->  873fo{/^uS0x.99a
+0050: 6531 3763 6534 6130 3566 3730 306a 7e4a ->  e17ce4a05f700j~J
+0060: 354b 7e31 3937 3433 3930 3237 342d 3a7d ->  5K~1974390274-:}
+0070: 2324 3327 2f2c 452b 623f 522d 7500      ->  #$3'/,E+b?R-u.
+
+Error in test 88: ft_printf(",/Pi%c,r[S%s\n"%db%u\r^g)|Rs", -507148416, "NrGZ?YnUg`mT1tJ[SK`Br=-In.\nk<VZg3?W!4l\\!PFc(j\\N\f[9EGZ566fYmX#0DoduBZ@ZB0+\nl9N]l4[R[I?s-@", 1948019892, 306520170): returned: 1, but expected: 126
+Error in test 89: ft_printf("%X!F\f\rd\ny%X+O Bnee4%%x@Gj}1;)w%d>!1YWRxp. %p\n%u7CYQZ%ul\ty^6cT[6]", 816027956, -111286514, 206848448, (void *)325351524189165564, -1710863246, -932183786): returned: 1, but expected: 113
+Error in test 89: ft_printf("%X!F\f\rd\ny%X+O Bnee4%%x@Gj}1;)w%d>!1YWRxp. %p\n%u7CYQZ%ul\ty^6cT[6]", 816027956, -111286514, 206848448, (void *)325351524189165564, -1710863246, -932183786): different memory
+expected:
+0000: 3330 4133 3939 3334 2146 0c0d 640a 7946 ->  30A39934!F..d.yF
+0010: 3935 4445 3730 452b 4f20 426e 6565 3425 ->  95DE70E+O Bnee4%
+0020: 7840 476a 7d31 3b29 7732 3036 3834 3834 ->  x@Gj}1;)w2068484
+0030: 3438 3e21 3159 5752 7870 2e20 3078 3438 ->  48>!1YWRxp. 0x48
+0040: 3365 3137 6363 6136 6435 3766 630a 3235 ->  3e17cca6d57fc.25
+0050: 3834 3130 3430 3530 3743 5951 5a33 3336 ->  841040507CYQZ336
+0060: 3237 3833 3531 306c 0979 5e36 6354 5b36 ->  2783510l.y^6cT[6
+0070: 5d00 11                                 ->  ]..
+yours:
+0000: 3330 4133 3939 3334 2146 0c0d 640a 7946 ->  30A39934!F..d.yF
+0010: 3935 4445 3730 452b 4f20 426e 6565 3425 ->  95DE70E+O Bnee4%
+0020: 7840 476a 7d31 3b29 7732 3036 3834 3834 ->  x@Gj}1;)w2068484
+0030: 3438 3e21 3159 5752 7870 2e20 3078 0034 ->  48>!1YWRxp. 0x.4
+0040: 3833 6531 3763 6361 3664 3537 6663 0a32 ->  83e17cca6d57fc.2
+0050: 3538 3431 3034 3035 3037 4359 515a 3333 ->  5841040507CYQZ33
+0060: 3632 3738 3335 3130 6c09 795e 3663 545b ->  62783510l.y^6cT[
+0070: 365d 00                                 ->  6].
+
+Error in test 90: ft_printf("WL/\n`"v7\%i!(\rHx8kk+%xk\r=6pugto:%iPQ8ifWe:HY%x\frD%X6',qZ8\=%uzy{jx%X~T%sYRfK30/:%%]0%%U:8", -429073995, -375629419, -410718041, 805186185, -1953080274, 1688692464, 1117478759, "Q@b\tJ"): returned: 1, but expected: 138
+Error in test 91: ft_printf("-^* lg%%%i%%}Y90*j%xRR", -1972079124, 1788467547): returned: 1, but expected: 35
+Error in test 92: ft_printf("%po1NC7[T%p3_jQ"%XO'w*f(%%R?uGa%cprTypl %d7Aa|N\t5&Q%s;%xjVCF)!-%dM\tQcGbU3", (void *)-3311249640309344218, (void *)-6791911514072716237, 1503385979, -641566467, 333642403, "obI)bo!?y%-\"(N(A\fH]k~'dKU3w%/+hrb@B2~s-}//U3&AiZz^z1SrgG3\\v\\d\"m\t&XIy)+esJlJ[L%JNOK7082\"", 251174541, -683678464): returned: 1, but expected: 214
+Error in test 92: ft_printf("%po1NC7[T%p3_jQ"%XO'w*f(%%R?uGa%cprTypl %d7Aa|N\t5&Q%s;%xjVCF)!-%dM\tQcGbU3", (void *)-3311249640309344218, (void *)-6791911514072716237, 1503385979, -641566467, 333642403, "obI)bo!?y%-\"(N(A\fH]k~'dKU3w%/+hrb@B2~s-}//U3&AiZz^z1SrgG3\\v\\d\"m\t&XIy)+esJlJ[L%JNOK7082\"", 251174541, -683678464): different memory
+expected:
+0000: 3078 6432 3063 3133 6665 6632 6238 6238 ->  0xd20c13fef2b8b8
+0010: 3236 6f31 4e43 375b 5430 7861 3162 6534 ->  26o1NC7[T0xa1be4
+0020: 3837 3638 3963 6636 6333 3333 5f6a 5122 ->  87689cf6c333_jQ"
+0030: 3539 3942 4439 3742 4f27 772a 6628 2552 ->  599BD97BO'w*f(%R
+0040: 3f75 4761 fd70 7254 7970 6c20 3333 3336 ->  ?uGa.prTypl 3336
+0050: 3432 3430 3337 4161 7c4e 0935 2651 6f62 ->  424037Aa|N.5&Qob
+0060: 4929 626f 213f 7925 2d22 284e 2841 0c48 ->  I)bo!?y%-"(N(A.H
+0070: 5d6b 7e27 644b 5533 7725 2f2b 6872 6240 ->  ]k~'dKU3w%/+hrb@
+0080: 4232 7e73 2d7d 2f2f 5533 2641 695a 7a5e ->  B2~s-}//U3&AiZz^
+0090: 7a31 5372 6747 335c 765c 6422 6d09 2658 ->  z1SrgG3\v\d"m.&X
+00a0: 4979 292b 6573 4a6c 4a5b 4c25 4a4e 4f4b ->  Iy)+esJlJ[L%JNOK
+00b0: 3730 3832 223b 6566 3839 6538 646a 5643 ->  7082";ef89e8djVC
+00c0: 4629 212d 2d36 3833 3637 3834 3634 4d09 ->  F)!--683678464M.
+00d0: 5163 4762 5533 0011 11                  ->  QcGbU3...
+yours:
+0000: 3078 0464 3230 6331 3366 6566 3262 3862 ->  0x.d20c13fef2b8b
+0010: 3832 366f 314e 4337 5b54 3078 0461 3162 ->  826o1NC7[T0x.a1b
+0020: 6534 3837 3638 3963 6636 6333 3333 5f6a ->  e487689cf6c333_j
+0030: 5122 3539 3942 4439 3742 4f27 772a 6628 ->  Q"599BD97BO'w*f(
+0040: 2552 3f75 4761 fd70 7254 7970 6c20 3333 ->  %R?uGa.prTypl 33
+0050: 3336 3432 3430 3337 4161 7c4e 0935 2651 ->  36424037Aa|N.5&Q
+0060: 6f62 4929 626f 213f 7925 2d22 284e 2841 ->  obI)bo!?y%-"(N(A
+0070: 0c48 5d6b 7e27 644b 5533 7725 2f2b 6872 ->  .H]k~'dKU3w%/+hr
+0080: 6240 4232 7e73 2d7d 2f2f 5533 2641 695a ->  b@B2~s-}//U3&AiZ
+0090: 7a5e 7a31 5372 6747 335c 765c 6422 6d09 ->  z^z1SrgG3\v\d"m.
+00a0: 2658 4979 292b 6573 4a6c 4a5b 4c25 4a4e ->  &XIy)+esJlJ[L%JN
+00b0: 4f4b 3730 3832 223b 6566 3839 6538 646a ->  OK7082";ef89e8dj
+00c0: 5643 4629 212d 2d36 3833 3637 3834 3634 ->  VCF)!--683678464
+00d0: 4d09 5163 4762 5533 00                  ->  M.QcGbU3.
+
+Error in test 93: ft_printf("a<|>LZ%p\v%u`J|R<%xyy\r"ZE=%x0iH;%iOk<QN %u)}cb&JE0m^%c%d3$h!%%", (void *)7774797593607819667, 792889982, 941802786, 38446921, -504345902, -1083150341, -1964215292, -1008682146): returned: 1, but expected: 118
+Error in test 93: ft_printf("a<|>LZ%p\v%u`J|R<%xyy\r"ZE=%x0iH;%iOk<QN %u)}cb&JE0m^%c%d3$h!%%", (void *)7774797593607819667, 792889982, 941802786, 38446921, -504345902, -1083150341, -1964215292, -1008682146): different memory
+expected:
+0000: 613c 7c3e 4c5a 3078 3662 6535 6131 3337 ->  a<|>LZ0x6be5a137
+0010: 6666 3865 3531 3933 0b37 3932 3838 3939 ->  ff8e5193.7928899
+0020: 3832 604a 7c52 3c33 3832 3263 3532 3279 ->  82`J|R<3822c522y
+0030: 790d 225a 453d 3234 6161 3734 3930 6948 ->  y."ZE=24aa7490iH
+0040: 3b2d 3530 3433 3435 3930 324f 6b3c 514e ->  ;-504345902Ok<QN
+0050: 2033 3231 3138 3136 3935 3529 7d63 6226 ->   3211816955)}cb&
+0060: 4a45 306d 5e04 2d31 3030 3836 3832 3134 ->  JE0m^.-100868214
+0070: 3633 2468 2125 0011                     ->  63$h!%..
+yours:
+0000: 613c 7c3e 4c5a 3078 0436 6265 3561 3133 ->  a<|>LZ0x.6be5a13
+0010: 3766 6638 6535 3139 330b 3739 3238 3839 ->  7ff8e5193.792889
+0020: 3938 3260 4a7c 523c 3338 3232 6335 3232 ->  982`J|R<3822c522
+0030: 7979 0d22 5a45 3d32 3461 6137 3439 3069 ->  yy."ZE=24aa7490i
+0040: 483b 2d35 3034 3334 3539 3032 4f6b 3c51 ->  H;-504345902Ok<Q
+0050: 4e20 3332 3131 3831 3639 3535 297d 6362 ->  N 3211816955)}cb
+0060: 264a 4530 6d5e 042d 3130 3038 3638 3231 ->  &JE0m^.-10086821
+0070: 3436 3324 6821 2500                     ->  463$h!%.
+
+Error in test 94: ft_printf("f0<%i%x9/\txa^\f'b%u\f%sMRN/^H%u~QpJ4ik6N\%uQ", -288551987, -284291712, 2093889419, "dY%Ciu<?~TR*e^2\v\\Dg>!5E%C,6H7LQPy=sDU[bl\\ME", -161077080, -265857675): returned: 1, but expected: 121
+Error in test 95: ft_printf("B\EV6%pm-8%sn2|iJ.J'%u]qLtG(,Y`%u #k}99Zi%X@A4Cx\r..%c q^~T\r-!;%dp.Ne}OJ.$%c2A+%s_7rt6Kz\n[", (void *)-7258826682318769766, ",Q/", 1046220870, 1893108269, 366260649, 1959197199, 1611258152, 605164964, "ONM[W%D :\rpQS}MZiA4vw#g\\lAO\\Z0J{>~Bsb1(TYs]|i\n{mo"): returned: 1, but expected: 181
+Error in test 95: ft_printf("B\EV6%pm-8%sn2|iJ.J'%u]qLtG(,Y`%u #k}99Zi%X@A4Cx\r..%c q^~T\r-!;%dp.Ne}OJ.$%c2A+%s_7rt6Kz\n[", (void *)-7258826682318769766, ",Q/", 1046220870, 1893108269, 366260649, 1959197199, 1611258152, 605164964, "ONM[W%D :\rpQS}MZiA4vw#g\\lAO\\Z0J{>~Bsb1(TYs]|i\n{mo"): different memory
+expected:
+0000: 425c 4556 3630 7839 6234 3337 3739 3736 ->  B\EV60x9b4377976
+0010: 3234 3333 3139 616d 2d38 2c51 2f6e 327c ->  243319am-8,Q/n2|
+0020: 694a 2e4a 2731 3034 3632 3230 3837 305d ->  iJ.J'1046220870]
+0030: 714c 7447 282c 5960 3138 3933 3130 3832 ->  qLtG(,Y`18931082
+0040: 3639 2023 6b7d 3939 5a69 3135 4434 4231 ->  69 #k}99Zi15D4B1
+0050: 4139 4041 3443 780d 2e2e 0f20 715e 7e54 ->  A9@A4Cx.... q^~T
+0060: 0d2d 213b 3136 3131 3235 3831 3532 702e ->  .-!;1611258152p.
+0070: 4e65 7d4f 4a2e 24a4 3241 2b4f 4e4d 5b57 ->  Ne}OJ.$.2A+ONM[W
+0080: 2544 203a 0d70 5153 7d4d 5a69 4134 7677 ->  %D :.pQS}MZiA4vw
+0090: 2367 5c6c 414f 5c5a 304a 7b3e 7e42 7362 ->  #g\lAO\Z0J{>~Bsb
+00a0: 3128 5459 735d 7c69 0a7b 6d6f 5f37 7274 ->  1(TYs]|i.{mo_7rt
+00b0: 364b 7a0a 5b00 11                       ->  6Kz.[..
+yours:
+0000: 425c 4556 3630 7804 3962 3433 3737 3937 ->  B\EV60x.9b437797
+0010: 3632 3433 3331 3961 6d2d 382c 512f 6e32 ->  6243319am-8,Q/n2
+0020: 7c69 4a2e 4a27 3130 3436 3232 3038 3730 ->  |iJ.J'1046220870
+0030: 5d71 4c74 4728 2c59 6031 3839 3331 3038 ->  ]qLtG(,Y`1893108
+0040: 3236 3920 236b 7d39 395a 6931 3544 3442 ->  269 #k}99Zi15D4B
+0050: 3141 3940 4134 4378 0d2e 2e0f 2071 5e7e ->  1A9@A4Cx.... q^~
+0060: 540d 2d21 3b31 3631 3132 3538 3135 3270 ->  T.-!;1611258152p
+0070: 2e4e 657d 4f4a 2e24 a432 412b 4f4e 4d5b ->  .Ne}OJ.$.2A+ONM[
+0080: 5725 4420 3a0d 7051 537d 4d5a 6941 3476 ->  W%D :.pQS}MZiA4v
+0090: 7723 675c 6c41 4f5c 5a30 4a7b 3e7e 4273 ->  w#g\lAO\Z0J{>~Bs
+00a0: 6231 2854 5973 5d7c 690a 7b6d 6f5f 3772 ->  b1(TYs]|i.{mo_7r
+00b0: 7436 4b7a 0a5b 00                       ->  t6Kz.[.
+
+Error in test 96: ft_printf("yj +T2%s/{Rs.%s2MiS%X kw", "pp:V<:Mu~\"8e-Ki.!>!)(?(nvLSAg\txoC", "\t:8]?A\f&P|R\v9q\"O", 1460291316): returned: 1, but expected: 75
+Error in test 97: ft_printf("U;F%iA>y~^?f%%$<x2 Qc:We%XLBFs^M%ipnnMU%ppi[\r%s{/%x/wm_l@GI\n%%78uFFsA}%% %c\vatF=W", 1453909667, 1716783548, -407302238, (void *)3979170668363098352, "\nd^w#'<Ih)xL~TP!\tKaXhvbrHGQ7KEx'+WQ\n'u8/$Oz!~v</lx0fPCX", 1721883204, 12474992): returned: 1, but expected: 174
+Error in test 97: ft_printf("U;F%iA>y~^?f%%$<x2 Qc:We%XLBFs^M%ipnnMU%ppi[\r%s{/%x/wm_l@GI\n%%78uFFsA}%% %c\vatF=W", 1453909667, 1716783548, -407302238, (void *)3979170668363098352, "\nd^w#'<Ih)xL~TP!\tKaXhvbrHGQ7KEx'+WQ\n'u8/$Oz!~v</lx0fPCX", 1721883204, 12474992): different memory
+expected:
+0000: 553b 4631 3435 3339 3039 3636 3741 3e79 ->  U;F1453909667A>y
+0010: 7e5e 3f66 2524 3c78 3220 5163 3a57 6536 ->  ~^?f%$<x2 Qc:We6
+0020: 3635 3430 3942 434c 4246 735e 4d2d 3430 ->  65409BCLBFs^M-40
+0030: 3733 3032 3233 3870 6e6e 4d55 3078 3337 ->  7302238pnnMU0x37
+0040: 3338 6461 6133 6563 3666 6138 6630 7069 ->  38daa3ec6fa8f0pi
+0050: 5b0d 0a64 5e77 2327 3c49 6829 784c 7e54 ->  [..d^w#'<Ih)xL~T
+0060: 5021 094b 6158 6876 6272 4847 5137 4b45 ->  P!.KaXhvbrHGQ7KE
+0070: 7827 2b57 510a 2775 382f 244f 7a21 7e76 ->  x'+WQ.'u8/$Oz!~v
+0080: 3c2f 6c78 3066 5043 587b 2f36 3661 3164 ->  </lx0fPCX{/66a1d
+0090: 6134 342f 776d 5f6c 4047 490a 2537 3875 ->  a44/wm_l@GI.%78u
+00a0: 4646 7341 7d25 2070 0b61 7446 3d57 0011 ->  FFsA}% p.atF=W..
+yours:
+0000: 553b 4631 3435 3339 3039 3636 3741 3e79 ->  U;F1453909667A>y
+0010: 7e5e 3f66 2524 3c78 3220 5163 3a57 6536 ->  ~^?f%$<x2 Qc:We6
+0020: 3635 3430 3942 434c 4246 735e 4d2d 3430 ->  65409BCLBFs^M-40
+0030: 3733 3032 3233 3870 6e6e 4d55 3078 5e33 ->  7302238pnnMU0x^3
+0040: 3733 3864 6161 3365 6336 6661 3866 3070 ->  738daa3ec6fa8f0p
+0050: 695b 0d0a 645e 7723 273c 4968 2978 4c7e ->  i[..d^w#'<Ih)xL~
+0060: 5450 2109 4b61 5868 7662 7248 4751 374b ->  TP!.KaXhvbrHGQ7K
+0070: 4578 272b 5751 0a27 7538 2f24 4f7a 217e ->  Ex'+WQ.'u8/$Oz!~
+0080: 763c 2f6c 7830 6650 4358 7b2f 3636 6131 ->  v</lx0fPCX{/66a1
+0090: 6461 3434 2f77 6d5f 6c40 4749 0a25 3738 ->  da44/wm_l@GI.%78
+00a0: 7546 4673 417d 2520 700b 6174 463d 5700 ->  uFFsA}% p.atF=W.
+
+Error in test 98: ft_printf("%s!v\vDH.fX%s<Z5_*\nb%X&8pH<5w3p%XD%c\t(W%Xe "Oi>AfFn%X>[l\%%_2@_(u%X'}lb#", "+}.%EtEF_5#/X2zR!himk5&^", "9B:pb*%<\veAFKH:X5pV#c\";Q~>:m}ajcv]tkhK\n&Q\fP&vp~vw[u47Y@#=`m%=^\\{c`VUc'*{\rM;n\td3'$^In\\T4c\r8", 1951883000, 1891007022, -1037459675, -435897573, -486079984, 877185987): returned: 1, but expected: 209
+Error in test 99: ft_printf(":jIzw%u5|%X%c&_t ", -963704762, -668353527, 1223235163): returned: 1, but expected: 30
+Error in test 100: ft_printf("%%-{JKIu%xcO)/%s%sSIm3%pjlu]xZ~eY;%p\vG"r%i^-", 2068118010, "oi+2T\tU\n3_A+gW>JOJ2xUN[S5=Kq'KB[O\tlwvyawoqjS(U6g\tu&htRHB(\\\tn7 AU#}C", "cPF'JeZo@(jr42v.2\rQx|yURLi\f\tIOD7}]Ps1Zx", (void *)4349928006325904288, (void *)1675205507998859294, 1853128284): returned: 1, but expected: 191
+Error in test 100: ft_printf("%%-{JKIu%xcO)/%s%sSIm3%pjlu]xZ~eY;%p\vG"r%i^-", 2068118010, "oi+2T\tU\n3_A+gW>JOJ2xUN[S5=Kq'KB[O\tlwvyawoqjS(U6g\tu&htRHB(\\\tn7 AU#}C", "cPF'JeZo@(jr42v.2\rQx|yURLi\f\tIOD7}]Ps1Zx", (void *)4349928006325904288, (void *)1675205507998859294, 1853128284): different memory
+expected:
+0000: 252d 7b4a 4b49 7537 6234 3466 3966 6163 ->  %-{JKIu7b44f9fac
+0010: 4f29 2f6f 692b 3254 0955 0a33 5f41 2b67 ->  O)/oi+2T.U.3_A+g
+0020: 573e 4a4f 4a32 7855 4e5b 5335 3d4b 7127 ->  W>JOJ2xUN[S5=Kq'
+0030: 4b42 5b4f 096c 7776 7961 776f 716a 5328 ->  KB[O.lwvyawoqjS(
+0040: 5536 6709 7526 6874 5248 4228 5c09 6e37 ->  U6g.u&htRHB(\.n7
+0050: 2041 5523 7d43 6350 4627 4a65 5a6f 4028 ->   AU#}CcPF'JeZo@(
+0060: 6a72 3432 762e 320d 5178 7c79 5552 4c69 ->  jr42v.2.Qx|yURLi
+0070: 0c09 494f 4437 7d5d 5073 315a 7853 496d ->  ..IOD7}]Ps1ZxSIm
+0080: 3330 7833 6335 6530 6337 3938 6639 3432 ->  30x3c5e0c798f942
+0090: 3361 306a 6c75 5d78 5a7e 6559 3b30 7831 ->  3a0jlu]xZ~eY;0x1
+00a0: 3733 6638 3638 3861 6530 6363 3031 650b ->  73f8688ae0cc01e.
+00b0: 4722 7231 3835 3331 3238 3238 345e 2d00 ->  G"r1853128284^-.
+yours:
+0000: 252d 7b4a 4b49 7537 6234 3466 3966 6163 ->  %-{JKIu7b44f9fac
+0010: 4f29 2f6f 692b 3254 0955 0a33 5f41 2b67 ->  O)/oi+2T.U.3_A+g
+0020: 573e 4a4f 4a32 7855 4e5b 5335 3d4b 7127 ->  W>JOJ2xUN[S5=Kq'
+0030: 4b42 5b4f 096c 7776 7961 776f 716a 5328 ->  KB[O.lwvyawoqjS(
+0040: 5536 6709 7526 6874 5248 4228 5c09 6e37 ->  U6g.u&htRHB(\.n7
+0050: 2041 5523 7d43 6350 4627 4a65 5a6f 4028 ->   AU#}CcPF'JeZo@(
+0060: 6a72 3432 762e 320d 5178 7c79 5552 4c69 ->  jr42v.2.Qx|yURLi
+0070: 0c09 494f 4437 7d5d 5073 315a 7853 496d ->  ..IOD7}]Ps1ZxSIm
+0080: 3330 7827 3363 3565 3063 3739 3866 3934 ->  30x'3c5e0c798f94
+0090: 3233 6130 6a6c 755d 785a 7e65 593b 3078 ->  23a0jlu]xZ~eY;0x
+00a0: 2731 3733 6638 3638 3861 6530 6363 3031 ->  '173f8688ae0cc01
+00b0: 650b 4722 7231 3835 3331 3238 3238 345e ->  e.G"r1853128284^
+00c0: 2d00                                    ->  -.
+
