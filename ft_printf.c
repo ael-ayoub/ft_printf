@@ -6,7 +6,7 @@
 /*   By: ael-aiss <ael-aiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 09:48:27 by ael-aiss          #+#    #+#             */
-/*   Updated: 2024/11/18 16:30:22 by ael-aiss         ###   ########.fr       */
+/*   Updated: 2024/11/18 18:15:51 by ael-aiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static void	ft_separators(char sep, va_list args)
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
-	int		n;
 
 	va_start(args, str);
 	while (*str)
@@ -43,10 +42,6 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			if (is_digit(*str) == 1)
-			{
-				n = ft_atoi(str);
-			}
 			ft_separators(*str, args);
 		}
 		else

@@ -1,29 +1,29 @@
-SRC = ft_putchar_fd.c
-			ft_putstr_fd.c
-				ft_putnbr_fd.c
-					ft_printf.c
-						ft_putddr.c
-							ft_putnbr_u.c
-								ft_atoi_base.c
+SRC = ft_putchar_fd.c \
+	ft_putstr_fd.c \
+	ft_putnbr_fd.c \
+	ft_printf.c \
+	ft_putddr.c \
+	ft_putnbr_u.c \
+	ft_atoi_base.c
 
-									OBG = $(SRC
-											:.c =.o)
+OBG = $(SRC:.c=.o)
 
-	NAME = libftprintf.a
+NAME = libftprintf.a
 
-				all : $(NAME)
 
-							$(NAME)
-	: $(OBG)
-			ar rsc $(NAME) $(OBG)
 
-				clean : rm -
-	f $(OBG)
+all: $(NAME)
 
-		fclean : clean
-						rm -
-					f $(NAME)
 
-						re : fclean all
+$(NAME):$(OBG)
+	ar rsc $(NAME) $(OBG)
 
-								.PHONY : all clean fclean re
+clean:
+	rm -f $(OBG)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
