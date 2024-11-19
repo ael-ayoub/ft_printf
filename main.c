@@ -1,19 +1,27 @@
 #include "ft_printf.h"
 
+/*
+
+For p format:
+Error in test 1: ft_printf("%p", ""): returned: 12, but expected: 11
+Error in test 1: ft_printf("%p", ""): different memory
+
+*/
+
+
+
+
 int main()
 {
-	printf("origin --->   \n");
+	int x =printf("%p", (void *)-14523);
 
-	//int j = printf("");
+	printf("\n%d",x);
 
 
-	int ij = ft_printf("%%c");
-	printf("%d\n",ij);
+	printf("\n\n\n****************************\n\n\n");
 
-	printf("_________________\n");
+	x = ft_printf("%p", (void *)-14523);
+	ft_printf("\n%d",x);
 
-	int i = ft_printf("%%c");
-	ft_printf("%d\n",i);
 
-	printf("my_printf----->");
 }

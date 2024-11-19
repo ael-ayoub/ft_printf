@@ -6,7 +6,7 @@
 /*   By: ael-aiss <ael-aiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 09:48:38 by ael-aiss          #+#    #+#             */
-/*   Updated: 2024/11/19 08:47:51 by ael-aiss         ###   ########.fr       */
+/*   Updated: 2024/11/19 12:24:45 by ael-aiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_putddr(void *address)
 		adr /= 16;
 	}
 	j = i;
-	while (j >= 0)
-		count += ft_putchar_fd(tab[j--], 1);
+	while (--j >= 0)
+		count += ft_putchar_fd(tab[j], 1);
 	return (count);
 }
