@@ -12,12 +12,10 @@
 
 #include "ft_printf.h"
 
-int	ft_putnbr_fd(int nb, int fd)
+int	ft_putnbr_fd(long nbr, int fd)
 {
-	long	nbr;
 	int		count;
 
-	nbr = nb;
 	count = 0;
 	if (nbr < 0)
 	{

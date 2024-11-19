@@ -22,7 +22,7 @@ int	ft_printf(const char *str, ...);
 int	ft_print_address(void *address);
 int	ft_putchar_fd(char c, int fd);
 int	ft_putstr_fd(char *s, int fd);
-int	ft_putnbr_fd(int n, int fd);
+int	ft_putnbr_fd(long n, int fd);
 int	ft_atoi_base(unsigned int i, const char xh);
 int	ft_putnbr_u(int nbr, int fd);
 int	ft_putddr(void *address);

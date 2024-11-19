@@ -27,7 +27,7 @@ int	ft_putddr(void *address)
 	i = 0;
 	if (!adr)
 	{
-		count += ft_putstr_fd("(nil)", 1);
+		count = ft_putstr_fd("0x0", 1);
 		return (count);
 	}
 	count += ft_putstr_fd("0x", 1);
