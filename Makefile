@@ -26,7 +26,4 @@ fclean: clean
 
 re: fclean all
 
-m: re 
-	rm -f $(OBG)
-
 .PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: ael-aiss <ael-aiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 09:48:38 by ael-aiss          #+#    #+#             */
-/*   Updated: 2024/11/19 12:24:45 by ael-aiss         ###   ########.fr       */
+/*   Updated: 2024/11/19 15:44:05 by ael-aiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	ft_putddr(void *address)
 	char			*hex;
 	char			tab[16];
 	int				i;
-	int				j;
 	int				count;
 
 	count = 0;
@@ -27,7 +26,7 @@ int	ft_putddr(void *address)
 	i = 0;
 	if (!adr)
 	{
-		count = ft_putstr_fd("0x0", 1);
+		count = ft_putstr_fd("(nil)", 1);
 		return (count);
 	}
 	count += ft_putstr_fd("0x", 1);
@@ -36,8 +35,7 @@ int	ft_putddr(void *address)
 		tab[i++] = hex[adr % 16];
 		adr /= 16;
 	}
-	j = i;
-	while (--j >= 0)
-		count += ft_putchar_fd(tab[j], 1);
+	while (--i >= 0)
+		count += ft_putchar_fd(tab[i], 1);
 	return (count);
 }

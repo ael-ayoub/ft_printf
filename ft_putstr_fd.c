@@ -6,7 +6,7 @@
 /*   By: ael-aiss <ael-aiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 18:40:33 by ael-aiss          #+#    #+#             */
-/*   Updated: 2024/11/19 12:16:09 by ael-aiss         ###   ########.fr       */
+/*   Updated: 2024/11/19 15:41:01 by ael-aiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_putstr_fd(char *s, int fd)
 
 	if (!s)
 	{
-		count = write (1,"(null)",6);
-		return count;
+		count = write(1, "(nil)", 5);
+		return (count);
 	}
 	count = 0;
 	i = 0;
