@@ -6,13 +6,14 @@
 /*   By: ael-aiss <ael-aiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 18:40:23 by ael-aiss          #+#    #+#             */
-/*   Updated: 2024/11/18 14:19:20 by ael-aiss         ###   ########.fr       */
+/*   Updated: 2024/11/19 11:08:50 by ael-aiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	int count = write(fd, &c, 1);
+	return count;
 }

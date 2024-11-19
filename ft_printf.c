@@ -6,50 +6,58 @@
 /*   By: ael-aiss <ael-aiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 09:48:27 by ael-aiss          #+#    #+#             */
-/*   Updated: 2024/11/18 18:15:51 by ael-aiss         ###   ########.fr       */
+/*   Updated: 2024/11/19 11:18:54 by ael-aiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_separators(char sep, va_list args)
+static int	ft_separators(char sep, va_list args)
 {
+	int	count;
+
+	count = 0;
 	if (sep == 'c')
-		ft_putchar_fd(va_arg(args, int), 1);
+		count += ft_putchar_fd(va_arg(args, int), 1);
 	else if (sep == 's')
-		ft_putstr_fd(va_arg(args, char *), 1);
+		count += ft_putstr_fd(va_arg(args, char *), 1);
 	else if (sep == 'p')
-		ft_putddr(va_arg(args, int *));
+		count += ft_putddr(va_arg(args, int *));
 	else if (sep == 'd' || sep == 'i')
-		ft_putnbr_fd(va_arg(args, const int), 1);
+		count += ft_putnbr_fd(va_arg(args, const int), 1);
 	else if (sep == 'x' || sep == 'X')
-		ft_atoi_base(va_arg(args, int), sep);
+		count += ft_atoi_base(va_arg(args, int), sep);
 	else if (sep == 'u')
-		ft_putnbr_u((int)va_arg(args, int), 1);
+		count += ft_putnbr_u((int)va_arg(args, int), 1);
 	else if (sep == '%')
-		ft_putchar_fd('%', 1);
+		count += ft_putchar_fd('%', 1);
 	else
-		ft_putchar_fd(sep, 1);
+		count += ft_putchar_fd(sep, 1);
+	return (count);
 }
 
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
+	int		count;
 
 	va_start(args, str);
+	count = 0;
+	if (!str)
+		return (0);
 	while (*str)
 	{
 		if (*str == '%')
 		{
 			str++;
-			ft_separators(*str, args);
+			count += ft_separators(*str, args);
 		}
 		else
 		{
-			ft_putchar_fd(*str, 1);
+			count += ft_putchar_fd(*str, 1);
 		}
 		str++;
 	}
 	va_end(args);
-	return (1);
+	return (count);
 }

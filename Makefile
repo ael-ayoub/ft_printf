@@ -4,7 +4,7 @@ SRC = ft_putchar_fd.c \
 	ft_printf.c \
 	ft_putddr.c \
 	ft_putnbr_u.c \
-	ft_atoi_base.c
+	ft_atoi_base.c \
 
 OBG = $(SRC:.c=.o)
 
@@ -25,5 +25,8 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+m: re 
+	rm -f $(OBG)
 
 .PHONY: all clean fclean re

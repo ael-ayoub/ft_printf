@@ -6,22 +6,23 @@
 /*   By: ael-aiss <ael-aiss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 18:40:33 by ael-aiss          #+#    #+#             */
-/*   Updated: 2024/11/18 14:19:20 by ael-aiss         ###   ########.fr       */
+/*   Updated: 2024/11/19 09:20:24 by ael-aiss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
+	int	count;
 
+	count = 0;
 	i = 0;
-	if (!s)
-		return ;
 	while (s[i])
 	{
-		ft_putchar_fd(s[i], fd);
+		count += ft_putchar_fd(s[i], fd);
 		i++;
 	}
+	return (count);
 }
